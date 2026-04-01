@@ -175,6 +175,7 @@ h6 {
 }
 
 .service-card h6,
+.services-subtitle,
 .why-card h5 {
   color: var(--brand-900);
 }
