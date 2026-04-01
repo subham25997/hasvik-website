@@ -16,7 +16,8 @@ body {
   background: #f9f9f9;
 }
 
-.card, .btn {
+.card,
+.btn {
   border-radius: 0 !important;
 }
 
@@ -157,7 +158,8 @@ h6 {
 
 /* Services */
 
-.service-card, .why-card {
+.service-card,
+.why-card {
   border: none;
   border-radius: 14px;
   transition:
@@ -166,12 +168,14 @@ h6 {
   background: #fff;
 }
 
-.service-card:hover, .why-card:hover {
+.service-card:hover,
+.why-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(2, 48, 80, 0.12);
 }
 
-.service-card h6, .why-card h5 {
+.service-card h6,
+.why-card h5 {
   color: var(--brand-900);
 }
 
@@ -195,19 +199,49 @@ h6 {
 }
 
 .parallax .overlay {
-  background: rgba(0, 0, 0, 0.45);
-  padding: 50px 20px;
+  background: #71c55455;
+  padding: 50px 0;
   display: inline-block;
   width: 100%;
 }
 
 .parallax div.rounded-circle {
- background-color: var(--accent);
+  background-color: var(--accent);
 }
 
 .parallax i {
   font-size: 40px;
   color: var(--nav-bar-brand);
+}
+
+.why-title {
+  position: relative;
+}
+
+.why-title p {
+  color: var(--brand-900)
+}
+
+.why-title::before {
+  border-radius: 2px;
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 20px;
+  width: 4px;
+  height: calc(100% - 40px);
+  background: var(--accent);
+}
+
+.why-title::after {
+  border-radius: 2px;
+  content: "";
+  position: absolute;
+  right: 24px;
+  top: 20px;
+  width: 4px;
+  height: calc(100% - 40px);
+  background: var(--accent);
 }
 
 .counter {
