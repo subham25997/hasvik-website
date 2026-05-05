@@ -97,9 +97,564 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="preload" href="./assets/css/style.css" as="style">
   <link rel="preload" href="./assets/images/logo.png" as="image">
-  <link href="./assets/css/style.css" rel="stylesheet" />
+  <!-- <link href="./assets/css/style.css" rel="stylesheet" /> -->
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+
+  <style>
+    :root {
+      --nav-bar-brand: #fff;
+      --brand-900: #002f6c;
+      --brand-700: #004c9a;
+      --accent: #71c554;
+      --muted: #6c757d;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #222;
+      background: #f9f9f9;
+    }
+
+    .card,
+    .btn {
+      border-radius: 0 !important;
+    }
+
+    /* Navbar */
+
+    .navbar {
+      transition: all 0.4s ease-in-out;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar.scrolled {
+      background: var(--brand-900);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    .navbar-brand {
+      background: var(--nav-bar-brand);
+      border-radius: 30px;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent) !important;
+    }
+
+    .logo-image {
+      height: 44px;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding-top: 56px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background:
+        linear-gradient(90deg,
+          rgba(0, 47, 108, 0.95) 0%,
+          rgba(0, 76, 154, 0.9) 60%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero .left {
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--accent);
+    }
+
+    .hero .lead {
+      font-size: 1.05rem;
+      color: #e7f2ff;
+      margin-bottom: 1rem;
+    }
+
+    .typed {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .hero .computer-screen {
+      background-image: url(./assets/images/Computer-Screen.png);
+      width: 350px;
+      height: 300px;
+      background-size: cover;
+      overflow: hidden;
+      padding: 28px 19px;
+    }
+
+    .hero .computer-screen .carousel-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #71c55455;
+    }
+
+    .hero .computer-screen .carousel-item .carousel-caption {
+      width: 100%;
+      padding-bottom: 0;
+      padding-top: 0;
+      top: 20%;
+      left: 50%;
+      bottom: auto;
+      right: 0;
+      transform: translate(-50%, 0);
+    }
+
+    .hero .computer-screen .carousel-item .carousel-caption .carousel-caption-text {
+      background-color: #ffffffcc;
+      padding: 15px;
+    }
+
+    .hero .computer-screen .carousel-item .carousel-caption h6 {
+      color: var(--brand-900);
+    }
+
+    .hero .computer-screen .carousel-item .carousel-caption ul li {
+      text-align: left;
+      font-size: small;
+      color: var(--brand-900);
+    }
+
+    .about-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .about-section ul li i {
+      color: var(--accent);
+    }
+
+    /* Services */
+
+    .service-card,
+    .why-card {
+      border: none;
+      border-radius: 14px;
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+      background: #fff;
+    }
+
+    .service-card:hover,
+    .why-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(2, 48, 80, 0.12);
+    }
+
+    .service-card h6,
+    .services-subtitle,
+    .why-card h5 {
+      color: var(--brand-900);
+    }
+
+    .service-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 28px;
+      color: var(--accent);
+    }
+
+    /* Parallax */
+
+    /* PREMIUM PARALLAX BACKGROUND */
+    .parallax {
+      background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80") center/cover no-repeat fixed;
+      position: relative;
+    }
+
+    /* DARK GRADIENT OVERLAY (FIXED) */
+    .parallax .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.55));
+      backdrop-filter: blur(6px);
+    }
+
+    /* PREMIUM CARD */
+    .why-card {
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    /* HOVER = MAGIC */
+    .why-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      border-color: rgba(113, 197, 84, 0.7);
+    }
+
+    /* ICON CONTAINER */
+    .icon-box {
+      width: 72px;
+      height: 72px;
+      margin: auto;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: linear-gradient(135deg, #71c554, #4caf50);
+      color: #fff;
+      font-size: 30px;
+
+      box-shadow: 0 10px 25px rgba(113, 197, 84, 0.4);
+      transition: all 0.4s ease;
+    }
+
+    /* ICON HOVER */
+    .why-card:hover .icon-box {
+      transform: scale(1.15) rotate(6deg);
+      box-shadow: 0 15px 40px rgba(113, 197, 84, 0.6);
+    }
+
+    /* PORTFOLIO DIFFERENT LOOK */
+    /* WORK VIDEO SECTION */
+    .work-section {
+      background: #ffffff;
+    }
+
+    /* VIDEO CARD */
+    .work-video-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      height: 250px;
+      cursor: pointer;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .work-video-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    /* VIDEO */
+    .work-video-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* OVERLAY */
+    .work-video-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.2));
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: 0.4s;
+    }
+
+    .work-video-card h6 {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .work-video-card p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* HOVER EFFECT */
+    .work-video-card:hover .overlay {
+      background: linear-gradient(to top,
+          rgba(0, 0, 0, 0.9),
+          rgba(0, 0, 0, 0.3));
+    }
+
+
+    /* TESTIMONIALS DIFFERENT LOOK */
+    #testimonials {
+      background: #f9f9f9;
+    }
+
+    #testimonials .card {
+      border-radius: 18px;
+      background: #fff;
+      transition: 0.4s ease;
+      position: relative;
+    }
+
+    /* subtle hover */
+    #testimonials .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    /* quote icon */
+    #testimonials .card::before {
+      content: "“";
+      font-size: 60px;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      color: #71c554;
+      opacity: 0.2;
+    }
+
+
+    .counter {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .offer-card {
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .offer-title {
+      color: #004c9a;
+    }
+
+    .offer-subtitle {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .pricing-box {
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    .pricing-box h6 {
+      color: #004c9a;
+      font-weight: 600;
+    }
+
+    .pricing-box h3 {
+      color: #71c554;
+      font-weight: 700;
+    }
+
+    .pricing-box.highlight {
+      background: #f6fbff;
+      border: 2px solid #71c554;
+    }
+
+    .pricing-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .offer-btn {
+      background: #004c9a;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .offer-btn:hover {
+      background: #003a75;
+      color: white;
+    }
+
+    .limited-text {
+      color: #d9534f;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .contact-info {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .contact-wrapper {
+      position: relative;
+    }
+
+    /* Top background section */
+
+    .contact-header {
+      background: #004c9a;
+      padding: 80px 20px 120px;
+    }
+
+    .contact-header h2 {
+      font-weight: 700;
+    }
+
+    .contact-header p {
+      opacity: 0.9;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* Cards overlapping */
+
+    .contact-cards {
+      margin-top: -80px;
+    }
+
+    /* Contact cards */
+
+    .contact-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+    }
+
+    .contact-box:hover {
+      transform: translateY(-6px);
+    }
+
+    .contact-icon {
+      font-size: 40px;
+      color: #71c554;
+      margin-bottom: 15px;
+    }
+
+    .contact-box h5 {
+      color: #004c9a;
+      font-weight: 600;
+    }
+
+    .contact-box p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #004c9a;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .contact-link:hover {
+      color: #71c554;
+    }
+
+    .contact-btn {
+      background: #71c554;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .contact-btn:hover {
+      background: #5bb13e;
+      color: white;
+    }
+
+    .email-btn {
+      background: #004c9a;
+    }
+
+    .email-btn:hover {
+      background: #003b78;
+    }
+
+    /* Contact & Footer */
+
+    .contact-card {
+      border-radius: 12px;
+      background: #fff;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      background: var(--brand-900);
+      color: #eaf5ff;
+      padding: 28px 0;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #cfeeff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 767px) {
+      .hero {
+        min-height: 70vh;
+        padding: 60px 0;
+      }
+
+      .hero .right {
+        margin-top: 30px;
+        text-align: center;
+      }
+    }
+  </style>
 
 </head>
 
@@ -123,12 +678,18 @@
           <li class="nav-item">
             <a class="nav-link px-3" href="#services">Services</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link px-3" href="#portfolio">Portfolio</a>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a class="nav-link px-3" href="#pricing">Pricing</a>
-          </li> -->
+          <li class="nav-item">
+            <a class="nav-link px-3" href="#why-us">Why Us</a>
+          </li>
+          <!-- ADD THIS NAVBAR ITEM -->
+          <li class="nav-item">
+            <a class="nav-link px-3" href="#portfolio">Our Work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="#testimonials">Testimonials</a>
+          </li>
+
+
           <li class="nav-item">
             <a class="nav-link px-3" href="#contact">Contact Us</a>
           </li>
@@ -150,7 +711,6 @@
       </div>
     </div>
   </nav>
-
   <main id="main" tabindex="-1">
     <!-- HERO -->
     <header id="home" class="hero">
@@ -368,63 +928,223 @@
       </div>
     </section>
 
-    <!-- PARALLAX & WHY CHOoSE US -->
-    <section class="parallax px-0">
-      <div class="overlay">
-        <div class="container">
-          <div class="bg-white py-4 px-5 mb-4 why-title" data-aos="fade-up">
-            <h2 data-aos="fade-up">Why Choose Us?</h2>
-            <p class="mb-0">Reliable solutions delivered with quality, expertise, and dedication</p>
-          </div>
-          <div class="row g-4">
-            <div class="col-xl-3 col-md-6 text-center" data-aos="fade-up">
-              <div class="card h-100 why-card py-5 px-4">
-                <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
-                  style="width: 64px; height: 64px;">
-                  <i class="bi bi-shield-check fs-3"></i>
-                </div>
-                <h5 class="mt-2 mb-3">Quality Focused</h5>
-                <p class="text-muted mb-0">We focus on building clean, reliable, and well-structured digital solutions.
-                </p>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 text-center" data-aos="fade-up">
-              <div class="card h-100 why-card py-5 px-4">
-                <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
-                  style="width: 64px; height: 64px;">
-                  <i class="bi bi-person-heart fs-3"></i>
-                </div>
-                <h5 class="mt-2 mb-3">Passionate Team</h5>
-                <p class="text-muted mb-0">A team committed to learning, improving, and delivering the best possible
-                  results.
-                </p>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 text-center" data-aos="fade-up">
-              <div class="card h-100 why-card py-5 px-4">
-                <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
-                  style="width: 64px; height: 64px;">
-                  <i class="bi bi-cash-stack fs-3"></i>
-                </div>
-                <h5 class="mt-2 mb-3">Affordable Pricing</h5>
-                <p class="text-muted mb-0">Cost-effective services suitable for startups, small businesses, and
-                  institutions.
-                </p>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 text-center" data-aos="fade-up">
-              <div class="card h-100 why-card py-5 px-4">
-                <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
-                  style="width: 64px; height: 64px;">
-                  <i class="bi bi-lightning fs-3"></i>
-                </div>
-                <h5 class="mt-2 mb-3">Fast Turnaround</h5>
-                <p class="text-muted mb-0">We understand the importance of time and strive to deliver projects
-                  efficiently without compromising quality.</p>
-              </div>
-            </div>
+    <section id="why-us" class="parallax position-relative py-5">
 
+      <!-- Overlay -->
+      <div class="overlay"></div>
+
+      <div class="container position-relative z-1">
+
+        <!-- Heading -->
+        <div class="text-center mb-5">
+          <h2 class="fw-bold text-white display-5 mb-3">
+            Why Choose Us
+          </h2>
+          <p class="text-light opacity-75 mx-auto" style="max-width: 600px;">
+            Delivering excellence through quality, innovation, and dedication
+          </p>
+        </div>
+
+        <div class="row text-center mb-5">
+          <div class="col-md-4">
+            <div class="counter" data-target="15">0</div>
+            <p class="text-light small">Projects Completed</p>
           </div>
+          <div class="col-md-4">
+            <div class="counter" data-target="12">0</div>
+            <p class="text-light small">Happy Clients</p>
+          </div>
+          <div class="col-md-4">
+            <div class="counter" data-target="1">0</div>
+            <p class="text-light small">Years Experience</p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- CARD -->
+          <div class="col-xl-3 col-md-6">
+            <div class="why-card h-100 text-center p-4">
+
+              <div class="icon-box mb-4">
+                <i class="bi bi-shield-check"></i>
+              </div>
+
+              <h5 class="text-white fw-semibold mb-3">Quality Focused</h5>
+              <p class="text-light opacity-75 small mb-0">
+                Clean, reliable, and scalable digital solutions.
+              </p>
+
+            </div>
+          </div>
+
+          <!-- CARD -->
+          <div class="col-xl-3 col-md-6">
+            <div class="why-card h-100 text-center p-4">
+
+              <div class="icon-box mb-4">
+                <i class="bi bi-person-heart"></i>
+              </div>
+
+              <h5 class="text-white fw-semibold mb-3">Passionate Team</h5>
+              <p class="text-light opacity-75 small mb-0">
+                A team driven by learning and continuous improvement.
+              </p>
+
+            </div>
+          </div>
+
+          <!-- CARD -->
+          <div class="col-xl-3 col-md-6">
+            <div class="why-card h-100 text-center p-4">
+
+              <div class="icon-box mb-4">
+                <i class="bi bi-cash-stack"></i>
+              </div>
+
+              <h5 class="text-white fw-semibold mb-3">Affordable Pricing</h5>
+              <p class="text-light opacity-75 small mb-0">
+                Smart pricing for startups and growing businesses.
+              </p>
+
+            </div>
+          </div>
+
+          <!-- CARD -->
+          <div class="col-xl-3 col-md-6">
+            <div class="why-card h-100 text-center p-4">
+
+              <div class="icon-box mb-4">
+                <i class="bi bi-lightning"></i>
+              </div>
+
+              <h5 class="text-white fw-semibold mb-3">Fast Delivery</h5>
+              <p class="text-light opacity-75 small mb-0">
+                Timely execution without compromising quality.
+              </p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR WORK (VIDEO SHOWCASE) -->
+    <section id="work" class="work-section py-5">
+      <div class="container">
+
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2>Our Recent Works</h2>
+          <p class="text-muted">Real projects. Real results. See what we’ve built.</p>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- VIDEO 1 -->
+
+          <a target="_blank" href="https://ashok-tent-house.vercel.app/" class="col-lg-4 col-md-6" data-aos="zoom-in"
+            data-aos-delay="100">
+            <div class="work-video-card">
+              <img class="h-100 w-auto" src="./assets/images/ath.png" alt="Project 2" />
+              <div class="overlay">
+                <h6>Ashok Tent House</h6>
+                <p>Website for showcasing services and booking</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- VIDEO 2 -->
+
+          <a target="_blank" href="https://lrengineering-eight.vercel.app/" class="col-lg-4 col-md-6"
+            data-aos="zoom-in">
+            <div class="work-video-card">
+              <img class="h-100 w-auto" src="./assets/images/lreng.png" alt="Project 1" />
+              <div class="overlay">
+                <h6>LR Engineering Solutions Website</h6>
+                <p>Contact information and whatsapp booking system</p>
+              </div>
+            </div>
+          </a>
+
+
+          <!-- VIDEO 3 -->
+          <a target="_blank" href="https://rm-suncity-website.vercel.app/" class="col-lg-4 col-md-6" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="work-video-card">
+              <img class="h-100 w-auto" src="./assets/images/rm-suncity.png" alt="Project 3" />
+              <div class="overlay">
+                <h6>RM Suncity Public School</h6>
+                <p>Modern website for the school with student information and updates</p>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-5 bg-light">
+      <div class="container">
+
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2>What Our Clients Say</h2>
+          <p class="text-muted">Real feedback from our happy clients</p>
+        </div>
+
+        <div class="row g-4">
+
+          <div class="col-md-4" data-aos="fade-up">
+            <div class="card p-4 h-100 shadow-sm border-0">
+              <div class="text-warning mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="text-muted">
+                "Excellent service and fast delivery. Highly professional team!"
+              </p>
+              <h6 class="mb-0 fw-semibold">Yaswant Singh</h6>
+              <small class="text-muted">LR Engineering Solutions</small>
+              <small>Noida, Uttar Pradesh</small>
+            </div>
+          </div>
+
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="card p-4 h-100 shadow-sm border-0">
+              <div class="text-warning mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </div>
+              <p class="text-muted">
+                "Accurate data entry work delivered on time. Great experience."
+              </p>
+              <h6 class="mb-0 fw-semibold">Ankur Kumar Singh</h6>
+              <small class="text-muted">Ashok Tent House</small>
+              <small>Adar, Bansdih, Uttar Pradesh</small>
+            </div>
+          </div>
+
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+            <div class="card p-4 h-100 shadow-sm border-0">
+              <div class="text-warning mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="text-muted">
+                "Affordable pricing and excellent communication throughout the project."
+              </p>
+              <h6 class="mb-0 fw-semibold">Rajesh Kr. Soni</h6>
+              <small class="text-muted">RM Suncity Public School</small>
+              <small>Maniar, Ballia, Uttar Pradesh</small>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -479,6 +1199,26 @@
             </div>
           </div>
 
+          <div class="col-md-10">
+            <div class="contact-box text-center">
+              <i class="bi bi-geo-alt contact-icon"></i>
+
+              <h5>Visit Our Office</h5>
+              <address>
+                <strong class="my-3">HASVIK Technologies</strong><br />
+                Ward No 6, Uttar Tola, Maniar,
+                Ballia, Uttar Pradesh - 277207
+              </address>
+
+              <a href="https://maps.app.goo.gl/your-office-location" target="_blank" rel="noopener">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252.06791155911915!2d84.17666120526435!3d25.987754683275597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39925d002bf71631%3A0x471f03fa6edf34dd!2z4KS24KSu4KS24KWH4KSwIOCkrOCkueCkvuCkpuClgeCksCDgpLjgpL_gpILgpLkgKOCkuOCkreCkvuCkuOCkpiDgpLXgpL7gpLDgpY3gpKEgMDYp!5e0!3m2!1sen!2sin!4v1778012645952!5m2!1sen!2sin"
+                  width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -487,71 +1227,12 @@
 
   </main>
 
-  <!-- Offer Popup -->
-  <div class="modal fade" id="offerModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content offer-card">
-
-        <div class="modal-header border-0 pb-0">
-          <h5 class="modal-title w-100 text-center fw-bold offer-title">
-            🚀 Special Launch Offer
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-
-        <div class="modal-body text-center">
-
-          <p class="offer-subtitle">
-            Exclusive for <strong>First 20 Clients</strong>
-          </p>
-
-          <div class="pricing-box highlight">
-            <h6>Static Website</h6>
-            <p>5 Page Professional Website</p>
-            <h3>₹3000 - ₹5000</h3>
-          </div>
-
-          <div class="pricing-box highlight">
-            <h6>Dynamic Website</h6>
-            <p>5 Page Dynamic Website</p>
-            <h3>₹5000 – ₹8000</h3>
-          </div>
-
-          <p class="limited-text">
-            ⚡ Limited Offer — Only for the first 20 clients
-          </p>
-
-          <a href="#contact" class="btn offer-btn" onClick="closeModel()">
-            Get This Offer
-          </a>
-
-          <div class="contact-info">
-            <p>
-              📧
-              <a href="mailto:hasviktechnologies@gmail.com" class="contact-link">
-                hasviktechnologies@gmail.com
-              </a>
-            </p>
-
-            <p>
-              💬
-              <a href="https://wa.me/919454263965" target="_blank" class="contact-link">
-                Chat on WhatsApp
-              </a>
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-
   <footer>
     <div class="container text-center">
       <div class="row align-items-center">
         <div class="col-md-6 text-md-start">
           <strong>HASVIK Technologies</strong>
+          &copy; 2026. All rights reserved.
         </div>
         <div class="col-md-6 text-md-end">
           <a href="https://www.facebook.com/share/18DMQGA6Tv/" class="me-3" target="_blank" rel="noopener">
@@ -575,7 +1256,6 @@
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
   <script>
-    var myModal = new bootstrap.Modal(document.getElementById('offerModal'));
     AOS.init({
       once: true,
       duration: 800,
@@ -676,13 +1356,6 @@
         form.reset();
       });
 
-    setTimeout(function () {
-      myModal.show();
-    }, 3000);
-
-    function closeModel() {
-      myModal.hide();
-    }
   </script>
 </body>
 
