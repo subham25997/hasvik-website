@@ -1,10 +1,16 @@
 .hero {
   padding-top: 56px;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 750px;
+  min-height: 620px;
   display: flex;
   align-items: center;
   color: #fff;
-  background: linear-gradient(90deg, rgba(0, 47, 108, 0.95) 0%, rgba(0, 76, 154, 0.9) 60%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 47, 108, 0.95) 0%,
+    rgba(0, 76, 154, 0.9) 60%
+  );
   position: relative;
   overflow: hidden;
 }
