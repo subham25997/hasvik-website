@@ -39,6 +39,10 @@
 }
 
 @media (max-width: 767px) {
+  .hero {
+    max-height: 1000px;
+    padding: 60px 0;
+  }
 
   .hero .left {
     text-align: center;
