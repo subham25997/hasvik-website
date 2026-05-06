@@ -1,0 +1,132 @@
+.contact-wrapper {
+  position: relative;
+}
+
+.contact-header {
+  background: var(--brand-700);
+  padding: 80px 20px 120px;
+}
+
+.contact-header h2 {
+  font-weight: 700;
+}
+
+.contact-header p {
+  opacity: 0.9;
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-cards {
+  margin-top: -80px;
+}
+
+.contact-box {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.contact-box:hover {
+  transform: translateY(-6px);
+}
+
+.contact-icon {
+  font-size: 40px;
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+.contact-box h5 {
+  color: var(--brand-900);
+  font-weight: 600;
+}
+
+.contact-box p {
+  color: #666;
+  font-size: 14px;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--brand-900);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  color: var(--accent);
+}
+
+.contact-btn {
+  background: var(--accent);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.contact-btn:hover {
+  background: #5bb13e;
+  color: white;
+}
+
+.email-btn {
+  background: var(--brand-900);
+}
+
+.email-btn:hover {
+  background: #003b78;
+}
+
+.contact-card {
+  border-radius: 12px;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.newsletter-input {
+  flex: 1;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  padding: 14px 18px;
+  color: #222;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(113, 197, 84, 0.12);
+}
+
+.newsletter-btn {
+  min-width: 56px;
+  border-radius: 999px;
+  padding: 14px 18px;
+  border: none;
+  background: var(--accent);
+  color: white;
+}
+
+.newsletter-btn:hover {
+  background: #5bb13e;
+}

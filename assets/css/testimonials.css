@@ -1,0 +1,31 @@
+#testimonials {
+  background: #f9f9f9;
+}
+
+#testimonials .card {
+  border-radius: 18px;
+  background: #fff;
+  transition: 0.4s ease;
+  position: relative;
+}
+
+#testimonials .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+#testimonials .card::before {
+  content: "“";
+  font-size: 60px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: var(--accent);
+  opacity: 0.2;
+}
+
+.counter {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+}

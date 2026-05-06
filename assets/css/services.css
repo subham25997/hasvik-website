@@ -1,0 +1,26 @@
+.service-card,
+.service-card .card-body {
+  border: none;
+  border-radius: 14px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  background: #fff;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(2, 48, 80, 0.12);
+}
+
+.service-card h6,
+.services-subtitle {
+  color: var(--brand-900);
+}
+
+.service-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 28px;
+  color: var(--accent);
+}
