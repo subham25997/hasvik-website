@@ -22,7 +22,6 @@
 
 #why-us .text-center h2 {
   letter-spacing: 0.03em;
-  font-size: clamp(2.5rem, 4vw, 3.6rem);
 }
 
 #why-us .text-center p {

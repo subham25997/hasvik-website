@@ -10,7 +10,7 @@
 
   .hero .computer-screen {
     margin-top: 2rem;
-    padding: 24px 16px;
+    padding: 26px 16px;
     min-height: 300px;
   }
 
@@ -18,6 +18,10 @@
     top: auto;
     bottom: 10%;
     transform: translate(-50%, 0);
+  }
+
+  .about-section h2::after {
+    margin: 8px auto 10px;
   }
 
   .work-video-card {
@@ -126,7 +130,7 @@
   }
 
   .hero .computer-screen {
-    padding: 20px 14px;
+    padding: 24px 14px;
   }
 
   .work-video-card {

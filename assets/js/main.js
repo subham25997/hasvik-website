@@ -277,30 +277,67 @@ function renderHero(hero) {
   heroContent.appendChild(buttonRow);
 
   heroCarouselContent.innerHTML = '';
+  const carouselSlides = hero.carousel.map((item, index) => createElement('div', {
+    class: `carousel-item${index === 0 ? ' active' : ''}`
+  }, [
+    createElement('img', {
+      src: item.img,
+      alt: item.alt,
+      class: 'd-block w-100'
+    }),
+    createElement('div', { class: 'carousel-caption d-flex justify-content-center' }, [
+      createElement('div', { class: 'px-3 carousel-caption-text' }, [
+        createElement('h6', {}, [item.title]),
+        createElement('ul', { class: 'mb-0' }, item.items.map((text) => createElement('li', {}, [text])))
+      ])
+    ])
+  ]));
+
   const carousel = createElement('div', { class: 'computer-screen' }, [
-    createElement('div', { class: 'carousel slide', 'data-bs-ride': 'carousel' }, [
-      createElement('div', { class: 'carousel-inner' }, hero.carousel.map((item, index) => {
-        const carouselItem = createElement('div', {
-          class: `carousel-item${index === 0 ? ' active' : ''}`
-        }, [
-          createElement('img', {
-            src: item.img,
-            alt: item.alt,
-            class: 'd-block w-100'
-          }),
-          createElement('div', { class: 'carousel-caption d-flex justify-content-center' }, [
-            createElement('div', { class: 'px-3 carousel-caption-text' }, [
-              createElement('h6', {}, [item.title]),
-              createElement('ul', { class: 'mb-0' }, item.items.map((text) => createElement('li', {}, [text])))
-            ])
-          ])
-        ]);
-        return carouselItem;
-      }))
+    createElement('div', { class: 'carousel slide', id: 'heroCarousel', 'data-bs-ride': 'carousel' }, [
+      // createElement('div', { class: 'carousel-indicators' }, hero.carousel.map((item, index) =>
+      //   createElement('button', {
+      //     type: 'button',
+      //     'data-bs-target': '#heroCarousel',
+      //     'data-bs-slide-to': index.toString(),
+      //     class: index === 0 ? 'active' : null,
+      //     'aria-current': index === 0 ? 'true' : null,
+      //     'aria-label': `Slide ${index + 1}`
+      //   })
+      // )),
+      createElement('div', { class: 'carousel-inner' }, carouselSlides),
+      // createElement('button', {
+      //   class: 'carousel-control-prev',
+      //   type: 'button',
+      //   'data-bs-target': '#heroCarousel',
+      //   'data-bs-slide': 'prev'
+      // }, [
+      //   createElement('span', { class: 'carousel-control-prev-icon', 'aria-hidden': 'true' }),
+      //   createElement('span', { class: 'visually-hidden' }, ['Previous'])
+      // ]),
+      // createElement('button', {
+      //   class: 'carousel-control-next',
+      //   type: 'button',
+      //   'data-bs-target': '#heroCarousel',
+      //   'data-bs-slide': 'next'
+      // }, [
+      //   createElement('span', { class: 'carousel-control-next-icon', 'aria-hidden': 'true' }),
+      //   createElement('span', { class: 'visually-hidden' }, ['Next'])
+      // ])
     ])
   ]);
 
   heroCarouselContent.appendChild(carousel);
+
+  const sliderEl = document.getElementById('heroCarousel');
+  if (sliderEl && window.bootstrap && typeof bootstrap.Carousel === 'function') {
+    new bootstrap.Carousel(sliderEl, {
+      interval: 3500,
+      ride: 'carousel',
+      pause: 'hover',
+      wrap: true
+    });
+  }
 }
 
 function renderAbout(about) {
@@ -310,7 +347,7 @@ function renderAbout(about) {
 
   const row = createElement('div', { class: 'row g-4' }, [
     createElement('div', { class: 'col-lg-6 col-md-12', 'data-aos': 'fade-up' }, [
-      createElement('h2', {}, [about.heading]),
+      createElement('h2', { class: 'text-center text-lg-start' }, [about.heading]),
       ...about.paragraphs.map((paragraph, index) => createElement('p', { class: 'text-muted', style: index ? 'margin-top: 1rem;' : '' }, [paragraph]))
     ]),
     createElement('div', { class: 'col-md-6 pb-4 mt-lg-5 text-center' }, [
@@ -503,8 +540,8 @@ function renderContact(contact) {
         createElement('h5', {}, [contact.locationCard.title]),
         createElement('address', {}, [
           ...contact.locationCard.addressLines.flatMap((line, index) => [
-            createElement('strong', { class: index === 0 ? 'my-3 d-block' : '' }, [line]),
-            index < contact.locationCard.addressLines.length - 1 ? createElement('br') : ''
+            index === 0 ?createElement('strong', { class: 'd-block' }, [line]) :
+            createElement('p', { class: 'mb-0' }, [line]),
           ])
         ]),
         createElement('iframe', {
@@ -529,6 +566,45 @@ function renderContact(contact) {
   container.appendChild(wrapper);
 }
 
+function renderFAQs(faqs) {
+  const container = document.getElementById('faqsContent');
+  if (!container) return;
+  container.innerHTML = '';
+
+  const header = createElement('div', { class: 'text-center mb-5 faq-header', 'data-aos': 'fade-up' }, [
+    faqs.badge ? createElement('span', { class: 'faq-badge mb-3 d-inline-block' }, [faqs.badge]) : null,
+    createElement('h2', {}, [faqs.heading]),
+    createElement('p', { class: 'text-muted mx-auto', style: 'max-width:680px;' }, [faqs.subtitle])
+  ]);
+
+  const faqBody = createElement('div', { class: 'accordion faq-accordion', id: 'faqsAccordion' }, faqs.items.map((faq, index) => {
+    const isOpen = index === 0;
+    return createElement('div', { class: 'accordion-item faq-item' }, [
+      createElement('h3', { class: 'accordion-header', id: `faq-${index}` }, [
+        createElement('button', {
+          class: `accordion-button ${isOpen ? '' : 'collapsed'}`,
+          type: 'button',
+          'data-bs-toggle': 'collapse',
+          'data-bs-target': `#faq-collapse-${index}`,
+          'aria-expanded': isOpen ? 'true' : 'false',
+          'aria-controls': `faq-collapse-${index}`
+        }, [
+          faq.question
+        ])
+      ]),
+      createElement('div', {
+        class: `accordion-collapse collapse ${isOpen ? 'show' : ''}`,
+        id: `faq-collapse-${index}`,
+        'data-bs-parent': '#faqsAccordion'
+      }, [
+        createElement('div', { class: 'accordion-body' }, [faq.answer])
+      ])
+    ]);
+  }));
+
+  container.appendChild(createElement('div', { class: 'faq-panel p-4 p-lg-5 rounded-4 shadow-sm' }, [header, faqBody]));
+}
+
 async function renderContent() {
   const data = await loadContentData();
   renderHero(data.hero);
@@ -538,6 +614,7 @@ async function renderContent() {
   renderPortfolio(data.portfolio);
   renderTestimonials(data.testimonials);
   renderContact(data.contact);
+  renderFAQs(data.faqs);
   return data;
 }
 

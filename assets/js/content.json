@@ -1,257 +1,298 @@
 {
-  "hero": {
-    "title": "Building the Future with Technology",
-    "lead": "Empowering well-trained rural talent to deliver high-quality digital solutions.",
-    "subtitle": "Innovate. Automate. Grow",
-    "typedStrings": ["Static Websites", "Dynamic Websites", "Data Entry"],
-    "buttons": [
-      {
-        "label": "Explore Services",
-        "href": "#services",
-        "classes": "btn btn-lg btn-light me-2 mb-2 shadow-sm"
-      },
-      {
-        "label": "Contact Us",
-        "href": "#contact",
-        "classes": "btn btn-lg btn-outline-light mb-2"
-      }
-    ],
-    "carousel": [
-      {
-        "img": "./assets/images/shopping.jpg",
-        "alt": "E-commerce website development showcase - online shopping platform",
-        "title": "E-Commerce Websites",
-        "items": ["High Quality Design", "Mobile Friendly", "Secure & Easy Shopping"]
-      },
-      {
-        "img": "./assets/images/education.jpg",
-        "alt": "Educational website development - learning management system",
-        "title": "Educational Websites",
-        "items": ["Highly Professional", "Mobile Friendly", "Easy Course Management"]
-      },
-      {
-        "img": "./assets/images/Business.jpg",
-        "alt": "Professional business website development services",
-        "title": "Business Websites",
-        "items": ["User-Friendly Interface", "Mobile Friendly", "Fast & SEO Optimized"]
-      },
-      {
-        "img": "./assets/images/data_entry.jpg",
-        "alt": "Accurate data entry and processing services",
-        "title": "Data Entry",
-        "items": ["Accurate & High-Quality Work", "Fast & Efficient Processing", "Secure Data Handling"]
-      }
-    ]
-  },
-  "about": {
-    "heading": "About Us",
-    "paragraphs": [
-      "HASVIK Technologies is a team of skilled and well-trained professionals dedicated to delivering high-quality digital solutions for businesses, organizations, and individuals.",
-      "Our mission is to combine technical expertise, creativity, and reliability to help our clients build a strong presence in the digital world.",
-      "We believe that great talent exists everywhere. One of our core values is empowering well-trained rural professionals by providing them opportunities to work on modern digital technologies and contribute to impactful projects.",
-      "By connecting talent with technology, we aim to create solutions that benefit both businesses and communities."
-    ],
-    "image": {
-      "src": "./assets/images/office.jpg",
-      "alt": "HASVIK Technologies professional team working in modern office environment"
+    "hero": {
+        "title": "Building the Future with Technology",
+        "lead": "Empowering well-trained rural talent to deliver high-quality digital solutions.",
+        "subtitle": "Innovate. Automate. Grow",
+        "typedStrings": [
+            "Static Websites",
+            "Dynamic Websites",
+            "Data Entry"
+        ],
+        "buttons": [
+            {
+                "label": "Explore Services",
+                "href": "#services",
+                "classes": "btn btn-lg btn-light me-2 mb-2 shadow-sm"
+            },
+            {
+                "label": "Contact Us",
+                "href": "#contact",
+                "classes": "btn btn-lg btn-outline-light mb-2"
+            }
+        ],
+        "carousel": [
+            {
+                "img": "./assets/images/shopping.jpg",
+                "alt": "E-commerce website development showcase - online shopping platform",
+                "title": "E-Commerce Websites",
+                "items": [
+                    "High Quality Design",
+                    "Mobile Friendly",
+                    "Secure & Easy Shopping"
+                ]
+            },
+            {
+                "img": "./assets/images/education.jpg",
+                "alt": "Educational website development - learning management system",
+                "title": "Educational Websites",
+                "items": [
+                    "Highly Professional",
+                    "Mobile Friendly",
+                    "Easy Course Management"
+                ]
+            },
+            {
+                "img": "./assets/images/Business.jpg",
+                "alt": "Professional business website development services",
+                "title": "Business Websites",
+                "items": [
+                    "User-Friendly Interface",
+                    "Mobile Friendly",
+                    "Fast & SEO Optimized"
+                ]
+            },
+            {
+                "img": "./assets/images/data_entry.jpg",
+                "alt": "Accurate data entry and processing services",
+                "title": "Data Entry",
+                "items": [
+                    "Accurate & High-Quality Work",
+                    "Fast & Efficient Processing",
+                    "Secure Data Handling"
+                ]
+            }
+        ]
     },
-    "highlights": [
-      "High Quality Digital Solutions",
-      "Client Focused Approach",
-      "Empowering Rural Talent",
-      "Affordable Pricing"
-    ]
-  },
-  "services": {
-    "heading": "Our Services",
-    "subtitle": "Smart, scalable digital services built for business success",
-    "items": [
-      {
-        "icon": "bi bi-briefcase",
-        "title": "Business Website Development",
-        "text": "Online stores that allow businesses to sell their products with secure payment and easy management."
-      },
-      {
-        "icon": "bi bi-cart",
-        "title": "E-Commerce Website Development",
-        "text": "Online stores that allow businesses to sell their products with secure payment and easy management."
-      },
-      {
-        "icon": "bi bi-mortarboard",
-        "title": "Educational Website Development",
-        "text": "Websites for schools, institutes, and training centers to manage courses and share learning materials."
-      },
-      {
-        "icon": "bi bi-keyboard",
-        "title": "Data Entry Services",
-        "text": "Accurate and organized data entry solutions for businesses and organizations."
-      },
-      {
-        "icon": "bi bi-tools",
-        "title": "Website Maintenance & Support",
-        "text": "Regular updates, security checks, and technical support to keep websites running smoothly."
-      },
-      {
-        "icon": "bi bi-brush",
-        "title": "Website Redesign",
-        "text": "Improving existing websites with modern design, better performance, and mobile responsiveness."
-      }
-    ]
-  },
-  "whyUs": {
-    "heading": "Why Choose Us",
-    "subtitle": "Delivering excellence through quality, innovation, and dedication",
-    "stats": [
-      {
-        "target": 12,
-        "label": "Projects Completed"
-      },
-      {
-        "target": 12,
-        "label": "Happy Clients"
-      },
-      {
-        "target": 1,
-        "label": "Years Experience"
-      }
-    ],
-    "cards": [
-      {
-        "icon": "bi bi-shield-check",
-        "title": "Quality Focused",
-        "text": "Clean, reliable, and scalable digital solutions."
-      },
-      {
-        "icon": "bi bi-person-heart",
-        "title": "Passionate Team",
-        "text": "A team driven by learning and continuous improvement."
-      },
-      {
-        "icon": "bi bi-cash-stack",
-        "title": "Affordable Pricing",
-        "text": "Smart pricing for startups and growing businesses."
-      },
-      {
-        "icon": "bi bi-lightning",
-        "title": "Fast Delivery",
-        "text": "Timely execution without compromising quality."
-      }
-    ]
-  },
-  "portfolio": {
-    "heading": "Our Recent Works",
-    "subtitle": "Elite digital experiences built with premium design and performance.",
-    "premium": true,
-    "items": [
-      {
-        "href": "https://ashok-tent-house.vercel.app/",
-        "img": "./assets/images/ath.png",
-        "alt": "Ashok Tent House website project - event management and booking platform",
-        "title": "Ashok Tent House",
-        "description": "Website for showcasing services and booking",
-        "badge": "Completed",
-        "delay": 100
-      },
-      {
-        "href": "https://lrengineering-eight.vercel.app/",
-        "img": "./assets/images/lreng.png",
-        "alt": "LR Engineering Solutions website - industrial engineering services platform",
-        "title": "LR Engineering Solutions Website",
-        "description": "Contact information and whatsapp booking system",
-        "badge": "Completed",
-        "delay": 0
-      },
-      {
-        "href": "https://rm-suncity-website.vercel.app/",
-        "img": "./assets/images/rm-suncity.png",
-        "alt": "RM Suncity Public School website - educational institution platform",
-        "title": "RM Suncity Public School",
-        "description": "Modern website for the school with student information and updates",
-        "badge": "In Progress",
-        "delay": 200
-      },
-      {
-        "href": "https://parlour-website-mu.vercel.app/",
-        "img": "./assets/images/parlour.png",
-        "alt": "Parlour Website - beauty and wellness services platform",
-        "title": "Parlour Website",
-        "description": "Modern website for a beauty parlour with service listings and booking system",
-        "badge": "Demo",
-        "delay": 200
-      },
-      {
-        "href": "https://woodwise-carpentry.vercel.app/",
-        "img": "./assets/images/woodwise.png",
-        "alt": "Woodwise Carpentry - custom woodworking services",
-        "title": "Woodwise Carpentry",
-        "description": "Showcasing custom woodworking projects and services",
-        "badge": "Demo",
-        "delay": 200
-      }
-    ]
-  },
-  "testimonials": {
-    "heading": "What Our Clients Say",
-    "subtitle": "Real feedback from our happy clients",
-    "items": [
-      {
-        "rating": 5,
-        "text": "Excellent service and fast delivery. Highly professional team!",
-        "name": "Yaswant Singh",
-        "company": "LR Engineering Solutions",
-        "location": "Noida, Uttar Pradesh",
-        "delay": 0
-      },
-      {
-        "rating": 4.5,
-        "text": "Accurate data entry work delivered on time. Great experience.",
-        "name": "Ankur Kumar Singh",
-        "company": "Ashok Tent House",
-        "location": "Adar, Bansdih, Uttar Pradesh",
-        "delay": 150
-      },
-      {
-        "rating": 5,
-        "text": "Affordable pricing and excellent communication throughout the project.",
-        "name": "Rajesh Kr. Soni",
-        "company": "RM Suncity Public School",
-        "location": "Maniar, Ballia, Uttar Pradesh",
-        "delay": 250
-      }
-    ]
-  },
-  "contact": {
-    "header": {
-      "title": "Get in Touch",
-      "subtitle": "Have a project idea? We'd love to hear from you. Reach us through the options below."
+    "about": {
+        "heading": "About Us",
+        "paragraphs": [
+            "HASVIK Technologies is a team of skilled and well-trained professionals dedicated to delivering high-quality digital solutions for businesses, organizations, and individuals.",
+            "Our mission is to combine technical expertise, creativity, and reliability to help our clients build a strong presence in the digital world.",
+            "We believe that great talent exists everywhere. One of our core values is empowering well-trained rural professionals by providing them opportunities to work on modern digital technologies and contribute to impactful projects.",
+            "By connecting talent with technology, we aim to create solutions that benefit both businesses and communities."
+        ],
+        "image": {
+            "src": "./assets/images/office.jpg",
+            "alt": "HASVIK Technologies professional team working in modern office environment"
+        },
+        "highlights": [
+            "High Quality Digital Solutions",
+            "Client Focused Approach",
+            "Empowering Rural Talent",
+            "Affordable Pricing"
+        ]
     },
-    "cards": [
-      {
-        "icon": "bi bi-envelope-fill",
-        "title": "Email Us",
-        "text": "Send us your project requirements and we'll get back to you soon.",
-        "link": "mailto:hasviktechnologies@gmail.com",
-        "buttonText": "Email Us",
-        "buttonClass": "contact-btn email-btn"
-      },
-      {
-        "icon": "bi bi-whatsapp",
-        "title": "Chat on WhatsApp",
-        "text": "Want a quick response? Message us directly on WhatsApp.",
-        "link": "https://wa.me/919454263965?text=Hello%20HASVIK,%20I%20am%20interested%20in%20your%20website%20services",
-        "buttonText": "Start Chat",
-        "buttonClass": "contact-btn"
-      }
-    ],
-    "locationCard": {
-      "title": "Visit Our Office",
-      "addressLines": [
-        "HASVIK Technologies",
-        "Ward No 6, Uttar Tola, Maniar,",
-        "Ballia, Uttar Pradesh - 277207"
-      ],
-      "iframeSrc": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3586.38780373091!2d84.1769507!3d25.9881109!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39925d000798f3c1%3A0x88a2cfa3d74437f5!2sHasvik%20technologies!5e0!3m2!1sen!2sin!4v1778164854135!5m2!1sen!2sin",
-      "mapAlt": "Google Maps location of HASVIK Technologies office in Maniar, Ballia, Uttar Pradesh"
+    "services": {
+        "heading": "Our Services",
+        "subtitle": "Smart, scalable digital services built for business success",
+        "items": [
+            {
+                "icon": "bi bi-briefcase",
+                "title": "Business Website Development",
+                "text": "Online stores that allow businesses to sell their products with secure payment and easy management."
+            },
+            {
+                "icon": "bi bi-cart",
+                "title": "E-Commerce Website Development",
+                "text": "Online stores that allow businesses to sell their products with secure payment and easy management."
+            },
+            {
+                "icon": "bi bi-mortarboard",
+                "title": "Educational Website Development",
+                "text": "Websites for schools, institutes, and training centers to manage courses and share learning materials."
+            },
+            {
+                "icon": "bi bi-keyboard",
+                "title": "Data Entry Services",
+                "text": "Accurate and organized data entry solutions for businesses and organizations."
+            },
+            {
+                "icon": "bi bi-tools",
+                "title": "Website Maintenance & Support",
+                "text": "Regular updates, security checks, and technical support to keep websites running smoothly."
+            },
+            {
+                "icon": "bi bi-brush",
+                "title": "Website Redesign",
+                "text": "Improving existing websites with modern design, better performance, and mobile responsiveness."
+            }
+        ]
+    },
+    "whyUs": {
+        "heading": "Why Choose Us",
+        "subtitle": "Delivering excellence through quality, innovation, and dedication",
+        "stats": [
+            {
+                "target": 12,
+                "label": "Projects Completed"
+            },
+            {
+                "target": 12,
+                "label": "Happy Clients"
+            },
+            {
+                "target": 1,
+                "label": "Years Experience"
+            }
+        ],
+        "cards": [
+            {
+                "icon": "bi bi-shield-check",
+                "title": "Quality Focused",
+                "text": "Clean, reliable, and scalable digital solutions."
+            },
+            {
+                "icon": "bi bi-person-heart",
+                "title": "Passionate Team",
+                "text": "A team driven by learning and continuous improvement."
+            },
+            {
+                "icon": "bi bi-cash-stack",
+                "title": "Affordable Pricing",
+                "text": "Smart pricing for startups and growing businesses."
+            },
+            {
+                "icon": "bi bi-lightning",
+                "title": "Fast Delivery",
+                "text": "Timely execution without compromising quality."
+            }
+        ]
+    },
+    "portfolio": {
+        "heading": "Our Recent Works",
+        "subtitle": "Elite digital experiences built with premium design and performance.",
+        "premium": true,
+        "items": [
+            {
+                "href": "https://ashok-tent-house.vercel.app/",
+                "img": "./assets/images/ath.png",
+                "alt": "Ashok Tent House website project - event management and booking platform",
+                "title": "Ashok Tent House",
+                "description": "Website for showcasing services and booking",
+                "badge": "Completed",
+                "delay": 100
+            },
+            {
+                "href": "https://lrengineering-eight.vercel.app/",
+                "img": "./assets/images/lreng.png",
+                "alt": "LR Engineering Solutions website - industrial engineering services platform",
+                "title": "LR Engineering Solutions Website",
+                "description": "Contact information and whatsapp booking system",
+                "badge": "Completed",
+                "delay": 0
+            },
+            {
+                "href": "https://rm-suncity-website.vercel.app/",
+                "img": "./assets/images/rm-suncity.png",
+                "alt": "RM Suncity Public School website - educational institution platform",
+                "title": "RM Suncity Public School",
+                "description": "Modern website for the school with student information and updates",
+                "badge": "In Progress",
+                "delay": 200
+            },
+            {
+                "href": "https://parlour-website-mu.vercel.app/",
+                "img": "./assets/images/parlour.png",
+                "alt": "Parlour Website - beauty and wellness services platform",
+                "title": "Parlour Website",
+                "description": "Modern website for a beauty parlour with service listings and booking system",
+                "badge": "Demo",
+                "delay": 200
+            },
+            {
+                "href": "https://woodwise-carpentry.vercel.app/",
+                "img": "./assets/images/woodwise.png",
+                "alt": "Woodwise Carpentry - custom woodworking services",
+                "title": "Woodwise Carpentry",
+                "description": "Showcasing custom woodworking projects and services",
+                "badge": "Demo",
+                "delay": 200
+            }
+        ]
+    },
+    "testimonials": {
+        "heading": "What Our Clients Say",
+        "subtitle": "Real feedback from our happy clients",
+        "items": [
+            {
+                "rating": 5,
+                "text": "Excellent service and fast delivery. Highly professional team!",
+                "name": "Yaswant Singh",
+                "company": "LR Engineering Solutions",
+                "location": "Noida, Uttar Pradesh",
+                "delay": 0
+            },
+            {
+                "rating": 4.5,
+                "text": "Accurate data entry work delivered on time. Great experience.",
+                "name": "Ankur Kumar Singh",
+                "company": "Ashok Tent House",
+                "location": "Adar, Bansdih, Uttar Pradesh",
+                "delay": 150
+            },
+            {
+                "rating": 5,
+                "text": "Affordable pricing and excellent communication throughout the project.",
+                "name": "Rajesh Kr. Soni",
+                "company": "RM Suncity Public School",
+                "location": "Maniar, Ballia, Uttar Pradesh",
+                "delay": 250
+            }
+        ]
+    },
+    "contact": {
+        "header": {
+            "title": "Get in Touch",
+            "subtitle": "Have a project idea? We'd love to hear from you. Reach us through the options below."
+        },
+        "cards": [
+            {
+                "icon": "bi bi-envelope-fill",
+                "title": "Email Us",
+                "text": "Send us your project requirements and we'll get back to you soon.",
+                "link": "mailto:hasviktechnologies@gmail.com",
+                "buttonText": "Email Us",
+                "buttonClass": "contact-btn email-btn"
+            },
+            {
+                "icon": "bi bi-whatsapp",
+                "title": "Chat on WhatsApp",
+                "text": "Want a quick response? Message us directly on WhatsApp.",
+                "link": "https://wa.me/919454263965?text=Hello%20HASVIK,%20I%20am%20interested%20in%20your%20website%20services",
+                "buttonText": "Start Chat",
+                "buttonClass": "contact-btn"
+            }
+        ],
+        "locationCard": {
+            "title": "Visit Our Office",
+            "addressLines": [
+                "HASVIK Technologies",
+                "Ward No 6, Uttar Tola, Maniar, Ballia, Uttar Pradesh - 277207"
+            ],
+            "iframeSrc": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3586.38780373091!2d84.1769507!3d25.9881109!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39925d000798f3c1%3A0x88a2cfa3d74437f5!2sHasvik%20technologies!5e0!3m2!1sen!2sin!4v1778164854135!5m2!1sen!2sin",
+            "mapAlt": "Google Maps location of HASVIK Technologies office in Maniar, Ballia, Uttar Pradesh"
+        }
+    },
+    "faqs": {
+        "heading": "Frequently Asked Questions",
+        "subtitle": "Answers to common questions about our services and premium support experience.",
+        "items": [
+            {
+                "question": "What types of websites do you develop?",
+                "answer": "We specialize in developing business websites, e-commerce platforms, educational websites, and custom digital solutions. Every project is tailored to your goals, from design to deployment."
+            },
+            {
+                "question": "How long does it take to build a website?",
+                "answer": "The timeline for website development depends on the complexity and features required. Typically, a basic website can take 2-4 weeks, while more complex projects may take 6-8 weeks or longer."
+            },
+            {
+                "question": "Do you provide website maintenance and support?",
+                "answer": "Yes, we offer ongoing maintenance and support services to ensure your website remains up-to-date, secure, and running smoothly after launch."
+            },
+            {
+                "question": "How do I get started with my project?",
+                "answer": "You can get in touch with us through our contact page by sending an email or starting a WhatsApp chat. We'll discuss your project requirements and guide you through the next steps."
+            }
+        ]
     }
-  }
 }
