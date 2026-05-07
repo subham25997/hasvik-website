@@ -12,6 +12,29 @@
   transition: all 0.4s ease;
 }
 
+.work-section.premium {
+  background: linear-gradient(180deg, #fff9f1 0%, #ffffff 100%);
+}
+
+.premium-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f0b337, #f9d470);
+  color: #2b1800;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 35px rgba(240, 180, 55, 0.22);
+}
+
 .work-video-card:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
