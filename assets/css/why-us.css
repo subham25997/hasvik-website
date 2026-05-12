@@ -20,10 +20,6 @@
   backdrop-filter: blur(8px);
 }
 
-#why-us .text-center h2 {
-  letter-spacing: 0.03em;
-}
-
 #why-us .text-center p {
   color: rgba(255, 255, 255, 0.82);
 }

@@ -82,6 +82,58 @@
             "Affordable Pricing"
         ]
     },
+    "team": {
+        "title": "Meet Our Team",
+        "subtitle": "Passionate professionals building scalable digital experiences for businesses worldwide.",
+        "members": [
+            {
+                "name": "Gaurav Kumar Singh",
+                "role": "Sales Expert",
+                "image": "./assets/images/team/gaurav.jpg",
+                "linkedin": "https://linkedin.com/in/gaurav-kumar-singh"
+            },
+            {
+                "name": "Annu Singh",
+                "role": "Sales Expert",
+                "image": "./assets/images/team/annu.jpg",
+                "linkedin": "https://linkedin.com/in/annu-singh"
+            },
+            {
+                "name": "Aakriti Singh",
+                "role": "Sales Expert",
+                "image": "./assets/images/team/aakriti.jpeg",
+                "linkedin": "https://linkedin.com/in/aakriti-singh"
+            },
+            {
+                "name": "Himanshu Singh",
+                "role": "Backend Expert",
+                "image": "./assets/images/team/himanshu.jpg",
+                "linkedin": "https://linkedin.com/in/himanshu-singh"
+            },
+            {
+                "name": "Akankshya Mishra",
+                "role": "Frontend Expert",
+                "image": "./assets/images/team/akankshya.jpeg",
+                "linkedin": "https://linkedin.com/in/akankshya-mishra"
+            },
+            {
+                "name": "Balwant Singh",
+                "role": "Team Supervisor",
+                "image": "./assets/images/team/balwant.jpg",
+                "linkedin": "https://linkedin.com/in/balwant-singh"
+            }
+        ],
+        "mentors": [
+            {
+                "title": "Frontend Mentor",
+                "description": "Experienced UI architect with extensive expertise in building enterprise-grade products for leading global tech companies."
+            },
+            {
+                "title": "Backend Mentor",
+                "description": "Highly experienced system design specialist with strong corporate exposure in scalable backend infrastructure and cloud systems."
+            }
+        ]
+    },
     "services": {
         "heading": "Our Services",
         "subtitle": "Smart, scalable digital services built for business success",

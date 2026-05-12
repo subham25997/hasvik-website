@@ -7,7 +7,6 @@
 }
 
 .about-section h2 {
-  font-size: clamp(2.4rem, 3.2vw, 3rem);
   line-height: 1.05;
   margin-bottom: 1.2rem;
 }
@@ -28,8 +27,8 @@
   gap: 0.85rem;
   padding: 16px 18px;
   border-radius: 14px;
-  background: rgba(113, 197, 84, 0.08);
-  border: 1px solid rgba(113, 197, 84, 0.12);
+  /* background: rgba(113, 197, 84, 0.08); */
+  border: 1px solid rgba(113, 197, 84, 0.25);
   color: #2f4f73;
   font-weight: 500;
 }
@@ -42,7 +41,7 @@
   min-height: 36px;
   font-size: 1.1rem;
   border-radius: 50%;
-  background: rgba(113, 197, 84, 0.18);
+  /* background: rgba(113, 197, 84, 0.18); */
   color: var(--accent);
 }
 
@@ -51,6 +50,17 @@
   border: 1px solid rgba(47, 76, 154, 0.12);
   box-shadow: 0 30px 80px rgba(47, 76, 154, 0.12);
   max-width: 100%;
+}
+
+.about-section .office-img::before {
+        content: "";
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 0;
+    bottom: 0;
+    background: rgb(4 51 111 / 10%);
+    z-index: 993;
 }
 
 .about-section .col-md-6.text-center {
