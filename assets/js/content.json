@@ -12,12 +12,12 @@
             {
                 "label": "Explore Services",
                 "href": "#services",
-                "classes": "btn btn-lg btn-light me-2 mb-2 shadow-sm"
+                "classes": "btn btn-lg btn-light me-2 my-3 shadow-sm"
             },
             {
                 "label": "Contact Us",
                 "href": "#contact",
-                "classes": "btn btn-lg btn-outline-light mb-2"
+                "classes": "btn btn-lg btn-outline-light my-3"
             }
         ],
         "carousel": [
