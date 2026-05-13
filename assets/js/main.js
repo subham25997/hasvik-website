@@ -1004,22 +1004,22 @@ function initContactForm() {
   });
 }
 
-function initBackToTop() {
-  const backToTopBtn = document.createElement("button");
-  backToTopBtn.className = "back-to-top";
-  backToTopBtn.innerHTML = '<i class="bi bi-arrow-up"></i>';
-  backToTopBtn.setAttribute("aria-label", "Back to top");
-  document.body.appendChild(backToTopBtn);
+// function initBackToTop() {
+//   const backToTopBtn = document.createElement("button");
+//   backToTopBtn.className = "back-to-top";
+//   backToTopBtn.innerHTML = '<i class="bi bi-arrow-up"></i>';
+//   backToTopBtn.setAttribute("aria-label", "Back to top");
+//   document.body.appendChild(backToTopBtn);
 
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+//   backToTopBtn.addEventListener("click", () => {
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+//   });
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) backToTopBtn.classList.add("show");
-    else backToTopBtn.classList.remove("show");
-  });
-}
+//   window.addEventListener("scroll", () => {
+//     if (window.scrollY > 300) backToTopBtn.classList.add("show");
+//     else backToTopBtn.classList.remove("show");
+//   });
+// }
 
 function initNewsletter() {
   const newsletterBtn = document.querySelector(".newsletter-btn");
@@ -1055,7 +1055,7 @@ async function initPage() {
   initSmoothAnchors();
   initRipples();
   initContactForm();
-  initBackToTop();
+  // initBackToTop();
   initNewsletter();
 }
 

@@ -1,5 +1,6 @@
 .contact-wrapper {
   position: relative;
+  overflow: visible;
 }
 
 .contact-header {
