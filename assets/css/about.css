@@ -71,7 +71,6 @@
   position: relative;
   z-index: 1;
 }
-
 @media (max-width: 768px) {
   .about-section {
     padding: 60px 0 50px;

@@ -87,10 +87,10 @@
         "subtitle": "Passionate professionals building scalable digital experiences for businesses worldwide.",
         "members": [
             {
-                "name": "Gaurav Kumar Singh",
-                "role": "Sales Expert",
-                "image": "./assets/images/team/gaurav.jpg",
-                "linkedin": "https://linkedin.com/in/gaurav-kumar-singh"
+                "name": "Youvraj Singh",
+                "role": "Software Development Intern",
+                "image": "assets/images/team/YouvrajPhoto.jpeg",
+                "linkedin": "https://www.linkedin.com/in/youvraj-singh"
             },
             {
                 "name": "Annu Singh",
@@ -105,10 +105,10 @@
                 "linkedin": "https://linkedin.com/in/aakriti-singh"
             },
             {
-                "name": "Himanshu Singh",
-                "role": "Backend Expert",
-                "image": "./assets/images/team/himanshu.jpg",
-                "linkedin": "https://linkedin.com/in/himanshu-singh"
+                "name": "Abhishek Gupta",
+                "role": "Software Development Intern",
+                "image": "./assets/images/team/AbhishekPhoto.png",
+                "linkedin": "https://www.linkedin.com/in/abhishekguptas1607/"
             },
             {
                 "name": "Akankshya Mishra",
@@ -239,7 +239,16 @@
                 "alt": "RM Suncity Public School website - educational institution platform",
                 "title": "RM Suncity Public School",
                 "description": "Modern website for the school with student information and updates",
-                "badge": "In Progress",
+                "badge": "Completed",
+                "delay": 200
+            },
+            {
+                "href": "https://nozaconventschool.vercel.app",
+                "img": "./assets/images/Noza-convent-school.png",
+                "alt": "Noza Convent School website - educational institution platform",
+                "title": "Noza Convent School",
+                "description": "Modern website for the school with student information and updates",
+                "badge": "In progress",
                 "delay": 200
             },
             {
