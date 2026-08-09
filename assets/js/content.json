@@ -66,10 +66,11 @@
     "about": {
         "heading": "About Us",
         "paragraphs": [
-            "HASVIK Technologies is a team of skilled and well-trained professionals dedicated to delivering high-quality digital solutions for businesses, organizations, and individuals.",
-            "Our mission is to combine technical expertise, creativity, and reliability to help our clients build a strong presence in the digital world.",
-            "We believe that great talent exists everywhere. One of our core values is empowering well-trained rural professionals by providing them opportunities to work on modern digital technologies and contribute to impactful projects.",
-            "By connecting talent with technology, we aim to create solutions that benefit both businesses and communities."
+            "*HASVIK Technologies* is an *Udyam Registered MSME* and a team of skilled, passionate, and well-trained professionals dedicated to delivering high-quality digital solutions for businesses, organizations, educational institutions, and individuals.",
+            "Founded on *5 April 2026*, our journey began with a vision to make modern technology accessible, reliable, and affordable. On *1 August 2026*, we achieved an important milestone by becoming an *Udyam Registered MSME*, reinforcing our commitment to professionalism, innovation, and long-term client trust.",
+            "Our expertise includes website development, web applications, business automation, custom software, and digital solutions tailored to the unique needs of our clients. Every solution we build is designed with performance, scalability, security, and exceptional user experience in mind.",
+            "At HASVIK Technologies, our mission goes beyond technology. We believe exceptional talent exists everywhere, especially in rural India. One of our core values is empowering skilled and well-trained rural professionals by providing opportunities to work with modern technologies and contribute to meaningful digital projects.",
+            "By connecting talent with technology, we strive to create innovative solutions that help businesses grow while generating opportunities that positively impact communities."
         ],
         "image": {
             "src": "./assets/images/office.jpeg",
@@ -80,6 +81,21 @@
             "Client Focused Approach",
             "Empowering Rural Talent",
             "Affordable Pricing"
+        ]
+    },
+    "welcome": {
+        "heading": "welcome to team",
+        "joinees": [
+            {
+                "name": "Youvraj Singh",
+                "role": "Software Development Intern",
+                "image": "assets/images/team/YouvrajPhoto.jpeg"
+            },
+            {
+                "name": "Abhishek Gupta",
+                "role": "Software Development Intern",
+                "image": "assets/images/team/AbhishekPhoto.png"
+            }
         ]
     },
     "team": {
@@ -175,11 +191,15 @@
         "subtitle": "Delivering excellence through quality, innovation, and dedication",
         "stats": [
             {
-                "target": 12,
+                "target": 3,
                 "label": "Projects Completed"
             },
             {
-                "target": 12,
+                "target": 4,
+                "label": "Projects In Progress"
+            },
+            {
+                "target": 7,
                 "label": "Happy Clients"
             },
             {
@@ -244,7 +264,7 @@
             },
             {
                 "href": "https://nozaconventschool.vercel.app",
-                "img": "./assets/images/Noza-convent-school.png",
+                "img": "assets/images/Noza-Convent-School.png",
                 "alt": "Noza Convent School website - educational institution platform",
                 "title": "Noza Convent School",
                 "description": "Modern website for the school with student information and updates",

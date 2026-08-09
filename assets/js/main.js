@@ -119,8 +119,9 @@ const defaultContentData = {
     subtitle:
       "Delivering excellence through quality, innovation, and dedication",
     stats: [
-      { target: 15, label: "Projects Completed" },
-      { target: 12, label: "Happy Clients" },
+      { target: 3, label: "Projects Completed" },
+      { target: 3, label: "Projects In Progress" },
+      { target: 7, label: "Happy Clients" },
       { target: 1, label: "Years Experience" },
     ],
     cards: [
@@ -384,20 +385,25 @@ function renderAbout(about) {
         createElement("h2", { class: "text-center text-lg-start" }, [
           about.heading,
         ]),
-        ...about.paragraphs.map((paragraph, index) =>
-          createElement(
+        ...about.paragraphs.map((paragraph, index) => {
+          const boldedText = paragraph.replace(/\*(.*?)\*/g, '<b>$1</b>');
+          return createElement(
             "p",
-            { class: "text-muted", style: index ? "margin-top: 1rem;" : "" },
-            [paragraph],
-          ),
-        ),
+            { 
+              class: "text-muted", 
+              style: index ? "margin-top: 1rem;" : "",
+              html: boldedText 
+            },
+            [] 
+          );
+        }),
       ],
     ),
     createElement("div", { class: "col-md-6 mb-4 mt-lg-5 text-center office-img position-relative" }, [
       createElement("img", {
         src: about.image.src,
         alt: about.image.alt,
-        class: "img-fluid rounded h-100",
+        class: "img-fluid rounded h-100 ",
         loading: "lazy",
       }),
     ]),
@@ -421,6 +427,30 @@ function renderAbout(about) {
     ),
   ]);
 
+  container.appendChild(row);
+}
+
+function renderWelcome(welcomeData) {
+  const container = document.getElementById("welcomeContent");
+  if (!container || !welcomeData) return;
+  container.innerHTML = "";
+  container.appendChild(
+    createElement("h2", { class: "welcome-title mb-5 text-center" }, [welcomeData.heading])
+  );
+  const row = createElement("div", { class: "row justify-content-center g-4 text-center" });
+  welcomeData.joinees.forEach((joinee) => {
+    const col = createElement("div", { class: "col-sm-6 col-md-4" }, [
+      createElement("img", {
+        src: joinee.image,
+        alt: joinee.name,
+        class: "joinee-photo" 
+      }),
+      createElement("h4", { class: "joinee-name" }, [joinee.name]),
+      createElement("p", { class: "joinee-role" }, [joinee.role])
+    ]);
+    row.appendChild(col);
+  });
+  
   container.appendChild(row);
 }
 
@@ -546,7 +576,7 @@ function renderWhyUs(whyUs) {
     "div",
     { class: "row text-center mb-5" },
     whyUs.stats.map((stat) =>
-      createElement("div", { class: "col-md-4" }, [
+      createElement("div", { class: "col-6 col-md-3" }, [
         createElement("div", { class: "counter", "data-target": stat.target }, [
           "0",
         ]),
@@ -826,6 +856,7 @@ async function renderContent() {
   const data = await loadContentData();
   renderHero(data.hero);
   renderAbout(data.about);
+  renderWelcome(data.welcome);
   renderTeam(data.team);
   renderServices(data.services);
   renderWhyUs(data.whyUs);
