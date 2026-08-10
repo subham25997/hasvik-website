@@ -84,7 +84,8 @@
         ]
     },
     "welcome": {
-        "heading": "welcome to team",
+        "heading": "welcome to the  team",
+        "subtitle": "Congratulations to our new team members who have joined us on this exciting journey of innovation and growth.",
         "joinees": [
             {
                 "name": "Youvraj Singh",
@@ -289,6 +290,26 @@
                 "badge": "Demo",
                 "delay": 200
             }
+        ]
+    },
+    "techStack": {
+        "heading": "Tech Stack",
+        "subtitle": "The modern technologies we use to build premium digital solutions",
+        "frontend": [
+            { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+            { "name": "Next.js","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"},
+            { "name": "View.js","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"},
+            { "name": "JavaScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+            { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+            { "name": "Tailwind CSS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" }
+        ],
+        "backend": [
+            { "name": "NestJs","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg"},
+            { "name": "Java", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"},
+            { "name": "Node.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+            { "name": "MongoDB", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+            { "name": "PostgreSql","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"},
+            { "name": "MySQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
         ]
     },
     "testimonials": {

@@ -431,6 +431,7 @@ function renderAbout(about) {
 }
 
 function renderWelcome(welcomeData) {
+  // Welcome Section
   const container = document.getElementById("welcomeContent");
   if (!container || !welcomeData) return;
   container.innerHTML = "";
@@ -439,15 +440,17 @@ function renderWelcome(welcomeData) {
   );
   const row = createElement("div", { class: "row justify-content-center g-4 text-center" });
   welcomeData.joinees.forEach((joinee) => {
-    const col = createElement("div", { class: "col-sm-6 col-md-4" }, [
-      createElement("img", {
-        src: joinee.image,
-        alt: joinee.name,
-        class: "joinee-photo" 
-      }),
-      createElement("h4", { class: "joinee-name" }, [joinee.name]),
-      createElement("p", { class: "joinee-role" }, [joinee.role])
-    ]);
+    const col = createElement("div", { class: "col-sm-6 col-md-4" });
+    col.innerHTML = `
+      <div class="team-card">
+        <div class="team-img mx-auto">
+          <img src="${joinee.image}" alt="${joinee.name}" class="h-100 w-100" style="object-fit: cover;">
+        </div>
+        <h4>${joinee.name}</h4>
+        <div class="team-role">${joinee.role}</div>
+      </div>
+    `;
+    
     row.appendChild(col);
   });
   
@@ -640,8 +643,10 @@ function renderPortfolio(portfolio) {
         [
           createElement("div", { class: "work-video-card" }, [
             item.badge
-              ? createElement("span", { class: "premium-badge" }, [item.badge])
-              : null,
+            ? createElement("span", { 
+                class: `premium-badge badge-${item.badge.toLowerCase().replace(' ', '-')}` 
+              }, [item.badge])
+            : null,
             createElement("img", {
               class: "h-100 w-auto",
               src: item.img,
@@ -657,6 +662,48 @@ function renderPortfolio(portfolio) {
     ),
   );
   container.appendChild(row);
+}
+
+function renderTechStack(techData) {
+  const container = document.getElementById("techStackContent");
+  if (!container || !techData) return;
+  const createTechGroup = (techArray) => {
+    return techArray.map(tech => `
+      <div class="col-6 col-md-4">
+        <div class="p-4 rounded shadow-sm border tech-card">
+          <img src="${tech.icon}" alt="${tech.name}" class="tech-icon">
+          <h6 class="mb-0 fw-bold">${tech.name}</h6>
+        </div>
+      </div>
+    `).join('');
+  };
+    container.innerHTML = `
+    <h2 class="fw-bold mb-3">${techData.heading}</h2>
+    <p class="text-muted mb-5">${techData.subtitle}</p>
+    
+    <div class="row g-4">
+      
+      <!-- Frontend Column -->
+      <div class="col-md-6">
+        <div class="tech-box"> <!-- Our new CSS Box wrapper! -->
+          <h4 class="tech-section-title">Frontend</h4>
+          <div class="row justify-content-center g-4">
+            ${createTechGroup(techData.frontend)}
+          </div>
+        </div>
+      </div>
+      <!-- Backend Column -->
+      <div class="col-md-6">
+        <div class="tech-box"> <!-- Our new CSS Box wrapper! -->
+          <h4 class="tech-section-title">Backend</h4>
+          <div class="row justify-content-center g-4">
+            ${createTechGroup(techData.backend)}
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  `;
 }
 
 function renderTestimonials(testimonials) {
@@ -861,6 +908,7 @@ async function renderContent() {
   renderServices(data.services);
   renderWhyUs(data.whyUs);
   renderPortfolio(data.portfolio);
+  renderTechStack(data.techStack);
   renderTestimonials(data.testimonials);
   renderContact(data.contact);
   renderFAQs(data.faqs);
