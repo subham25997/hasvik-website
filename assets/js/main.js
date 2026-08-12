@@ -84,7 +84,7 @@ const defaultContentData = {
     items: [
       {
         icon: "bi bi-briefcase",
-        title: "Business Website Development",
+        title: "Custom Website Development",
         text: "Online stores that allow businesses to sell their products with secure payment and easy management.",
       },
       {
@@ -98,18 +98,18 @@ const defaultContentData = {
         text: "Websites for schools, institutes, and training centers to manage courses and share learning materials.",
       },
       {
-        icon: "bi bi-keyboard",
-        title: "Data Entry Services",
-        text: "Accurate and organized data entry solutions for businesses and organizations.",
-      },
-      {
         icon: "bi bi-tools",
         title: "Website Maintenance & Support",
         text: "Regular updates, security checks, and technical support to keep websites running smoothly.",
       },
       {
+        icon: "bi bi-tools",
+        title: "Google Map Listing",
+        text: "Regular updates, security checks, and technical support to keep websites running smoothly.",
+      },
+      {
         icon: "bi bi-brush",
-        title: "Website Redesign",
+        title: "Google Business Profile Creation & Optimization",
         text: "Improving existing websites with modern design, better performance, and mobile responsiveness.",
       },
     ],
@@ -374,107 +374,115 @@ function renderHero(hero) {
 
 function renderAbout(about) {
   const container = document.getElementById("aboutContent");
-  if (!container) return;
-  container.innerHTML = "";
-
-  const row = createElement("div", { class: "row g-4" }, [
-    createElement(
-      "div",
-      { class: "col-lg-6 col-md-12", "data-aos": "fade-up" },
-      [
-        createElement("h2", { class: "text-center text-lg-start" }, [
-          about.heading,
-        ]),
-        ...about.paragraphs.map((paragraph, index) => {
-          const boldedText = paragraph.replace(/\*(.*?)\*/g, '<b>$1</b>');
-          return createElement(
-            "p",
-            { 
-              class: "text-muted", 
-              style: index ? "margin-top: 1rem;" : "",
-              html: boldedText 
-            },
-            [] 
-          );
-        }),
-      ],
-    ),
-    createElement("div", { class: "col-md-6 mb-4 mt-lg-5 text-center office-img position-relative" }, [
-      createElement("img", {
-        src: about.image.src,
-        alt: about.image.alt,
-        class: "img-fluid rounded h-100 ",
-        loading: "lazy",
-      }),
-    ]),
-    createElement(
-      "div",
-      { class: "col-md-6 col-lg-12 text-center mt-4", "data-aos": "fade-up" },
-      [
-        createElement(
-          "ul",
-          { class: "list-unstyled row" },
-          about.highlights.map((highlight) =>
-            createElement("li", { class: "col-lg-6 mb-3" }, [
-              createElement("span", {}, [
-                createElement("i", { class: "bi bi-check2-square me-2" }),
-                highlight,
-              ]),
-            ]),
-          ),
-        ),
-      ],
-    ),
-  ]);
-
-  container.appendChild(row);
+  if (!container || !about) return;
+  container.innerHTML = `
+    <!-- Top Row: Text on Left, Image on Right -->
+    <div class="row g-5 align-items-center mb-5">
+      <!-- Left Side -->
+      <div class="col-lg-6" data-aos="fade-up">
+        <span class="section-badge mb-3">${about.badge}</span>
+        <h2 class="fw-bold mb-3" style="font-size: 2.2rem;">${about.heading}</h2>
+        
+        ${about.paragraphs.map(p => `<p class="text-muted" style="line-height: 1.7;">${p}</p>`).join('')}
+        
+        <!-- The Timeline -->
+        <div class="timeline-wrapper">
+           <div class="timeline-line"></div> <!-- The vertical line -->
+           
+           ${about.timeline.map(item => `
+             <div class="d-flex mb-4 position-relative">
+               <div class="icon-circle ${item.colorClass} me-3">
+                 <i class="bi ${item.icon}"></i>
+               </div>
+               <div class="pt-1">
+                 <h6 class="mb-1 text-muted fw-bold" style="font-size: 0.85rem;">${item.title}</h6>
+                 <h5 class="fw-bold mb-2" style="color: ${item.colorClass === 'green' ? '#72c84b' : '#0b1c3e'};">${item.subtitle}</h5>
+                 <p class="text-muted small mb-0">${item.text}</p>
+               </div>
+             </div>
+           `).join('')}
+        </div>
+      </div>
+      
+      <!-- Right Side -->
+      <div class="col-lg-6" data-aos="fade-up">
+        <img src="${about.image.src}" alt="${about.image.alt}" class="img-fluid rounded-4 shadow-lg w-100" style="object-fit: cover;">
+      </div>
+      
+    </div>
+  
+    <!-- Bottom Row: The 4 Highlight Cards -->
+    <div class="row g-4 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+      ${about.highlights.map(card => `
+        <div class="col-xl-3 col-md-6">
+          <div class="highlight-card">
+            <i class="bi ${card.icon} highlight-icon"></i>
+            <div>
+              <h6>${card.title}</h6>
+              <p>${card.text}</p>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
 }
 
 function renderWelcome(welcomeData) {
-  // Welcome Section
   const container = document.getElementById("welcomeContent");
   if (!container || !welcomeData) return;
-  container.innerHTML = "";
-  container.appendChild(
-    createElement("h2", { class: "welcome-title mb-5 text-center" }, [welcomeData.heading])
-  );
-  const row = createElement("div", { class: "row justify-content-center g-4 text-center" });
-  welcomeData.joinees.forEach((joinee) => {
-    const col = createElement("div", { class: "col-sm-6 col-md-4" });
-    col.innerHTML = `
-      <div class="team-card">
-        <div class="team-img mx-auto">
-          <img src="${joinee.image}" alt="${joinee.name}" class="h-100 w-100" style="object-fit: cover;">
+  container.innerHTML = `
+    <div class="welcome-banner">
+      <div class="row align-items-center g-5">
+        <!-- Left Side: Text Content (Takes up 5 columns on desktop) -->
+        <div class="col-lg-5 text-center text-lg-start">
+          <span class="welcome-badge">${welcomeData.badge}</span>
+          <h2>${welcomeData.heading}</h2>
+          <p class="text-light" style="opacity: 0.85; line-height: 1.7;">${welcomeData.description}</p>
+          <a href="${welcomeData.button.link}" class="welcome-btn">
+            ${welcomeData.button.text} <i class="bi bi-arrow-right-circle-fill"></i>
+          </a>
         </div>
-        <h4>${joinee.name}</h4>
-        <div class="team-role">${joinee.role}</div>
+        <!-- Right Side: The Cards (Takes up 7 columns on desktop) -->
+        <div class="col-lg-7">
+          <div class="row justify-content-center g-4">
+            ${welcomeData.joinees.map(joinee => `
+              <div class="col-sm-6">
+                <!-- This is your hoverable card -->
+                <div class="welcome-card">
+                  <img src="${joinee.image}" alt="${joinee.name}" class="welcome-card-img">
+                  <h5>${joinee.name}</h5>
+                  <p>${joinee.role}</p>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        
       </div>
-    `;
-    
-    row.appendChild(col);
-  });
-  
-  container.appendChild(row);
+    </div>
+  `;
 }
 
 function renderTeam(team) {
-  // Team Members
   const teamContainer = document.getElementById("team-members-container");
-  document.getElementById("team-title").innerText = team.title;
+  document.getElementById("team-title").innerHTML = team.title;
   document.getElementById("team-subtitle").innerText = team.subtitle;
+  teamContainer.innerHTML = ""; 
   team.members.forEach((member) => {
     teamContainer.innerHTML += `
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-4 col-md-6" data-aos="fade-up">
       <div class="team-card">
         <div class="team-img mx-auto">
-          <img src="${member.image}" alt="${member.name}" class="h-100 w-100">
+          <img src="${member.image}" alt="${member.name}" class="h-100 w-100" style="object-fit: cover;">
         </div>
-        <h4>${member.name}</h4>
-
-        <div class="team-role">
+        <h5 class="fw-bold mt-2 mb-1" style="color: #0b1c3e;">${member.name}</h5>
+        <div class="team-role mb-3" style="color: #6c757d; font-size: 0.85rem;">
           ${member.role}
         </div>
-        
+        <a href="${member.linkedin}" target="_blank" rel="noopener" class="linkedin-btn">
+          <i class="bi bi-linkedin"></i>
+        </a>
       </div>
     </div>
   `;

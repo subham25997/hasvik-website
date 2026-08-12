@@ -4,9 +4,12 @@
         "lead": "Empowering well-trained rural talent to deliver high-quality digital solutions.",
         "subtitle": "Innovate. Automate. Grow",
         "typedStrings": [
-            "Static Websites",
-            "Dynamic Websites",
-            "Data Entry"
+            "Custom Website Development",
+            "E-Commerce Website Development",
+            "Educational Website Development",
+            "Website Maintenance & Support",
+            "Google Map Listing",
+            "Google Business Profile Creation & Optimization"
         ],
         "buttons": [
             {
@@ -63,44 +66,79 @@
             }
         ]
     },
-    "about": {
-        "heading": "About Us",
+        "about": {
+        "badge": "About Us",
+        "heading": "Driving Digital <span class=\"text-success\">Growth</span><br>with Purpose",
         "paragraphs": [
-            "*HASVIK Technologies* is an *Udyam Registered MSME* and a team of skilled, passionate, and well-trained professionals dedicated to delivering high-quality digital solutions for businesses, organizations, educational institutions, and individuals.",
-            "Founded on *5 April 2026*, our journey began with a vision to make modern technology accessible, reliable, and affordable. On *1 August 2026*, we achieved an important milestone by becoming an *Udyam Registered MSME*, reinforcing our commitment to professionalism, innovation, and long-term client trust.",
-            "Our expertise includes website development, web applications, business automation, custom software, and digital solutions tailored to the unique needs of our clients. Every solution we build is designed with performance, scalability, security, and exceptional user experience in mind.",
-            "At HASVIK Technologies, our mission goes beyond technology. We believe exceptional talent exists everywhere, especially in rural India. One of our core values is empowering skilled and well-trained rural professionals by providing opportunities to work with modern technologies and contribute to meaningful digital projects.",
-            "By connecting talent with technology, we strive to create innovative solutions that help businesses grow while generating opportunities that positively impact communities."
+            "HASVIK Technologies is an Udyam Registered MSME and a team of skilled professionals delivering reliable, innovative, and affordable digital solutions.",
+            "We help businesses and organizations build a strong digital presence with solutions that are secure, scalable, and future-ready."
         ],
         "image": {
             "src": "./assets/images/office.jpeg",
             "alt": "HASVIK Technologies professional team working in modern office environment"
         },
+        "timeline": [
+            {
+                "icon": "bi-calendar-event",
+                "colorClass": "green",
+                "title": "Founded on",
+                "subtitle": "5 April 2026",
+                "text": "Our journey began with a vision to make technology accessible for all."
+            },
+            {
+                "icon": "bi bi-shield-check",
+                "colorClass": "blue",
+                "title": "Udyam Registration",
+                "subtitle": "1 August 2026",
+                "text": "We became an Udyam Registered MSME, strengthening our commitment to quality, trust, and long-term partnerships."
+            }
+        ],
         "highlights": [
-            "High Quality Digital Solutions",
-            "Client Focused Approach",
-            "Empowering Rural Talent",
-            "Affordable Pricing"
+            {
+                "icon": "bi-code-slash",
+                "title": "High Quality Digital Solutions",
+                "text": "Modern, secure & scalable solutions for your business."
+            },
+            {
+                "icon": "bi-people",
+                "title": "Empowering Rural Talent",
+                "text": "Creating opportunities for skilled professionals."
+            },
+            {
+                "icon": "bi-bullseye",
+                "title": "Client Focused Approach",
+                "text": "We understand your needs and deliver the best."
+            },
+            {
+                "icon": "bi-tag",
+                "title": "Affordable Pricing",
+                "text": "Quality solutions that fit your budget."
+            }
         ]
     },
     "welcome": {
-        "heading": "welcome to the  team",
-        "subtitle": "Congratulations to our new team members who have joined us on this exciting journey of innovation and growth.",
+        "badge": "WE ARE GROWING",
+        "heading": "Welcome to the <span class=\"text-success\">Team!</span>",
+        "description": "We are excited to have passionate and talented individuals joining us on this journey of innovation and growth.",
+        "button": {
+            "text": "Meet Our Team",
+            "link": "#team"
+        },
         "joinees": [
             {
                 "name": "Youvraj Singh",
                 "role": "Software Development Intern",
-                "image": "assets/images/team/YouvrajPhoto.jpeg"
+                "image": "./assets/images/team/YouvrajPhoto.jpeg"
             },
             {
                 "name": "Abhishek Gupta",
                 "role": "Software Development Intern",
-                "image": "assets/images/team/AbhishekPhoto.png"
+                "image": "./assets/images/team/AbhishekPhoto.png"
             }
         ]
     },
     "team": {
-        "title": "Meet Our Team",
+        "title": "Meet Our <span class=\"text-success\">Team</span>",
         "subtitle": "Passionate professionals building scalable digital experiences for businesses worldwide.",
         "members": [
             {
@@ -156,9 +194,9 @@
         "subtitle": "Smart, scalable digital services built for business success",
         "items": [
             {
-                "icon": "bi bi-briefcase",
-                "title": "Business Website Development",
-                "text": "Online stores that allow businesses to sell their products with secure payment and easy management."
+                "icon": "bi bi-window",
+                "title": "Custom Website Development",
+                "text": "Website design for parlours, salons, business portfolios, and other businesses with modern layouts, custom features, and a seamless user experience."
             },
             {
                 "icon": "bi bi-cart",
@@ -172,18 +210,18 @@
             },
             {
                 "icon": "bi bi-keyboard",
-                "title": "Data Entry Services",
+                "title": "Website Maintenance & Support",
                 "text": "Accurate and organized data entry solutions for businesses and organizations."
             },
             {
-                "icon": "bi bi-tools",
-                "title": "Website Maintenance & Support",
-                "text": "Regular updates, security checks, and technical support to keep websites running smoothly."
+                "icon": "bi bi-geo-alt",
+                "title": "Google Map Listing ",
+                "text": "Helping businesses improve their online visibility by optimizing Google Maps listings, increasing local reach, and attracting more customers"
             },
             {
-                "icon": "bi bi-brush",
-                "title": "Website Redesign",
-                "text": "Improving existing websites with modern design, better performance, and mobile responsiveness."
+                "icon": "bi bi-building-check",
+                "title": "Google Business Profile Creation & Optimization",
+                "text": "Helping businesses create and optimize their Google Business Profile to improve local visibility, build customer trust, and attract more nearby customers."
             }
         ]
     },
@@ -298,13 +336,13 @@
         "frontend": [
             { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
             { "name": "Next.js","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"},
-            { "name": "View.js","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"},
+            { "name": "Vue.js","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"},
             { "name": "JavaScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
             { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-            { "name": "Tailwind CSS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" }
+            { "name": "Tailwind CSS", "icon": "assets/images/Tailwind_CSS_Logo.svg" }
         ],
         "backend": [
-            { "name": "NestJs","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg"},
+            { "name": "NestJs","icon":"assets/images/NestJS.svg"},
             { "name": "Java", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"},
             { "name": "Node.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
             { "name": "MongoDB", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },

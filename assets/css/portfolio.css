@@ -75,7 +75,7 @@
 /* --- Dynamic Portfolio Badge Colors --- */
 
 .badge-completed {
-  background: linear-gradient(90deg, #1aa446, #4cd471) !important;
+  background: linear-gradient(90deg, #2f9e60, #2f9e60) !important;
   color: #ffffff !important;
 }
 
@@ -88,3 +88,4 @@
   background: linear-gradient(90deg, #0d6efd, #4992ff) !important;
   color: #ffffff !important;
 }
+

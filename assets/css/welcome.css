@@ -1,66 +1,90 @@
-/* welcome.css */
+.welcome-banner {
+  background: #004c9a; 
+  border-radius: 24px;
+  padding: 60px 50px;
+  color: white;
+  box-shadow: 0 25px 80px rgba(15, 54, 94, 0.08);
+}
 
-
-.welcome-section {
-  background: linear-gradient(to bottom, #f8fafc, #eef2ff);
-  padding: 60px 0;
-  }
-  
- 
-  .welcome-title {
-    color: #0b1c3e;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .welcome-card {
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(16px);
-    border-radius: 24px;
-    padding: 30px 25px;
-    text-align: center;
-    transition: all 0.4s ease;
-    border: 1px solid rgba(255,255,255,0.4);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .welcome-card::before {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    background: color-mix(in srgb, var(--accent) 8%, transparent);
-    border-radius: 50%;
-    top: -80px;
-    right: -80px;
-  }
-
-  .welcome-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-  }
-  
-  .joinee-photo {
-    width: 150px;
-  height: 150px;
-  border-radius: 100%;
-  margin-bottom: 20px;
-  border: 4px solid var(--accent);
-  overflow: hidden;
-  }
-
-  .joinee-name {
-    font-weight: 600;
-    color: #333;
-    font-size: 1.25rem;
-    margin-bottom: 5px;
-  }
-  
-  .joinee-role {
-  color: var(--brand-900);
+.welcome-badge {
+  background: rgba(255, 255, 255, 0.1);
+  color: #72c84b;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
   font-weight: 600;
-  margin-top: 8px;
-  }
+  display: inline-block;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.welcome-banner h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color : white;
+}
+
+.welcome-banner .text-success {
+  color: #72c84b !important; 
+}
+
+.welcome-btn {
+  background: #72c84b;
+  color: #0b1c3e;
+  font-weight: 700;
+  padding: 12px 30px;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.welcome-btn:hover {
+  background: #5eb539;
+  color: #0b1c3e;
+  transform: translateY(-3px);
+}
+
+.welcome-card {
+  background: rgba(255, 255, 255, 0.05); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px 15px;
+  text-align: center;
+  transition: all 0.4s ease; 
+  height: 100%;
+}
+
+.welcome-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-10px); 
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3); 
+}
+
+.welcome-card-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #72c84b;
+  margin-bottom: 20px;
+}
+
+.welcome-card h5 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.welcome-card p {
+  font-size: 0.85rem;
+  color: white;
+  margin-bottom: 0;
+}
