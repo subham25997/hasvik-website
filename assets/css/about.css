@@ -60,10 +60,10 @@
 }
 
 .highlight-card h6 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.95rem;
   margin-bottom: 5px;
-  color: #0b1c3e;
+  color: var(--brand-900);
 }
 
 .highlight-card p {

@@ -57,11 +57,11 @@
             {
                 "img": "./assets/images/data_entry.jpg",
                 "alt": "Accurate data entry and processing services",
-                "title": "Data Entry",
+                "title": "Custom Website Development",
                 "items": [
-                    "Accurate & High-Quality Work",
-                    "Fast & Efficient Processing",
-                    "Secure Data Handling"
+                    "Modern & Responsive Website Design",
+                    "Customized Features & Functionality",
+                    "User-Friendly & Professional Interface"
                 ]
             }
         ]
@@ -169,7 +169,7 @@
                 "name": "Akankshya Mishra",
                 "role": "Frontend Expert",
                 "image": "./assets/images/team/akankshya.jpeg",
-                "linkedin": "https://linkedin.com/in/akankshya-mishra"
+                "linkedin": "https://linkedin.com/in/akankshya-mishra-7644942b7"
             },
             {
                 "name": "Balwant Singh",

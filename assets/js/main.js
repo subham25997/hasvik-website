@@ -50,11 +50,11 @@ const defaultContentData = {
       {
         img: "./assets/images/data_entry.jpg",
         alt: "Accurate data entry and processing services",
-        title: "Data Entry",
+        title: "Custom Wesite Development",
         items: [
-          "Accurate & High-Quality Work",
-          "Fast & Efficient Processing",
-          "Secure Data Handling",
+          "Modern & Responsive Website Design",
+          "Customized Features & Functionality",
+          "User-Friendly & Professional Interface",
         ],
       },
     ],
@@ -522,7 +522,6 @@ function renderServices(services) {
   const container = document.getElementById("servicesContent");
   if (!container) return;
   container.innerHTML = "";
-
   container.appendChild(
     createElement("h2", { class: "text-center", "data-aos": "fade-up" }, [
       services.heading,
@@ -533,7 +532,6 @@ function renderServices(services) {
       services.subtitle,
     ]),
   );
-
   const row = createElement(
     "div",
     { class: "row g-4" },
@@ -561,7 +559,6 @@ function renderServices(services) {
       ),
     ),
   );
-
   container.appendChild(row);
 }
 
@@ -1145,9 +1142,71 @@ async function initPage() {
   // initBackToTop();
   initNewsletter();
 }
-
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initPage);
 } else {
   initPage();
 }
+
+// --- INDEPENDENCE DAY BANNER LOGIC ---
+function setupIndependenceDayBanner() {
+  const today = new Date();
+  const isAugust15 = (today.getMonth() === 7 && today.getDate() === 15);
+  
+  if (isAugust15) {
+    const banner = document.createElement("div");
+    banner.innerHTML = `
+      <div style="background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808); padding: 3px;">
+        
+        <!-- This is the magic wrapper! We stack a white gradient on top of the Red Fort image -->
+        <div style="
+          background-image: 
+            linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 65%, rgba(255,255,255,0.2) 100%), 
+            url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Red_Fort_in_Delhi_03-2016.jpg/800px-Red_Fort_in_Delhi_03-2016.jpg');
+          background-position: center;
+          background-size: cover;
+          padding: 12px 15px; 
+          text-align: center; 
+          font-family: 'Poppins', sans-serif; 
+          display: flex; 
+          justify-content: center; 
+          align-items: center; 
+          flex-wrap: wrap;
+        ">
+          
+          <span style="font-size: 18px; margin-right: 8px;">🇮🇳</span>
+          
+          <strong style="font-size: 16px; letter-spacing: 0.5px; text-transform: uppercase;">
+            <span style="color: #FF9933;">Happy</span> 
+            <span style="color: #0b1c3e;">Independence</span> 
+            <span style="color: #138808;">Day!</span>
+          </strong> 
+          
+        
+          <span style="font-size: 14.5px; color: #4a5568; margin-left: 12px; border-left: 2px solid #cbd5e1; padding-left: 12px;" class="d-none d-md-inline">
+            Proud to be part of  <span style="color: #0ea5e9; font-weight: 800; letter-spacing: 1px;">DIGITAL India</span>  🚀
+          </span>
+          
+        </div>
+      </div>
+    `;
+    banner.style.position = "absolute";
+    banner.style.top = "0";
+    banner.style.left = "0";
+    banner.style.width = "100%";
+    banner.style.zIndex = "2000"; 
+    document.body.prepend(banner);
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .navbar { 
+        top: 54px; 
+        transition: top 0.3s ease;
+      }
+      .navbar.scrolled { 
+        top: 0 !important; 
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
+setupIndependenceDayBanner();
