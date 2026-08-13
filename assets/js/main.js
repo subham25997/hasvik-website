@@ -1151,14 +1151,13 @@ if (document.readyState === "loading") {
 // --- INDEPENDENCE DAY BANNER LOGIC ---
 function setupIndependenceDayBanner() {
   const today = new Date();
-  const isAugust15 = (today.getMonth() === 7 && today.getDate() === 15);
+  const isAugust15 = (today.getMonth() === 7 && today.getDate() <= 20);
   
   if (isAugust15) {
     const banner = document.createElement("div");
     banner.innerHTML = `
       <div style="background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808); padding: 3px;">
         
-        <!-- This is the magic wrapper! We stack a white gradient on top of the Red Fort image -->
         <div style="
           background-image: 
             linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 65%, rgba(255,255,255,0.2) 100%), 
@@ -1173,8 +1172,6 @@ function setupIndependenceDayBanner() {
           align-items: center; 
           flex-wrap: wrap;
         ">
-          
-          <span style="font-size: 18px; margin-right: 8px;">🇮🇳</span>
           
           <strong style="font-size: 16px; letter-spacing: 0.5px; text-transform: uppercase;">
             <span style="color: #FF9933;">Happy</span> 
