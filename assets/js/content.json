@@ -68,7 +68,7 @@
     },
         "about": {
         "badge": "About Us",
-        "heading": "Driving Digital <span class=\"text-success\">Growth</span><br>with Purpose",
+        "heading": "Driving Digital <span style=\"color: #71c554;\">Growth</span><br>with Purpose",
         "paragraphs": [
             "HASVIK Technologies is an Udyam Registered MSME and a team of skilled professionals delivering reliable, innovative, and affordable digital solutions.",
             "We help businesses and organizations build a strong digital presence with solutions that are secure, scalable, and future-ready."
@@ -117,8 +117,8 @@
         ]
     },
     "welcome": {
-        "badge": "WE ARE GROWING",
-        "heading": "Welcome to the <span class=\"text-success\">Team!</span>",
+        "badge": "We Are Growing",
+        "heading": "Welcome to the <span style=\"color: #71c554;\">Team!</span>",
         "description": "We are excited to have passionate and talented individuals joining us on this journey of innovation and growth.",
         "button": {
             "text": "Meet Our Team",
@@ -138,7 +138,7 @@
         ]
     },
     "team": {
-        "title": "Meet Our <span class=\"text-success\">Team</span>",
+        "title": "Meet Our <span style=\"color: #71c554;\">Team</span>",
         "subtitle": "Passionate professionals building scalable digital experiences for businesses worldwide.",
         "members": [
             {
@@ -190,7 +190,8 @@
         ]
     },
     "services": {
-        "heading": "Our Services",
+        "badge": "Our Services",
+        "heading": "Solutions Built for <span style=\"color: #71c554;\">Your Success!</span>",
         "subtitle": "Smart, scalable digital services built for business success",
         "items": [
             {
@@ -226,7 +227,8 @@
         ]
     },
     "whyUs": {
-        "heading": "Why Choose Us",
+        "badge": "Why Choose Us",
+        "heading": " Your Success Is Our Priority",
         "subtitle": "Delivering excellence through quality, innovation, and dedication",
         "stats": [
             {
@@ -270,7 +272,8 @@
         ]
     },
     "portfolio": {
-        "heading": "Our Recent Works",
+        "badge": "Portfolio",
+        "heading": "Our Recent <span style=\"color: #71c554;\">Works</span>",
         "subtitle": "Elite digital experiences built with premium design and performance.",
         "premium": true,
         "items": [
@@ -331,6 +334,7 @@
         ]
     },
     "techStack": {
+        "badge": "Technologies",
         "heading": "Tech Stack",
         "subtitle": "The modern technologies we use to build premium digital solutions",
         "frontend": [
@@ -351,7 +355,8 @@
         ]
     },
     "testimonials": {
-        "heading": "What Our Clients Say",
+        "badge":  "Feedback",
+        "heading": "What Our <span style=\"color: #71c554;\">Clients Say</span>",
         "subtitle": "Real feedback from our happy clients",
         "items": [
             {
