@@ -1151,7 +1151,7 @@ if (document.readyState === "loading") {
 // --- INDEPENDENCE DAY BANNER LOGIC ---
 function setupIndependenceDayBanner() {
   const today = new Date();
-  const isAugust15 = (today.getMonth() === 7 && today.getDate() <= 20);
+  const isAugust15 = (today.getMonth() === 7 && today.getDate() <= 15);
   
   if (isAugust15) {
     const banner = document.createElement("div");
