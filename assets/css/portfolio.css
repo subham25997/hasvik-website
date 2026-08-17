@@ -2,6 +2,17 @@
   background: #ffffff;
 }
 
+.portfolio-badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 50px;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
 .work-video-card {
   position: relative;
   border-radius: 16px;
@@ -75,7 +86,7 @@
 /* --- Dynamic Portfolio Badge Colors --- */
 
 .badge-completed {
-  background: linear-gradient(90deg, #2f9e60, #2f9e60) !important;
+  background: linear-gradient(90deg, #71c554, #71c554) !important;
   color: #ffffff !important;
 }
 
@@ -85,7 +96,7 @@
 }
 
 .badge-demo {
-  background: linear-gradient(90deg, #0d6efd, #4992ff) !important;
+  background: linear-gradient(90deg, #004c9a, #004c9a) !important;
   color: #ffffff !important;
 }
 

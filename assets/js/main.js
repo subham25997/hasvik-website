@@ -396,7 +396,7 @@ function renderAbout(about) {
                </div>
                <div class="pt-1">
                  <h6 class="mb-1 text-muted fw-bold" style="font-size: 0.85rem;">${item.title}</h6>
-                 <h5 class="fw-bold mb-2" style="color: ${item.colorClass === 'green' ? '#72c84b' : '#0b1c3e'};">${item.subtitle}</h5>
+                 <h5 class="fw-bold mb-2" style="color: ${item.colorClass === 'green' ? '#72c84b' : '#004c9a'};">${item.subtitle}</h5>
                  <p class="text-muted small mb-0">${item.text}</p>
                </div>
              </div>
@@ -520,153 +520,106 @@ function renderTeam(team) {
 
 function renderServices(services) {
   const container = document.getElementById("servicesContent");
-  if (!container) return;
-  container.innerHTML = "";
-  container.appendChild(
-    createElement("h2", { class: "text-center", "data-aos": "fade-up" }, [
-      services.heading,
-    ]),
-  );
-  container.appendChild(
-    createElement("p", { class: "mb-5 text-center services-subtitle" }, [
-      services.subtitle,
-    ]),
-  );
-  const row = createElement(
-    "div",
-    { class: "row g-4" },
-    services.items.map((item, index) =>
-      createElement(
-        "div",
-        {
-          class: "col-lg-4 col-md-6",
-          "data-aos": "fade-up",
-          "data-aos-delay": `${120 + index * 60}`,
-        },
-        [
-          createElement("div", { class: "card service-card h-100 p-4" }, [
-            createElement("div", { class: "d-flex align-items-start gap-3" }, [
-              createElement("div", { class: "service-icon" }, [
-                createElement("i", { class: item.icon }),
-              ]),
-              createElement("div", {}, [
-                createElement("h6", {}, [item.title]),
-                createElement("p", { class: "text-muted mb-0" }, [item.text]),
-              ]),
-            ]),
-          ]),
-        ],
-      ),
-    ),
-  );
-  container.appendChild(row);
+  if (!container || !services) return;
+  
+  container.innerHTML = `
+    <!-- The Standard Heading Design -->
+    <div class="section-heading text-center mb-5" data-aos="fade-up">
+      <span class="section-badge">${services.badge}</span>
+      <h2>${services.heading}</h2>
+      <p>${services.subtitle}</p>
+    </div>
+    
+    <!-- The Services Cards -->
+    <div class="row g-4">
+      ${services.items.map((item, index) => `
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${120 + index * 60}">
+          <div class="card service-card h-100 p-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="service-icon"><i class="${item.icon}"></i></div>
+              <div>
+                <h6>${item.title}</h6>
+                <p class="text-muted mb-0">${item.text}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
 }
 
 function renderWhyUs(whyUs) {
   const container = document.getElementById("whyUsContent");
-  if (!container) return;
-  container.innerHTML = "";
-
-  container.appendChild(
-    createElement("div", { class: "text-center mb-5" }, [
-      createElement("h2", { class: "fw-bold text-white display-5 mb-3" }, [
-        whyUs.heading,
-      ]),
-      createElement(
-        "p",
-        { class: "text-light opacity-75 mx-auto", style: "max-width: 600px;" },
-        [whyUs.subtitle],
-      ),
-    ]),
-  );
-
-  const statsRow = createElement(
-    "div",
-    { class: "row text-center mb-5" },
-    whyUs.stats.map((stat) =>
-      createElement("div", { class: "col-6 col-md-3" }, [
-        createElement("div", { class: "counter", "data-target": stat.target }, [
-          "0",
-        ]),
-        createElement("p", { class: "text-light small" }, [stat.label]),
-      ]),
-    ),
-  );
-  container.appendChild(statsRow);
-
-  const cardsRow = createElement(
-    "div",
-    { class: "row g-4" },
-    whyUs.cards.map((card) =>
-      createElement("div", { class: "col-xl-3 col-md-6" }, [
-        createElement("div", { class: "why-card h-100 text-center p-4" }, [
-          createElement("div", { class: "icon-box mb-4" }, [
-            createElement("i", { class: card.icon }),
-          ]),
-          createElement("h5", { class: "text-white fw-semibold mb-3" }, [
-            card.title,
-          ]),
-          createElement("p", { class: "text-light opacity-75 small mb-0" }, [
-            card.text,
-          ]),
-        ]),
-      ]),
-    ),
-  );
-  container.appendChild(cardsRow);
+  if (!container || !whyUs) return;
+  
+  container.innerHTML = `
+    <!-- The Standard Heading Design -->
+    <div class="section-heading text-center mb-5" data-aos="fade-up">
+      <span class="section-badge">${whyUs.badge}</span>
+      <h2 class="text-white">${whyUs.heading}</h2>
+      <p class="text-light" style="opacity: 0.85;">${whyUs.subtitle}</p>
+    </div>
+    <!-- Stats Row -->
+    <div class="row text-center mb-5">
+      ${whyUs.stats.map(stat => `
+        <div class="col-6 col-md-3">
+          <div class="counter" data-target="${stat.target}">0</div>
+          <p class="text-light small">${stat.label}</p>
+        </div>
+      `).join('')}
+    </div>
+    <!-- Cards Row -->
+    <div class="row g-4">
+      ${whyUs.cards.map(card => `
+        <div class="col-xl-3 col-md-6">
+          <div class="why-card h-100 text-center p-4">
+            <div class="icon-box mb-4">
+              <i class="${card.icon}"></i>
+            </div>
+            <h5 class="text-white fw-semibold mb-3">${card.title}</h5>
+            <p class="text-light opacity-75 small mb-0">${card.text}</p>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
 }
 
 function renderPortfolio(portfolio) {
   const container = document.getElementById("portfolioContent");
-  if (!container) return;
-  container.innerHTML = "";
-
-  container.appendChild(
-    createElement("div", { class: "text-center mb-5", "data-aos": "fade-up" }, [
-      createElement("h2", {}, [portfolio.heading]),
-      createElement("p", { class: "text-muted" }, [portfolio.subtitle]),
-    ]),
-  );
-
+  if (!container || !portfolio) return;
   const section = container.closest("section");
   if (section && portfolio.premium) section.classList.add("premium");
-
-  const row = createElement(
-    "div",
-    { class: "row justify-content-center g-4" },
-    portfolio.items.map((item) =>
-      createElement(
-        "a",
-        {
-          target: "_blank",
-          rel: "noopener",
-          href: item.href,
-          class: "col-lg-4 col-md-6",
-          "data-aos": "zoom-in",
-          "data-aos-delay": item.delay,
-        },
-        [
-          createElement("div", { class: "work-video-card" }, [
-            item.badge
-            ? createElement("span", { 
-                class: `premium-badge badge-${item.badge.toLowerCase().replace(' ', '-')}` 
-              }, [item.badge])
-            : null,
-            createElement("img", {
-              class: "h-100 w-auto",
-              src: item.img,
-              alt: item.alt,
-            }),
-            createElement("div", { class: "overlay" }, [
-              createElement("h6", {}, [item.title]),
-              createElement("p", {}, [item.description]),
-            ]),
-          ]),
-        ],
-      ),
-    ),
-  );
-  container.appendChild(row);
+  
+  container.innerHTML = `
+    <!-- The Standard Heading Design -->
+    <div class="section-heading text-center mb-5" data-aos="fade-up">
+      <span class="section-badge">${portfolio.badge}</span>
+      <h2>${portfolio.heading}</h2>
+      <p>${portfolio.subtitle}</p>
+    </div>
+    
+    <!-- The Portfolio Cards -->
+    <div class="row justify-content-center g-4">
+      ${portfolio.items.map(item => `
+        <a target="_blank" rel="noopener" href="${item.href}" class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="${item.delay}">
+          <div class="work-video-card">
+            
+            <!-- This renders the small Demo/Completed badges inside the card -->
+            ${item.badge ? `<span class="premium-badge badge-${item.badge.toLowerCase().replace(' ', '-')}">${item.badge}</span>` : ''}
+            
+            <img class="h-100 w-100" src="${item.img}" alt="${item.alt}" style="object-fit: cover;">
+            
+            <div class="overlay">
+              <h6>${item.title}</h6>
+              <p>${item.description}</p>
+            </div>
+          </div>
+        </a>
+      `).join('')}
+    </div>
+  `;
 }
 
 function renderTechStack(techData) {
@@ -682,12 +635,15 @@ function renderTechStack(techData) {
       </div>
     `).join('');
   };
-    container.innerHTML = `
-    <h2 class="fw-bold mb-3">${techData.heading}</h2>
-    <p class="text-muted mb-5">${techData.subtitle}</p>
-    
-    <div class="row g-4">
-      
+  container.innerHTML = `
+  <!-- The Standard Heading Design -->
+  <div class="section-heading text-center mb-5" data-aos="fade-up">
+    <span class="section-badge">${techData.badge}</span>
+    <h2>${techData.heading}</h2>
+    <p>${techData.subtitle}</p>
+  </div>
+  
+  <div class="row g-4">
       <!-- Frontend Column -->
       <div class="col-md-6">
         <div class="tech-box"> <!-- Our new CSS Box wrapper! -->
@@ -706,47 +662,48 @@ function renderTechStack(techData) {
           </div>
         </div>
       </div>
-      
     </div>
   `;
 }
 
 function renderTestimonials(testimonials) {
   const container = document.getElementById("testimonialsContent");
-  if (!container) return;
-  container.innerHTML = "";
+  if (!container || !testimonials) return;
+  const getStars = (rating) => {
+    const full = Math.floor(rating);
+    const hasHalf = rating % 1 !== 0;
+    return '<i class="bi bi-star-fill"></i>'.repeat(full) + (hasHalf ? '<i class="bi bi-star-half"></i>' : '');
+  };
 
-  container.appendChild(
-    createElement("div", { class: "text-center mb-5", "data-aos": "fade-up" }, [
-      createElement("h2", {}, [testimonials.heading]),
-      createElement("p", { class: "text-muted" }, [testimonials.subtitle]),
-    ]),
-  );
-
-  const row = createElement(
-    "div",
-    { class: "row g-4" },
-    testimonials.items.map((item) =>
-      createElement(
-        "div",
-        {
-          class: "col-md-4",
-          "data-aos": "fade-up",
-          "data-aos-delay": item.delay,
-        },
-        [
-          createElement("div", { class: "card p-4 h-100 shadow-sm border-0" }, [
-            renderRating(item.rating),
-            createElement("p", { class: "text-muted" }, [`"${item.text}"`]),
-            createElement("h6", { class: "mb-0 fw-semibold" }, [item.name]),
-            createElement("small", { class: "text-muted" }, [item.company]),
-            createElement("small", {}, [item.location]),
-          ]),
-        ],
-      ),
-    ),
-  );
-  container.appendChild(row);
+  container.innerHTML = `
+    <!-- The Standard Heading Design -->
+    <div class="section-heading text-center mb-5" data-aos="fade-up">
+      <span class="section-badge">${testimonials.badge}</span>
+      <h2>${testimonials.heading}</h2>
+      <p>${testimonials.subtitle}</p>
+    </div>
+    
+    <!-- Testimonial Cards -->
+    <div class="row g-4">
+      ${testimonials.items.map(item => `
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="${item.delay}">
+          <div class="card p-4 h-100 shadow-sm border-0">
+            
+            <!-- Render the Stars -->
+            <div class="text-warning mb-3">
+              ${getStars(item.rating)}
+            </div>
+            
+            <p class="text-muted">"${item.text}"</p>
+            <h6 class="mb-0 fw-semibold">${item.name}</h6>
+            <small class="text-muted">${item.company}</small>
+            <small>${item.location}</small>
+            
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
 }
 
 function renderRating(rating) {

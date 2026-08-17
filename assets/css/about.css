@@ -15,10 +15,18 @@
   top: 55px;
   bottom: 10px;
   width: 2px;
-  background: #e2e8f0;
+  background: #6c757d;
   z-index: 0;
 }
-
+.timeline-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: blue;
+}
+.dark-blue {
+  color: #004c9a;
+}
 .icon-circle {
   width: 55px;
   height: 55px;
@@ -32,13 +40,13 @@
 }
 
 .icon-circle.green { 
-  background: #eef9e8; 
-  color: #72c84b; 
+  background-color: #71c554; /* Solid Green Background */
+  color: #ffffff; /* White Icon */
 }
 
 .icon-circle.blue { 
-  background: #e8f0fe; 
-  color: #004c9a; 
+  background-color: #004c9a; /* Solid Dark Blue Background */
+  color: #ffffff; /* White Icon */
 }
 
 .highlight-card {

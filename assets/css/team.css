@@ -8,6 +8,9 @@
   overflow: hidden;
 }
 
+.team .text-success {
+  color: #71c554 !important; 
+}
 .section-badge,
 .mentor-badge {
   display: inline-block;
