@@ -1063,6 +1063,7 @@ if (document.readyState === "loading") {
 function setupIndependenceDayBanner() {
   const today = new Date();
   const isAugust15 = (today.getMonth() === 7 && today.getDate() >= 13 && today.getDate() <=16 );
+  // const isAugust15 = (today.getMonth() === 7 && today.getDate() <= 15);
   
   if (isAugust15) {
     const banner = document.createElement("div");
