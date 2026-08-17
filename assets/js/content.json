@@ -116,79 +116,6 @@
             }
         ]
     },
-    "welcome": {
-        "badge": "We Are Growing",
-        "heading": "Welcome to the <span style=\"color: #71c554;\">Team!</span>",
-        "description": "We are excited to have passionate and talented individuals joining us on this journey of innovation and growth.",
-        "button": {
-            "text": "Meet Our Team",
-            "link": "#team"
-        },
-        "joinees": [
-            {
-                "name": "Youvraj Singh",
-                "role": "Software Development Intern",
-                "image": "./assets/images/team/YouvrajPhoto.jpeg"
-            },
-            {
-                "name": "Abhishek Gupta",
-                "role": "Software Development Intern",
-                "image": "./assets/images/team/AbhishekPhoto.png"
-            }
-        ]
-    },
-    "team": {
-        "title": "Meet Our <span style=\"color: #71c554;\">Team</span>",
-        "subtitle": "Passionate professionals building scalable digital experiences for businesses worldwide.",
-        "members": [
-            {
-                "name": "Youvraj Singh",
-                "role": "Software Development Intern",
-                "image": "assets/images/team/YouvrajPhoto.jpeg",
-                "linkedin": "https://www.linkedin.com/in/youvraj-singh"
-            },
-            {
-                "name": "Annu Singh",
-                "role": "Sales Expert",
-                "image": "./assets/images/team/annu.jpg",
-                "linkedin": "https://linkedin.com/in/annu-singh"
-            },
-            {
-                "name": "Aakriti Singh",
-                "role": "Sales Expert",
-                "image": "./assets/images/team/aakriti.jpeg",
-                "linkedin": "https://linkedin.com/in/aakriti-singh"
-            },
-            {
-                "name": "Abhishek Gupta",
-                "role": "Software Development Intern",
-                "image": "./assets/images/team/AbhishekPhoto.png",
-                "linkedin": "https://www.linkedin.com/in/abhishekguptas1607/"
-            },
-            {
-                "name": "Akankshya Mishra",
-                "role": "Frontend Expert",
-                "image": "./assets/images/team/akankshya.jpeg",
-                "linkedin": "https://linkedin.com/in/akankshya-mishra-7644942b7"
-            },
-            {
-                "name": "Balwant Singh",
-                "role": "Team Supervisor",
-                "image": "./assets/images/team/balwant.jpg",
-                "linkedin": "https://linkedin.com/in/balwant-singh"
-            }
-        ],
-        "mentors": [
-            {
-                "title": "Frontend Mentor",
-                "description": "Experienced UI architect with extensive expertise in building enterprise-grade products for leading global tech companies."
-            },
-            {
-                "title": "Backend Mentor",
-                "description": "Highly experienced system design specialist with strong corporate exposure in scalable backend infrastructure and cloud systems."
-            }
-        ]
-    },
     "services": {
         "badge": "Our Services",
         "heading": "Solutions Built for <span style=\"color: #71c554;\">Your Success!</span>",
@@ -226,6 +153,7 @@
             }
         ]
     },
+
     "whyUs": {
         "badge": "Why Choose Us",
         "heading": " Your Success Is Our Priority",
@@ -271,6 +199,7 @@
             }
         ]
     },
+
     "portfolio": {
         "badge": "Portfolio",
         "heading": "Our Recent <span style=\"color: #71c554;\">Works</span>",
@@ -333,9 +262,85 @@
             }
         ]
     },
+
+    "welcome": {
+        "badge": "We Are Growing",
+        "heading": "Welcome to the <span style=\"color: #71c554;\">Team!</span>",
+        "description": "We are excited to have passionate and talented individuals joining us on this journey of innovation and growth.",
+        "button": {
+            "text": "Meet Our Team",
+            "link": "#team"
+        },
+        "joinees": [
+            {
+                "name": "Youvraj Singh",
+                "role": "Software Development Intern",
+                "image": "./assets/images/team/YouvrajPhoto.jpeg"
+            },
+            {
+                "name": "Abhishek Gupta",
+                "role": "Software Development Intern",
+                "image": "./assets/images/team/AbhishekPhoto.png"
+            }
+        ]
+    },
+
+    "team": {
+        "title": "Meet Our <span style=\"color: #71c554;\">Team</span>",
+        "subtitle": "Passionate professionals building scalable digital experiences for businesses worldwide.",
+        "members": [
+            {
+                "name": "Youvraj Singh",
+                "role": "Software Development Intern",
+                "image": "assets/images/team/YouvrajPhoto.jpeg",
+                "linkedin": "https://www.linkedin.com/in/youvraj-singh"
+            },
+            {
+                "name": "Annu Singh",
+                "role": "Sales Expert",
+                "image": "./assets/images/team/annu.jpg",
+                "linkedin": "https://linkedin.com/in/annu-singh"
+            },
+            {
+                "name": "Aakriti Singh",
+                "role": "Sales Expert",
+                "image": "./assets/images/team/aakriti.jpeg",
+                "linkedin": "https://linkedin.com/in/aakriti-singh"
+            },
+            {
+                "name": "Abhishek Gupta",
+                "role": "Software Development Intern",
+                "image": "./assets/images/team/AbhishekPhoto.png",
+                "linkedin": "https://www.linkedin.com/in/abhishekguptas1607/"
+            },
+            {
+                "name": "Akankshya Mishra",
+                "role": "Frontend Expert",
+                "image": "./assets/images/team/akankshya.jpeg",
+                "linkedin": "https://linkedin.com/in/akankshya-mishra-7644942b7"
+            },
+            {
+                "name": "Balwant Singh",
+                "role": "Team Supervisor",
+                "image": "./assets/images/team/balwant.jpg",
+                "linkedin": "https://linkedin.com/in/balwant-singh"
+            }
+        ],
+        "mentors": [
+            {
+                "title": "Frontend Mentor",
+                "description": "Experienced UI architect with extensive expertise in building enterprise-grade products for leading global tech companies."
+            },
+            {
+                "title": "Backend Mentor",
+                "description": "Highly experienced system design specialist with strong corporate exposure in scalable backend infrastructure and cloud systems."
+            }
+        ]
+    },
+    
     "techStack": {
-        "badge": "Technologies Used",
-        "heading": "Tech Stack",
+        "badge": "Tech Stack",
+        "heading": "Technologies We <span style=\"color: #71c554;\">Uses to Build </span>",
         "subtitle": "The modern technologies we use to build premium digital solutions",
         "frontend": [
             { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
@@ -387,6 +392,7 @@
     },
     "contact": {
         "header": {
+            "badge": "Contact Us",
             "title": "Get in Touch",
             "subtitle": "Have a project idea? We'd love to hear from you. Reach us through the options below."
         },
@@ -394,6 +400,7 @@
             {
                 "icon": "bi bi-envelope-fill",
                 "title": "Email Us",
+                "displayInfo": "hasviktechnologies@gmail.com",
                 "text": "Send us your project requirements and we'll get back to you soon.",
                 "link": "mailto:hasviktechnologies@gmail.com",
                 "buttonText": "Email Us",
@@ -402,6 +409,7 @@
             {
                 "icon": "bi bi-whatsapp",
                 "title": "Chat on WhatsApp",
+                "displayInfo": "+91-9454263965",
                 "text": "Want a quick response? Message us directly on WhatsApp.",
                 "link": "https://wa.me/919454263965?text=Hello%20HASVIK,%20I%20am%20interested%20in%20your%20website%20services",
                 "buttonText": "Start Chat",
@@ -419,7 +427,8 @@
         }
     },
     "faqs": {
-        "heading": "Frequently Asked Questions",
+        "badge": "FAQs",
+        "heading": "Frequently Asked <span style=\"color: #71c554;\">Questions</span>",
         "subtitle": "Answers to common questions about our services and premium support experience.",
         "items": [
             {

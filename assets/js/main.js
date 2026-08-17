@@ -428,96 +428,6 @@ function renderAbout(about) {
   `;
 }
 
-function renderWelcome(welcomeData) {
-  const container = document.getElementById("welcomeContent");
-  if (!container || !welcomeData) return;
-  container.innerHTML = `
-    <div class="welcome-banner">
-      <div class="row align-items-center g-5">
-        <!-- Left Side: Text Content (Takes up 5 columns on desktop) -->
-        <div class="col-lg-5 text-center text-lg-start">
-          <span class="welcome-badge">${welcomeData.badge}</span>
-          <h2>${welcomeData.heading}</h2>
-          <p class="text-light" style="opacity: 0.85; line-height: 1.7;">${welcomeData.description}</p>
-          <a href="${welcomeData.button.link}" class="welcome-btn">
-            ${welcomeData.button.text} <i class="bi bi-arrow-right-circle-fill"></i>
-          </a>
-        </div>
-        <!-- Right Side: The Cards (Takes up 7 columns on desktop) -->
-        <div class="col-lg-7">
-          <div class="row justify-content-center g-4">
-            ${welcomeData.joinees.map(joinee => `
-              <div class="col-sm-6">
-                <!-- This is your hoverable card -->
-                <div class="welcome-card">
-                  <img src="${joinee.image}" alt="${joinee.name}" class="welcome-card-img">
-                  <h5>${joinee.name}</h5>
-                  <p>${joinee.role}</p>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  `;
-}
-
-function renderTeam(team) {
-  const teamContainer = document.getElementById("team-members-container");
-  document.getElementById("team-title").innerHTML = team.title;
-  document.getElementById("team-subtitle").innerText = team.subtitle;
-  teamContainer.innerHTML = ""; 
-  team.members.forEach((member) => {
-    teamContainer.innerHTML += `
-    <div class="col-lg-4 col-md-6" data-aos="fade-up">
-      <div class="team-card">
-        <div class="team-img mx-auto">
-          <img src="${member.image}" alt="${member.name}" class="h-100 w-100" style="object-fit: cover;">
-        </div>
-        <h5 class="fw-bold mt-2 mb-1" style="color: #0b1c3e;">${member.name}</h5>
-        <div class="team-role mb-3" style="color: #6c757d; font-size: 0.85rem;">
-          ${member.role}
-        </div>
-        <a href="${member.linkedin}" target="_blank" rel="noopener" class="linkedin-btn">
-          <i class="bi bi-linkedin"></i>
-        </a>
-      </div>
-    </div>
-  `;
-  });
-
-  // <div class="team-social">
-  //         <a href="${member.linkedin}" target="_blank">
-  //           <i class="bi bi-linkedin"></i>
-  //         </a>
-  //       </div>
-
-  // Mentors
-  const mentorContainer = document.getElementById("mentor-container");
-
-  team.mentors.forEach((mentor, index) => {
-    const icon =
-      index === 0
-        ? '<i class="bi bi-code-slash"></i>'
-        : '<i class="bi bi-server"></i>';
-
-    mentorContainer.innerHTML += `
-        <div class="col-lg-6">
-          <div class="mentor-card">
-            <div class="mentor-icon">
-              ${icon}
-            </div>
-
-            <h4>${mentor.title}</h4>
-            <p>${mentor.description}</p>
-          </div>
-        </div>
-      `;
-  });
-}
-
 function renderServices(services) {
   const container = document.getElementById("servicesContent");
   if (!container || !services) return;
@@ -622,6 +532,96 @@ function renderPortfolio(portfolio) {
   `;
 }
 
+function renderWelcome(welcomeData) {
+  const container = document.getElementById("welcomeContent");
+  if (!container || !welcomeData) return;
+  container.innerHTML = `
+    <div class="welcome-banner">
+      <div class="row align-items-center g-5">
+        <!-- Left Side: Text Content (Takes up 5 columns on desktop) -->
+        <div class="col-lg-5 text-center text-lg-start">
+          <span class="welcome-badge">${welcomeData.badge}</span>
+          <h2>${welcomeData.heading}</h2>
+          <p class="text-light" style="opacity: 0.85; line-height: 1.7;">${welcomeData.description}</p>
+          <a href="${welcomeData.button.link}" class="welcome-btn">
+            ${welcomeData.button.text} <i class="bi bi-arrow-right-circle-fill"></i>
+          </a>
+        </div>
+        <!-- Right Side: The Cards (Takes up 7 columns on desktop) -->
+        <div class="col-lg-7">
+          <div class="row justify-content-center g-4">
+            ${welcomeData.joinees.map(joinee => `
+              <div class="col-sm-6">
+                <!-- This is your hoverable card -->
+                <div class="welcome-card">
+                  <img src="${joinee.image}" alt="${joinee.name}" class="welcome-card-img">
+                  <h5>${joinee.name}</h5>
+                  <p>${joinee.role}</p>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  `;
+}
+
+function renderTeam(team) {
+  const teamContainer = document.getElementById("team-members-container");
+  document.getElementById("team-title").innerHTML = team.title;
+  document.getElementById("team-subtitle").innerText = team.subtitle;
+  teamContainer.innerHTML = ""; 
+  team.members.forEach((member) => {
+    teamContainer.innerHTML += `
+    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+      <div class="team-card">
+        <div class="team-img mx-auto">
+          <img src="${member.image}" alt="${member.name}" class="h-100 w-100" style="object-fit: cover;">
+        </div>
+        <h5 class="fw-bold mt-2 mb-1" style="color: #0b1c3e;">${member.name}</h5>
+        <div class="team-role mb-3" style="color: #6c757d; font-size: 0.85rem;">
+          ${member.role}
+        </div>
+        <a href="${member.linkedin}" target="_blank" rel="noopener" class="linkedin-btn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  `;
+  });
+
+  // <div class="team-social">
+  //         <a href="${member.linkedin}" target="_blank">
+  //           <i class="bi bi-linkedin"></i>
+  //         </a>
+  //       </div>
+
+  // Mentors
+  const mentorContainer = document.getElementById("mentor-container");
+
+  team.mentors.forEach((mentor, index) => {
+    const icon =
+      index === 0
+        ? '<i class="bi bi-code-slash"></i>'
+        : '<i class="bi bi-server"></i>';
+
+    mentorContainer.innerHTML += `
+        <div class="col-lg-6">
+          <div class="mentor-card">
+            <div class="mentor-icon">
+              ${icon}
+            </div>
+
+            <h4>${mentor.title}</h4>
+            <p>${mentor.description}</p>
+          </div>
+        </div>
+      `;
+  });
+}
+
 function renderTechStack(techData) {
   const container = document.getElementById("techStackContent");
   if (!container || !techData) return;
@@ -721,144 +721,98 @@ function renderRating(rating) {
 
 function renderContact(contact) {
   const container = document.getElementById("contactContent");
-  if (!container) return;
-  container.innerHTML = "";
-
-  const header = createElement(
-    "div",
-    { class: "contact-header text-center text-white" },
-    [
-      createElement("div", { class: "container" }, [
-        createElement("h2", { class: "text-white" }, [contact.header.title]),
-        createElement("p", {}, [contact.header.subtitle]),
-      ]),
-    ],
-  );
-
-  const cardRow = createElement(
-    "div",
-    { class: "row justify-content-center g-4" },
-    [
-      ...contact.cards.map((card) =>
-        createElement("div", { class: "col-md-5", "data-aos": "fade-up" }, [
-          createElement("div", { class: "contact-box text-center" }, [
-            createElement("i", { class: `${card.icon} contact-icon` }),
-            createElement("h5", {}, [card.title]),
-            createElement("p", {}, [card.text]),
-            createElement(
-              "a",
-              {
-                href: card.link,
-                class: card.buttonClass,
-                target: card.link.startsWith("http") ? "_blank" : null,
-                rel: card.link.startsWith("http") ? "noopener" : null,
-              },
-              [card.buttonText],
-            ),
-          ]),
-        ]),
-      ),
-      createElement(
-        "div",
-        { class: "col-md-10", "data-aos": "fade-up", "data-aos-delay": 100 },
-        [
-          createElement("div", { class: "contact-box text-center" }, [
-            createElement("i", { class: "bi bi-geo-alt contact-icon" }),
-            createElement("h5", {}, [contact.locationCard.title]),
-            createElement("address", {}, [
-              ...contact.locationCard.addressLines.flatMap((line, index) => [
-                index === 0
-                  ? createElement("strong", { class: "d-block" }, [line])
-                  : createElement("p", { class: "mb-0" }, [line]),
-              ]),
-            ]),
-            createElement("iframe", {
-              src: contact.locationCard.iframeSrc,
-              alt: contact.locationCard.mapAlt,
-              width: "100%",
-              height: "350",
-              style: "border:0;",
-              allowfullscreen: "",
-              loading: "lazy",
-              referrerpolicy: "no-referrer-when-downgrade",
-            }),
-          ]),
-        ],
-      ),
-    ],
-  );
-
-  const wrapper = createElement("div", { class: "container contact-cards" }, [
-    cardRow,
-  ]);
-
-  container.appendChild(header);
-  container.appendChild(wrapper);
+  if (!container || !contact) return;
+  
+  container.innerHTML = `
+    <!-- Header with Standard Design -->
+    <div class="contact-header text-center text-white">
+      <div class="container section-heading mb-5" data-aos="fade-up">
+        <span class="section-badge">${contact.header.badge}</span>
+        <h2 class="text-white">${contact.header.title}</h2>
+        <p class="text-white opacity-75">${contact.header.subtitle}</p>
+      </div>
+    </div>
+  
+    <!-- Contact Cards -->
+    <div class="row justify-content-center g-4">
+      ${contact.cards.map(card => `
+        <div class="col-md-5" data-aos="fade-up">
+          <div class="contact-box text-center">
+            <i class="${card.icon} contact-icon"></i>
+            <h5>${card.title}</h5>
+            
+            <!-- This is where we show your Email ID or Phone Number! -->
+            ${card.displayInfo ? `<h6 class="my-3" style="color: #6c757d;">${card.displayInfo}</h6>` : ''}
+            
+            <p>${card.text}</p>
+            <a href="${card.link}" class="${card.buttonClass}" ${card.link.startsWith("http") ? 'target="_blank" rel="noopener"' : ''}>
+              ${card.buttonText}
+            </a>
+          </div>
+        </div>
+      `).join('')}
+      
+      <!-- Location Card -->
+      <div class="col-md-10" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-box text-center">
+          <i class="bi bi-geo-alt contact-icon"></i>
+          <h5>${contact.locationCard.title}</h5>
+          <address>
+            ${contact.locationCard.addressLines.map((line, index) => 
+              index === 0 ? `<strong class="d-block">${line}</strong>` : `<p class="mb-0">${line}</p>`
+            ).join('')}
+          </address>
+          <iframe 
+            src="${contact.locationCard.iframeSrc}" 
+            alt="${contact.locationCard.mapAlt}"
+            width="100%" 
+            height="350" 
+            style="border:0; border-radius: 12px; margin-top: 15px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function renderFAQs(faqs) {
   const container = document.getElementById("faqsContent");
-  if (!container) return;
-  container.innerHTML = "";
+  if (!container || !faqs) return;
 
-  const header = createElement(
-    "div",
-    { class: "text-center mb-5 faq-header", "data-aos": "fade-up" },
-    [
-      faqs.badge
-        ? createElement("span", { class: "faq-badge mb-3 d-inline-block" }, [
-            faqs.badge,
-          ])
-        : null,
-      createElement("h2", {}, [faqs.heading]),
-      createElement(
-        "p",
-        { class: "text-muted mx-auto", style: "max-width:680px;" },
-        [faqs.subtitle],
-      ),
-    ],
-  );
+  container.innerHTML = `
+    <!-- The White Panel Box -->
+    <div class="faq-panel p-4 p-lg-5 rounded-4 shadow-sm">
+      
+      <!-- The Standard Heading Design -->
+      <div class="section-heading text-center mb-5" data-aos="fade-up">
+        <span class="section-badge">${faqs.badge}</span>
+        <h2>${faqs.heading}</h2>
+        <p class="text-muted mx-auto" style="max-width:680px;">${faqs.subtitle}</p>
+      </div>
 
-  const faqBody = createElement(
-    "div",
-    { class: "accordion faq-accordion", id: "faqsAccordion" },
-    faqs.items.map((faq, index) => {
-      const isOpen = index === 0;
-      return createElement("div", { class: "accordion-item faq-item" }, [
-        createElement("h3", { class: "accordion-header", id: `faq-${index}` }, [
-          createElement(
-            "button",
-            {
-              class: `accordion-button ${isOpen ? "" : "collapsed"}`,
-              type: "button",
-              "data-bs-toggle": "collapse",
-              "data-bs-target": `#faq-collapse-${index}`,
-              "aria-expanded": isOpen ? "true" : "false",
-              "aria-controls": `faq-collapse-${index}`,
-            },
-            [faq.question],
-          ),
-        ]),
-        createElement(
-          "div",
-          {
-            class: `accordion-collapse collapse ${isOpen ? "show" : ""}`,
-            id: `faq-collapse-${index}`,
-            "data-bs-parent": "#faqsAccordion",
-          },
-          [createElement("div", { class: "accordion-body" }, [faq.answer])],
-        ),
-      ]);
-    }),
-  );
-
-  container.appendChild(
-    createElement(
-      "div",
-      { class: "faq-panel p-4 p-lg-5 rounded-4 shadow-sm" },
-      [header, faqBody],
-    ),
-  );
+      <!-- The Accordion List -->
+      <div class="accordion faq-accordion" id="faqsAccordion">
+        ${faqs.items.map((faq, index) => `
+          <div class="accordion-item faq-item">
+            <h3 class="accordion-header" id="faq-${index}">
+              <button class="accordion-button ${index === 0 ? "" : "collapsed"}" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-${index}" aria-expanded="${index === 0 ? "true" : "false"}" aria-controls="faq-collapse-${index}">
+                ${faq.question}
+              </button>
+            </h3>
+            <div id="faq-collapse-${index}" class="accordion-collapse collapse ${index === 0 ? "show" : ""}" data-bs-parent="#faqsAccordion">
+              <div class="accordion-body">
+                ${faq.answer}
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      
+    </div>
+  `;
 }
 
 async function renderContent() {
@@ -1108,7 +1062,7 @@ if (document.readyState === "loading") {
 // --- INDEPENDENCE DAY BANNER LOGIC ---
 function setupIndependenceDayBanner() {
   const today = new Date();
-  const isAugust15 = (today.getMonth() === 7 && today.getDate() <= 20);
+  const isAugust15 = (today.getMonth() === 7 && today.getDate() >= 13 && today.getDate() <=16 );
   
   if (isAugust15) {
     const banner = document.createElement("div");
