@@ -340,7 +340,7 @@
     
     "techStack": {
         "badge": "Tech Stack",
-        "heading": "Technologies We <span style=\"color: #71c554;\">Uses to Build </span>",
+        "heading": "Technologies We <span style=\"color: #71c554;\">Use to Build </span>",
         "subtitle": "The modern technologies we use to build premium digital solutions",
         "frontend": [
             { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
