@@ -217,10 +217,48 @@ const defaultContentData = {
     cards: [
       {
         icon: "bi bi-envelope-fill",
-        title: "Email Us",
+        title: "Email Directory",
+        emailAddresses: [
+          {
+            label: "Sales",
+            address: "sales@hasviktech.com",
+            icon: "bi bi-tag-fill",
+            description: "For new projects, quotes, and business inquiries.",
+            buttonText: "Email Sales",
+          },
+          // {
+          //   label: "Support",
+          //   address: "support@hasviktech.com",
+          //   icon: "bi bi-headset",
+          //   description: "Need help? Our support team is ready to assist you.",
+          //   buttonText: "Email Support",
+          // },
+          {
+            label: "Careers",
+            address: "careers@hasviktech.com",
+            icon: "bi bi-briefcase-fill",
+            description: "Interested in joining our team? We'd love to hear from you.",
+            buttonText: "Email Careers",
+          },
+          {
+            label: "General Info",
+            address: "info@hasviktech.com",
+            icon: "bi bi-info-circle-fill",
+            description: "General queries, partnerships, and other information.",
+            buttonText: "Email Info",
+          },
+        ],
+        // text: "Send us your project requirements and we'll get back to you soon.",
+        // link: "mailto:support@hasviktech.com",
+        // buttonText: "Email Support",
+        // buttonClass: "contact-btn email-btn",
+      },
+      {
+        icon: "bi bi-headset",
+        title: "Email Support",
         text: "Send us your project requirements and we'll get back to you soon.",
-        link: "mailto:hasviktechnologies@gmail.com",
-        buttonText: "Email Us",
+        link: "mailto:support@hasviktech.com",
+        buttonText: "Email Support",
         buttonClass: "contact-btn email-btn",
       },
       {
@@ -734,16 +772,25 @@ function renderContact(contact) {
     </div>
   
     <!-- Contact Cards -->
-    <div class="row justify-content-center g-4">
-      ${contact.cards.map(card => `
-        <div class="col-md-5" data-aos="fade-up">
+    <div class="row justify-content-center g-4 px-5">
+      ${contact.cards.map(card => card.emailAddresses ? card.emailAddresses.map(email => `
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="contact-box email-contact-box text-center">
+            <i class="${email.icon || card.icon} contact-icon"></i>
+            <h5>${email.label}</h5>
+            <a class="email-address" href="mailto:${email.address}">${email.address}</a>
+            <p class="mb-3">${email.description}</p>
+            <a href="mailto:${email.address}" class="contact-btn email-btn">
+              ${email.buttonText || `Email ${email.label}`} <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      `).join('') : `
+        <div class="col-md-6" data-aos="fade-up">
           <div class="contact-box text-center">
             <i class="${card.icon} contact-icon"></i>
             <h5>${card.title}</h5>
-            
-            <!-- This is where we show your Email ID or Phone Number! -->
             ${card.displayInfo ? `<h6 class="my-3" style="color: #6c757d;">${card.displayInfo}</h6>` : ''}
-            
             <p>${card.text}</p>
             <a href="${card.link}" class="${card.buttonClass}" ${card.link.startsWith("http") ? 'target="_blank" rel="noopener"' : ''}>
               ${card.buttonText}
@@ -753,7 +800,7 @@ function renderContact(contact) {
       `).join('')}
       
       <!-- Location Card -->
-      <div class="col-md-10" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
         <div class="contact-box text-center">
           <i class="bi bi-geo-alt contact-icon"></i>
           <h5>${contact.locationCard.title}</h5>

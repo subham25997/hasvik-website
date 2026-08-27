@@ -399,17 +399,44 @@
         "cards": [
             {
                 "icon": "bi bi-envelope-fill",
-                "title": "Email Us",
-                "displayInfo": "hasviktechnologies@gmail.com",
+                "title": "Email Directory",
+                "emailAddresses": [
+                    {
+                        "label": "Sales",
+                        "address": "sales@hasviktech.com",
+                        "icon": "bi bi-tag-fill",
+                        "description": "For new projects, quotes, and business inquiries.",
+                        "buttonText": "Email Sales"
+                    },
+                    {
+                        "label": "Careers",
+                        "address": "careers@hasviktech.com",
+                        "icon": "bi bi-briefcase-fill",
+                        "description": "Interested in joining our team? We'd love to hear from you.",
+                        "buttonText": "Email Careers"
+                    },
+                    {
+                        "label": "General Inquiries",
+                        "address": "info@hasviktech.com",
+                        "icon": "bi bi-info-circle-fill",
+                        "description": "General queries, partnerships, and other information.",
+                        "buttonText": "Email Info"
+                    }
+                ]
+            },
+            {
+                "icon": "bi bi-headset",
+                "title": "Email Support",
+                "displayInfo": "support@hasviktech.com",
                 "text": "Send us your project requirements and we'll get back to you soon.",
-                "link": "mailto:hasviktechnologies@gmail.com",
-                "buttonText": "Email Us",
+                "link": "mailto:support@hasviktech.com",
+                "buttonText": "Email Support",
                 "buttonClass": "contact-btn email-btn"
             },
             {
                 "icon": "bi bi-whatsapp",
                 "title": "Chat on WhatsApp",
-                "displayInfo": "+91-9454263965",
+                "displayInfo": "+919454263965",
                 "text": "Want a quick response? Message us directly on WhatsApp.",
                 "link": "https://wa.me/919454263965?text=Hello%20HASVIK,%20I%20am%20interested%20in%20your%20website%20services",
                 "buttonText": "Start Chat",
