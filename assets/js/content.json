@@ -207,6 +207,15 @@
         "premium": true,
         "items": [
             {
+                "href": "https://www.lrengineerings.com/",
+                "img": "./assets/images/lreng.png",
+                "alt": "LR Engineering Solutions website - industrial engineering services platform",
+                "title": "LR Engineering Solutions Website",
+                "description": "Contact information and whatsapp booking system",
+                "badge": "Completed",
+                "delay": 0
+            },
+            {
                 "href": "https://rm-suncity-website.vercel.app/",
                 "img": "./assets/images/rm-suncity.png",
                 "alt": "RM Suncity Public School website - educational institution platform",
@@ -232,15 +241,6 @@
                 "description": "Modern website for a beauty parlour with service listings and booking system",
                 "badge": "In Progress",
                 "delay": 200
-            },
-            {
-                "href": "https://www.lrengineerings.com/",
-                "img": "./assets/images/lreng.png",
-                "alt": "LR Engineering Solutions website - industrial engineering services platform",
-                "title": "LR Engineering Solutions Website",
-                "description": "Contact information and whatsapp booking system",
-                "badge": "Completed",
-                "delay": 0
             },
             {
                 "href": "https://ashok-tent-house.vercel.app/",
