@@ -160,7 +160,7 @@
         "subtitle": "Delivering excellence through quality, innovation, and dedication",
         "stats": [
             {
-                "target": 3,
+                "target": 7,
                 "label": "Projects Completed"
             },
             {
@@ -248,7 +248,7 @@
                 "alt": "Parlour Website - beauty and wellness services platform",
                 "title": "Parlour Website",
                 "description": "Modern website for a beauty parlour with service listings and booking system",
-                "badge": "Demo",
+                "badge": "In Progress",
                 "delay": 200
             },
             {

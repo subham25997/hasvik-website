@@ -119,7 +119,7 @@ const defaultContentData = {
     subtitle:
       "Delivering excellence through quality, innovation, and dedication",
     stats: [
-      { target: 3, label: "Projects Completed" },
+      { target: 7, label: "Projects Completed" },
       { target: 3, label: "Projects In Progress" },
       { target: 7, label: "Happy Clients" },
       { target: 1, label: "Years Experience" },
