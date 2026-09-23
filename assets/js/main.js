@@ -283,6 +283,58 @@ const defaultContentData = {
         "Google Maps location of HASVIK Technologies office in Maniar, Ballia, Uttar Pradesh",
     },
   },
+  welcome: {
+    badge: "PROJECT DELIVERED",
+    heading: 'Website Successfully <span style="color: #71c554;">Delivered!</span>',
+    description: "We’re delighted to deliver a modern and responsive website for R.M. Suncity Public School, designed to provide students, parents, and visitors with easy access to important school information.",
+    button: {
+      text: "Visit Website →",
+      link: "https://rm-suncity-website.vercel.app/"
+    },
+    stats: [
+      { value: "100%", label: "Client Satisfaction" },
+      { value: "Live", label: "Deployed Website" },
+      { value: "Fast", label: "Optimized Delivery" }
+    ],
+    projects: [
+      {
+        title: "RM Suncity Public School - Home",
+        page: "Home Page",
+        displayUrl: "rm-suncity-website.vercel.app",
+        description: "Modern educational portal featuring school highlights, Olympiad recognitions, and live notices board.",
+        image: "./assets/images/rm-suncity-home.jpg",
+        badge: "Completed",
+        link: "https://rm-suncity-website.vercel.app/"
+      },
+      {
+        title: "RM Suncity Public School - About Us",
+        page: "About Us",
+        displayUrl: "rm-suncity-website.vercel.app/about",
+        description: "Showcasing 15+ years of excellence, values, vision, classroom infrastructure, and mission statement.",
+        image: "./assets/images/rm-suncity-about.jpg",
+        badge: "Completed",
+        link: "https://rm-suncity-website.vercel.app/"
+      },
+      {
+        title: "RM Suncity Public School - Academics",
+        page: "Academics",
+        displayUrl: "rm-suncity-website.vercel.app/academics",
+        description: "Holistic student development programs with arts & creativity, dance, music, drama, and sports.",
+        image: "./assets/images/rm-suncity-academics.jpg",
+        badge: "Completed",
+        link: "https://rm-suncity-website.vercel.app/"
+      },
+      {
+        title: "RM Suncity Public School - Gallery",
+        page: "Gallery",
+        displayUrl: "rm-suncity-website.vercel.app/gallery",
+        description: "Vibrant campus moments capturing student talent, celebrations, cultural events, and award ceremonies.",
+        image: "./assets/images/rm-suncity-gallery.jpg",
+        badge: "Completed",
+        link: "https://rm-suncity-website.vercel.app/"
+      }
+    ]
+  },
 };
 
 function createElement(tag, attrs = {}, children = []) {
@@ -573,37 +625,153 @@ function renderPortfolio(portfolio) {
 function renderWelcome(welcomeData) {
   const container = document.getElementById("welcomeContent");
   if (!container || !welcomeData) return;
+
+  const projects = welcomeData.projects || [];
+  const hasProjects = projects.length > 0;
+  const stats = welcomeData.stats || [
+    { value: "100%", label: "Client Satisfaction" },
+    { value: "Live", label: "Deployed Websites" },
+    { value: "Fast", label: "Optimized Delivery" }
+  ];
+
   container.innerHTML = `
     <div class="welcome-banner">
       <div class="row align-items-center g-5">
-        <!-- Left Side: Text Content (Takes up 5 columns on desktop) -->
+        <!-- Left Side: Text Content -->
         <div class="col-lg-5 text-center text-lg-start">
-          <span class="welcome-badge">${welcomeData.badge}</span>
+          <span class="welcome-badge">
+            <i class="bi bi-patch-check-fill me-1 text-success"></i> ${welcomeData.badge}
+          </span>
           <h2>${welcomeData.heading}</h2>
-          <p class="text-light" style="opacity: 0.85; line-height: 1.7;">${welcomeData.description}</p>
-          <a href="${welcomeData.button.link}" class="welcome-btn">
-            ${welcomeData.button.text} <i class="bi bi-arrow-right-circle-fill"></i>
-          </a>
-        </div>
-        <!-- Right Side: The Cards (Takes up 7 columns on desktop) -->
-        <div class="col-lg-7">
-          <div class="row justify-content-center g-4">
-            ${welcomeData.joinees.map(joinee => `
-              <div class="col-sm-6">
-                <!-- This is your hoverable card -->
-                <div class="welcome-card">
-                  <img src="${joinee.image}" alt="${joinee.name}" class="welcome-card-img">
-                  <h5>${joinee.name}</h5>
-                  <p>${joinee.role}</p>
-                </div>
+          <p class="text-light" style="opacity: 0.88; line-height: 1.7; font-size: 0.98rem;">${welcomeData.description}</p>
+          
+          <div class="delivered-stats d-flex gap-4 justify-content-center justify-content-lg-start my-4">
+            ${stats.map((stat, idx) => `
+              <div class="delivered-stat-item">
+                <span class="stat-num">${stat.value}</span>
+                <span class="stat-label">${stat.label}</span>
               </div>
+              ${idx < stats.length - 1 ? '<div class="stat-divider"></div>' : ''}
             `).join('')}
           </div>
+
+          <a href="${welcomeData.button.link}" ${welcomeData.button.link && welcomeData.button.link.startsWith('http') ? 'target="_blank" rel="noopener"' : ''} class="welcome-btn">
+            ${(welcomeData.button.text || 'Visit Website →').includes('→') || (welcomeData.button.text || '').includes('->') ? welcomeData.button.text : `${welcomeData.button.text} <i class="bi bi-arrow-right"></i>`}
+          </a>
         </div>
-        
+
+        <!-- Right Side: Delivered Projects Carousel -->
+        <div class="col-lg-7">
+          ${hasProjects ? `
+            <div class="delivered-carousel-wrapper">
+              <!-- Browser Mockup Header -->
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="browser-address">
+                  <i class="bi bi-lock-fill me-1 text-success"></i>
+                  <span class="address-text" id="browserAddressText">${projects[0]?.displayUrl || 'rm-suncity-website.vercel.app'}</span>
+                </div>
+                <div class="browser-badge">
+                  <span class="pulse-dot"></span> Live
+                </div>
+              </div>
+
+              <!-- Carousel -->
+              <div id="deliveredCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                <!-- Indicators -->
+                <div class="carousel-indicators delivered-indicators">
+                  ${projects.map((_, i) => `
+                    <button type="button" data-bs-target="#deliveredCarousel" data-bs-slide-to="${i}" class="${i === 0 ? 'active' : ''}" aria-current="${i === 0 ? 'true' : 'false'}" aria-label="Slide ${i + 1}"></button>
+                  `).join('')}
+                </div>
+
+                <!-- Slides -->
+                <div class="carousel-inner delivered-carousel-inner">
+                  ${projects.map((project, i) => `
+                    <div class="carousel-item ${i === 0 ? 'active' : ''}">
+                      <div class="delivered-slide-card">
+                        <!-- Badge Group -->
+                        <div class="delivered-badge-group">
+                          <span class="delivered-status-badge">
+                            <i class="bi bi-check-circle-fill me-1"></i> ${project.badge || 'Completed'}
+                          </span>
+                          ${project.page ? `
+                            <span class="delivered-page-badge">
+                              <i class="bi bi-layers-fill me-1"></i> ${project.page}
+                            </span>
+                          ` : ''}
+                        </div>
+
+                        <!-- Screenshot of website with hover scroll -->
+                        <div class="screenshot-container">
+                          <img src="${project.image}" alt="${project.title}" class="delivered-screenshot" loading="lazy">
+                        </div>
+
+                        <!-- Slide Overlay -->
+                        <div class="delivered-slide-overlay">
+                          <div class="slide-info">
+                            <h4 class="slide-title">${project.title}</h4>
+                            <p class="slide-desc">${project.description}</p>
+                          </div>
+                          <a href="${project.link}" target="_blank" rel="noopener" class="slide-visit-btn">
+                            <span>Visit Website</span>
+                            <i class="bi bi-box-arrow-up-right ms-1"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev delivered-ctrl prev" type="button" data-bs-target="#deliveredCarousel" data-bs-slide="prev" aria-label="Previous">
+                  <span class="ctrl-icon"><i class="bi bi-chevron-left"></i></span>
+                </button>
+                <button class="carousel-control-next delivered-ctrl next" type="button" data-bs-target="#deliveredCarousel" data-bs-slide="next" aria-label="Next">
+                  <span class="ctrl-icon"><i class="bi bi-chevron-right"></i></span>
+                </button>
+              </div>
+            </div>
+          ` : `
+            <!-- Fallback for team joinees if ever configured -->
+            <div class="row justify-content-center g-4">
+              ${(welcomeData.joinees || []).map(joinee => `
+                <div class="col-sm-6">
+                  <div class="welcome-card">
+                    <img src="${joinee.image}" alt="${joinee.name}" class="welcome-card-img">
+                    <h5>${joinee.name}</h5>
+                    <p>${joinee.role}</p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
       </div>
     </div>
   `;
+
+  if (hasProjects) {
+    const carouselEl = document.getElementById("deliveredCarousel");
+    const addressEl = document.getElementById("browserAddressText");
+    if (carouselEl && typeof bootstrap !== "undefined" && typeof bootstrap.Carousel === "function") {
+      new bootstrap.Carousel(carouselEl, {
+        interval: 4000,
+        ride: "carousel",
+        pause: "hover"
+      });
+
+      carouselEl.addEventListener("slide.bs.carousel", (e) => {
+        if (addressEl && projects[e.to]) {
+          addressEl.textContent = projects[e.to].displayUrl || projects[e.to].title;
+        }
+      });
+    }
+  }
 }
 
 function renderTeam(team) {
@@ -619,22 +787,13 @@ function renderTeam(team) {
           <img src="${member.image}" alt="${member.name}" class="h-100 w-100" style="object-fit: cover;">
         </div>
         <h5 class="fw-bold mt-2 mb-1" style="color: #0b1c3e;">${member.name}</h5>
-        <div class="team-role mb-3" style="color: #6c757d; font-size: 0.85rem;">
+        <div class="team-role mb-0" style="color: #6c757d; font-size: 0.85rem;">
           ${member.role}
         </div>
-        <a href="${member.linkedin}" target="_blank" rel="noopener" class="linkedin-btn">
-          <i class="bi bi-linkedin"></i>
-        </a>
       </div>
     </div>
   `;
   });
-
-  // <div class="team-social">
-  //         <a href="${member.linkedin}" target="_blank">
-  //           <i class="bi bi-linkedin"></i>
-  //         </a>
-  //       </div>
 
   // Mentors
   const mentorContainer = document.getElementById("mentor-container");
@@ -866,7 +1025,7 @@ async function renderContent() {
   const data = await loadContentData();
   renderHero(data.hero);
   renderAbout(data.about);
-  renderWelcome(data.welcome);
+  renderWelcome(data.deliveredProjects || data.welcome);
   renderTeam(data.team);
   renderServices(data.services);
   renderWhyUs(data.whyUs);

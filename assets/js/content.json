@@ -264,23 +264,54 @@
     },
 
     "welcome": {
-        "badge": "We Are Growing",
-        "heading": "Welcome to the <span style=\"color: #71c554;\">Team!</span>",
-        "description": "We are excited to have passionate and talented individuals joining us on this journey of innovation and growth.",
+        "badge": "PROJECT DELIVERED",
+        "heading": "Website Successfully <span style=\"color: #71c554;\">Delivered!</span>",
+        "description": "We’re delighted to deliver a modern and responsive website for R.M. Suncity Public School, designed to provide students, parents, and visitors with easy access to important school information.",
         "button": {
-            "text": "Meet Our Team",
-            "link": "#team"
+            "text": "Visit Website →",
+            "link": "https://rm-suncity-website.vercel.app/"
         },
-        "joinees": [
+        "stats": [
+            { "value": "100%", "label": "Client Satisfaction" },
+            { "value": "Live", "label": "Deployed Website" },
+            { "value": "Fast", "label": "Optimized Delivery" }
+        ],
+        "projects": [
             {
-                "name": "Youvraj Singh",
-                "role": "Software Development Intern",
-                "image": "./assets/images/team/YouvrajPhoto.jpeg"
+                "title": "RM Suncity Public School - Home",
+                "page": "Home Page",
+                "displayUrl": "rm-suncity-website.vercel.app",
+                "description": "Modern educational portal featuring school highlights, Olympiad recognitions, and live notices board.",
+                "image": "./assets/images/rm-suncity-home.jpg",
+                "badge": "Completed",
+                "link": "https://rm-suncity-website.vercel.app/"
             },
             {
-                "name": "Abhishek Gupta",
-                "role": "Software Development Intern",
-                "image": "./assets/images/team/AbhishekPhoto.png"
+                "title": "RM Suncity Public School - About Us",
+                "page": "About Us",
+                "displayUrl": "rm-suncity-website.vercel.app/about",
+                "description": "Showcasing 15+ years of excellence, values, vision, classroom infrastructure, and mission statement.",
+                "image": "./assets/images/rm-suncity-about.jpg",
+                "badge": "Completed",
+                "link": "https://rm-suncity-website.vercel.app/"
+            },
+            {
+                "title": "RM Suncity Public School - Academics",
+                "page": "Academics",
+                "displayUrl": "rm-suncity-website.vercel.app/academics",
+                "description": "Holistic student development programs with arts & creativity, dance, music, drama, and sports.",
+                "image": "./assets/images/rm-suncity-academics.jpg",
+                "badge": "Completed",
+                "link": "https://rm-suncity-website.vercel.app/"
+            },
+            {
+                "title": "RM Suncity Public School - Gallery",
+                "page": "Gallery",
+                "displayUrl": "rm-suncity-website.vercel.app/gallery",
+                "description": "Vibrant campus moments capturing student talent, celebrations, cultural events, and award ceremonies.",
+                "image": "./assets/images/rm-suncity-gallery.jpg",
+                "badge": "Completed",
+                "link": "https://rm-suncity-website.vercel.app/"
             }
         ]
     },
@@ -292,38 +323,32 @@
             {
                 "name": "Youvraj Singh",
                 "role": "Software Development Intern",
-                "image": "assets/images/team/YouvrajPhoto.jpeg",
-                "linkedin": "https://www.linkedin.com/in/youvraj-singh"
+                "image": "assets/images/team/YouvrajPhoto.jpeg"
             },
             {
                 "name": "Annu Singh",
                 "role": "Sales Expert",
-                "image": "./assets/images/team/annu.jpg",
-                "linkedin": "https://linkedin.com/in/annu-singh"
+                "image": "./assets/images/team/annu.jpg"
             },
             {
                 "name": "Aakriti Singh",
                 "role": "Sales Expert",
-                "image": "./assets/images/team/aakriti.jpeg",
-                "linkedin": "https://linkedin.com/in/aakriti-singh"
+                "image": "./assets/images/team/aakriti.jpeg"
             },
             {
                 "name": "Abhishek Gupta",
                 "role": "Software Development Intern",
-                "image": "./assets/images/team/AbhishekPhoto.png",
-                "linkedin": "https://www.linkedin.com/in/abhishekguptas1607/"
+                "image": "./assets/images/team/AbhishekPhoto.png"
             },
             {
                 "name": "Akankshya Mishra",
                 "role": "Frontend Expert",
-                "image": "./assets/images/team/akankshya.jpeg",
-                "linkedin": "https://linkedin.com/in/akankshya-mishra-7644942b7"
+                "image": "./assets/images/team/akankshya.jpeg"
             },
             {
                 "name": "Balwant Singh",
                 "role": "Team Supervisor",
-                "image": "./assets/images/team/balwant.jpg",
-                "linkedin": "https://linkedin.com/in/balwant-singh"
+                "image": "./assets/images/team/balwant.jpg"
             }
         ],
         "mentors": [
