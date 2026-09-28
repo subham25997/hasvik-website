@@ -168,7 +168,7 @@ const defaultContentData = {
         delay: 0,
       },
       {
-        href: "https://rm-suncity-website.vercel.app/",
+        href: "https://rmsuncitymaniar.in",
         img: "./assets/images/rm-suncity.png",
         alt: "RM Suncity Public School website - educational institution platform",
         title: "RM Suncity Public School",
@@ -289,7 +289,7 @@ const defaultContentData = {
     description: "We’re delighted to deliver a modern and responsive website for R.M. Suncity Public School, designed to provide students, parents, and visitors with easy access to important school information.",
     button: {
       text: "Visit Website →",
-      link: "https://rm-suncity-website.vercel.app/"
+      link: "https://rmsuncitymaniar.in"
     },
     stats: [
       { value: "100%", label: "Client Satisfaction" },
@@ -300,38 +300,38 @@ const defaultContentData = {
       {
         title: "RM Suncity Public School - Home",
         page: "Home Page",
-        displayUrl: "rm-suncity-website.vercel.app",
+        displayUrl: "rmsuncitymaniar.in",
         description: "Modern educational portal featuring school highlights, Olympiad recognitions, and live notices board.",
         image: "./assets/images/rm-suncity-home.jpg",
         badge: "Completed",
-        link: "https://rm-suncity-website.vercel.app/"
+        link: "https://rmsuncitymaniar.in"
       },
       {
         title: "RM Suncity Public School - About Us",
         page: "About Us",
-        displayUrl: "rm-suncity-website.vercel.app/about",
+        displayUrl: "rmsuncitymaniar.in/about",
         description: "Showcasing 15+ years of excellence, values, vision, classroom infrastructure, and mission statement.",
         image: "./assets/images/rm-suncity-about.jpg",
         badge: "Completed",
-        link: "https://rm-suncity-website.vercel.app/"
+        link: "https://rmsuncitymaniar.in/about"
       },
       {
         title: "RM Suncity Public School - Academics",
         page: "Academics",
-        displayUrl: "rm-suncity-website.vercel.app/academics",
+        displayUrl: "rmsuncitymaniar.in/academics",
         description: "Holistic student development programs with arts & creativity, dance, music, drama, and sports.",
         image: "./assets/images/rm-suncity-academics.jpg",
         badge: "Completed",
-        link: "https://rm-suncity-website.vercel.app/"
+        link: "https://rmsuncitymaniar.in"
       },
       {
         title: "RM Suncity Public School - Gallery",
         page: "Gallery",
-        displayUrl: "rm-suncity-website.vercel.app/gallery",
+        displayUrl: "rmsuncitymaniar.in/gallery",
         description: "Vibrant campus moments capturing student talent, celebrations, cultural events, and award ceremonies.",
         image: "./assets/images/rm-suncity-gallery.jpg",
         badge: "Completed",
-        link: "https://rm-suncity-website.vercel.app/"
+        link: "https://rmsuncitymaniar.in/gallery"
       }
     ]
   },
@@ -673,7 +673,7 @@ function renderWelcome(welcomeData) {
                 </div>
                 <div class="browser-address">
                   <i class="bi bi-lock-fill me-1 text-success"></i>
-                  <span class="address-text" id="browserAddressText">${projects[0]?.displayUrl || 'rm-suncity-website.vercel.app'}</span>
+                  <span class="address-text" id="browserAddressText">${projects[0]?.displayUrl || 'rmsuncitymaniar.in'}</span>
                 </div>
                 <div class="browser-badge">
                   <span class="pulse-dot"></span> Live
