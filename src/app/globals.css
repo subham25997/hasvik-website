@@ -1,0 +1,335 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------
+   HASVIK design tokens
+   Brand primitives come from the original hasviktech.com site.
+   Semantic tokens map them per theme (light default, .dark override).
+   ------------------------------------------------------------------ */
+:root {
+  /* Brand primitives */
+  --brand-950: #0b1c3e;
+  --brand-900: #002f6c;
+  --brand-800: #003770;
+  --brand-700: #004c9a;
+  --brand-600: #015bb5;
+  --accent-400: #71c554; /* leaf green — fills, icons, large text on dark */
+  --accent-500: #5bb140;
+  --accent-teal: #2f9e60;
+  --accent-ink: #367c25; /* AA-safe green for small text on light bg (5.3:1 on white) */
+  --sky-50: #eaf5ff;
+  --sky-100: #cfeeff;
+  --slate-text: #5e6c82;
+  --ink: #222222;
+  --orange-600: #e36a00;
+  --orange-400: #ff9533;
+  --whatsapp: #087c42;
+
+  /* Semantic (light) */
+  --background: #ffffff;
+  --foreground: #0b1c3e;
+  --surface: #f5f9ff; /* alternating section bg */
+  --surface-2: var(--sky-50);
+  --card: #ffffff;
+  --card-foreground: #0b1c3e;
+  --muted-foreground: #4f5d73; /* 6.4:1 on white */
+  --border: #dbe7f5;
+  --heading: var(--brand-900);
+  --highlight-from: #3e8e2a; /* gradient highlight words (>=3:1 large text) */
+  --highlight-to: #2f8f57;
+  --link: var(--brand-700);
+  --ring: #015bb5;
+  --eyebrow-bg: #e9f7e3;
+  --eyebrow-fg: var(--accent-ink);
+  --shadow-color: 214 60% 25%;
+}
+
+.dark {
+  --background: #071430;
+  --foreground: #e8eef8;
+  --surface: #0b1c3e;
+  --surface-2: #0e2350;
+  --card: #0e2147;
+  --card-foreground: #e8eef8;
+  --muted-foreground: #a6b5cc; /* 7.9:1 on #071430 */
+  --border: #1d3563;
+  --heading: #f3f7fd;
+  --highlight-from: #71c554;
+  --highlight-to: #5fd39a;
+  --link: #8cc4ff;
+  --ring: #71c554;
+  --eyebrow-bg: rgb(113 197 84 / 0.14);
+  --eyebrow-fg: #8fdc72;
+  --shadow-color: 222 80% 3%;
+}
+
+@theme inline {
+  --font-sans: var(--font-poppins), var(--font-devanagari), ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-heading: var(--heading);
+  --color-link: var(--link);
+  --color-ring: var(--ring);
+  --color-eyebrow: var(--eyebrow-bg);
+  --color-eyebrow-foreground: var(--eyebrow-fg);
+
+  --color-brand-950: var(--brand-950);
+  --color-brand-900: var(--brand-900);
+  --color-brand-800: var(--brand-800);
+  --color-brand-700: var(--brand-700);
+  --color-brand-600: var(--brand-600);
+  --color-accent: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-teal: var(--accent-teal);
+  --color-accent-ink: var(--accent-ink);
+  --color-sky-50: var(--sky-50);
+  --color-sky-100: var(--sky-100);
+  --color-orange: var(--orange-600);
+  --color-whatsapp: var(--whatsapp);
+
+  --radius-card: 1.25rem;
+  --radius-xl2: 1.5rem;
+
+  --shadow-soft: 0 1px 2px hsl(var(--shadow-color) / 0.06), 0 8px 24px -8px hsl(var(--shadow-color) / 0.14);
+  --shadow-lift: 0 2px 4px hsl(var(--shadow-color) / 0.08), 0 24px 48px -16px hsl(var(--shadow-color) / 0.28);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-marquee-reverse: marquee var(--marquee-duration, 40s) linear infinite reverse;
+  --animate-aurora: aurora 18s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - var(--marquee-gap, 1rem) / 2));
+    }
+  }
+  @keyframes aurora {
+    0% {
+      transform: translate3d(-6%, -4%, 0) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate3d(4%, 6%, 0) rotate(8deg) scale(1.08);
+    }
+    100% {
+      transform: translate3d(8%, -2%, 0) rotate(-6deg) scale(1);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--heading);
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: rgb(113 197 84 / 0.35);
+  }
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  button,
+  [role="button"],
+  a {
+    touch-action: manipulation;
+  }
+  button:not(:disabled),
+  [role="button"] {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  /* Signature highlighted words in headings: "Your Success!" */
+  .text-highlight {
+    background-image: linear-gradient(100deg, var(--highlight-from), var(--highlight-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .on-dark .text-highlight {
+    background-image: linear-gradient(100deg, #8fdc72, #71c554 60%, #5fd39a);
+  }
+  .bg-hero {
+    background: linear-gradient(135deg, #003770 0%, #004c9a 50%, #015bb5 100%);
+  }
+  .dark .bg-hero {
+    background: linear-gradient(135deg, #04102a 0%, #0a2457 55%, #0d3277 100%);
+  }
+  .bg-band {
+    background: linear-gradient(90deg, rgb(0 47 108 / 0.97), rgb(0 76 154 / 0.94));
+  }
+  .bg-soft {
+    background: linear-gradient(var(--surface), color-mix(in oklab, var(--surface-2) 70%, var(--background)) 45%, var(--background));
+  }
+  .bg-green-cta {
+    background-image: linear-gradient(90deg, #367c25, #2f6b1f);
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 40%, transparent 100%);
+  }
+  .bg-dots {
+    background-image: radial-gradient(color-mix(in oklab, var(--heading) 14%, transparent) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .glass {
+    background: rgb(255 255 255 / 0.1);
+    border: 1px solid rgb(255 255 255 / 0.18);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+  /* Card spotlight that follows the pointer (set --mx/--my from JS). */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgb(113 197 84 / 0.14), transparent 45%);
+    opacity: 0;
+    transition: opacity 250ms ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .on-dark .bg-green-cta {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    box-shadow: none !important;
+  }
+  .on-dark .bg-green-cta:hover {
+    border: 2px solid #fff;
+    background: #00000055;
+  }
+}
+
+/* Scroll reveal (see components/motion/reveal.tsx). Hidden only when JS runs. */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 550ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+    transform 550ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+}
+html.js [data-reveal="item"] {
+  transform: translate3d(0, 16px, 0) scale(0.98);
+}
+html.js [data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+/* Stagger children of a reveal group 60ms apart. */
+[data-reveal-group] > [data-reveal]:nth-child(2) {
+  --reveal-delay: 60ms;
+}
+[data-reveal-group] > [data-reveal]:nth-child(3) {
+  --reveal-delay: 120ms;
+}
+[data-reveal-group] > [data-reveal]:nth-child(4) {
+  --reveal-delay: 180ms;
+}
+[data-reveal-group] > [data-reveal]:nth-child(5) {
+  --reveal-delay: 240ms;
+}
+[data-reveal-group] > [data-reveal]:nth-child(6) {
+  --reveal-delay: 300ms;
+}
+[data-reveal-group] > [data-reveal]:nth-child(7) {
+  --reveal-delay: 340ms;
+}
+[data-reveal-group] > [data-reveal]:nth-child(n + 8) {
+  --reveal-delay: 380ms;
+}
+
+/* Performance on phones: large animated blur blobs and floating glass badges cost
+   ~1s of style/paint work on mid-range devices, so they are desktop-only. */
+@media (max-width: 767px) {
+  .animate-aurora {
+    display: none;
+  }
+  .animate-float {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

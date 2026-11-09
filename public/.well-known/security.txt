@@ -1,0 +1,4 @@
+Contact: mailto:info@hasviktech.com
+Canonical: https://hasviktech.com/.well-known/security.txt
+Expires: 2027-11-09T00:00:00.000Z
+Preferred-Languages: en, hi

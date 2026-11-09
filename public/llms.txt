@@ -1,0 +1,42 @@
+# HASVIK Technologies
+
+> HASVIK Technologies is an Udyam Registered MSME based in Maniar, Ballia, Uttar Pradesh, India. The company provides quality-focused, security-conscious website development, e-commerce, marketplace product listing, digital services, and business software to clients in India and worldwide. Its approach emphasizes careful execution, accuracy, clear communication, and safeguards appropriate to each project's scope.
+
+Use the following first-party pages as the authoritative source for company, service, portfolio, and product information. The website is available in English and Hindi.
+
+## Company
+
+- [Home](https://hasviktech.com/)
+- [About HASVIK Technologies](https://hasviktech.com/about)
+- [Contact and demo enquiries](https://hasviktech.com/contact)
+- [Locations](https://hasviktech.com/locations)
+
+## Services
+
+- [All services](https://hasviktech.com/services)
+- [Website design and development](https://hasviktech.com/services/custom-website-development)
+- [E-commerce website development](https://hasviktech.com/services/ecommerce-website-development)
+- [E-commerce product listing and marketplace management](https://hasviktech.com/services/ecommerce-marketplace-management) — catalog creation, bulk uploads, listing optimization, inventory and pricing updates, and seller account support for Amazon, Flipkart and Meesho. HASVIK provides independent support and is not affiliated with these marketplaces.
+- [Data entry and catalog management](https://hasviktech.com/services/data-entry-processing)
+
+The services directory includes all currently published technology and non-technology services. Individual service pages contain their scope, deliverables, and FAQs.
+
+## Products
+
+- [HASVIK LEADS CRM](https://hasviktech.com/products/leads-crm) — web-based lead management software with a searchable lead directory, visual pipeline, follow-up list and calendar, and lead history.
+- [Explore HASVIK LEADS CRM](https://salescrm.hasviktech.com/explore-crm)
+
+## Work and policies
+
+- [Selected projects](https://hasviktech.com/work)
+- [Privacy policy](https://hasviktech.com/privacy)
+- [Terms of service](https://hasviktech.com/terms)
+- [XML sitemap](https://hasviktech.com/sitemap.xml)
+
+## Hindi pages
+
+- [मुख्य पृष्ठ](https://hasviktech.com/hi)
+- [सेवाएँ](https://hasviktech.com/hi/services)
+- [ई-कॉमर्स प्रोडक्ट लिस्टिंग और मार्केटप्लेस मैनेजमेंट](https://hasviktech.com/hi/services/ecommerce-marketplace-management)
+- [HASVIK LEADS CRM](https://hasviktech.com/hi/products/leads-crm)
+- [संपर्क](https://hasviktech.com/hi/contact)
