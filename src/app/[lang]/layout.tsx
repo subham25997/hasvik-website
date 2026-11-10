@@ -50,6 +50,9 @@ const heroSerif = Instrument_Serif({
   preload: false, // only the highlighted words use it; skip the early preload
 });
 
+const themeInitScript =
+  "try{var d=localStorage.getItem('theme')==='dark';var e=document.documentElement;e.classList.add('js');e.classList.toggle('dark',d);e.style.colorScheme=d?'dark':'light'}catch(_){}";
+
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
@@ -97,6 +100,10 @@ async function RootLayoutContent({ children, params }: LayoutProps<"/[lang]">) {
       data-scroll-behavior="smooth"
       className={`${poppins.variable} ${devanagari.variable} ${heroSans.variable} ${heroMono.variable} ${heroSerif.variable} scroll-smooth antialiased`}
     >
+      <head>
+        {/* Runs synchronously in <head>, before first paint, so the saved theme never flashes the wrong way. */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-dvh overflow-x-clip bg-background">
         <BootstrapScripts />
         <a

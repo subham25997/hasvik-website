@@ -72,6 +72,7 @@ export const hi: Dictionary = {
     mockupLabel: "HASVIK LEADS CRM प्रोडक्ट परिचय",
     productLabel: "हमारा पहला प्रोडक्ट",
     productName: "HASVIK LEADS CRM",
+    productTagline: "हर लीड, फॉलो-अप और डील एक ही जगह ट्रैक करें।",
     bookDemo: "डेमो बुक करें",
     demoForm: {
       title: "CRM डेमो बुक करें",

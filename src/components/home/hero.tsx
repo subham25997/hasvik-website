@@ -53,7 +53,7 @@ export async function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="hero-grain relative isolate overflow-hidden bg-hero-bg pt-28 pb-14 text-hero-fg sm:pt-36 sm:pb-20 lg:pt-44 lg:pb-24"
+      className="hero-grain on-dark bg-hero relative isolate overflow-hidden pt-28 pb-14 text-hero-fg transition-colors duration-300 motion-reduce:transition-none sm:pt-36 sm:pb-20 lg:pt-44 lg:pb-24"
     >
       <Container>
         {/* Editorial split: headline on the left, the "what and how" on the right. */}
@@ -80,9 +80,10 @@ export async function Hero() {
               <span
                 style={delay(160)}
                 className={cn(
-                  "block text-brand-green",
+                  // The site's signature green highlight gradient. Instrument Serif has no Devanagari,
+                  // so Hindi stays upright. Right padding stops the italic overhang being clipped.
+                  "text-highlight -mb-[0.2em] block pr-[0.12em] pb-[0.2em]",
                   RISE,
-                  // Instrument Serif has no Devanagari: keep Hindi upright and mark it with colour alone.
                   !isHindi && "font-display-serif font-normal italic",
                 )}
               >
@@ -147,13 +148,14 @@ export async function Hero() {
 
         {/* Product stage, with one faint brand-gradient line along its top edge. */}
         <div style={delay(440)} className={cn("relative mt-12 sm:mt-16", RISE)}>
-          <div aria-hidden="true" className="hero-hairline absolute inset-x-12 -top-px z-10 h-px opacity-70" />
+          <div aria-hidden="true" className="hero-hairline absolute inset-x-12 -top-px z-10 h-px opacity-(--hero-hairline-opacity)" />
           <HeroMockup
             shots={shots}
             productPageUrl={localizePath("/products/leads-crm", locale)}
             label={t.hero.mockupLabel}
             productLabel={t.hero.productLabel}
             productName={t.hero.productName}
+            productTagline={t.hero.productTagline}
             exploreCrmLabel={t.hero.ctaCrm}
             bookDemoLabel={t.hero.bookDemo}
             pauseLabel={t.a11y.pause}
@@ -171,7 +173,7 @@ export async function Hero() {
               <li key={c.slug}>
                 <Link
                   href={localizePath(`/work/${c.slug}`, locale)}
-                  className="font-display text-lg font-medium tracking-tight text-hero-fg opacity-55 transition-opacity duration-300 hover:opacity-100 focus-visible:opacity-100 sm:text-xl"
+                  className="font-display text-lg font-medium tracking-tight text-hero-logo transition-colors duration-300 hover:text-hero-fg focus-visible:text-hero-fg motion-reduce:transition-none sm:text-xl"
                 >
                   {c.name}
                 </Link>

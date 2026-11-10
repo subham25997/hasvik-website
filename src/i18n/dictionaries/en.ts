@@ -68,6 +68,7 @@ export const en = {
     mockupLabel: "HASVIK LEADS CRM product tour",
     productLabel: "Our First Product",
     productName: "HASVIK LEADS CRM",
+    productTagline: "Track every lead, follow-up and deal in one place.",
     bookDemo: "Book Demo",
     demoForm: {
       title: "Book a CRM demo",

@@ -15,9 +15,9 @@ export const buttonVariants = cva(
         glass: "glass text-white hover:-translate-y-0.5 hover:bg-white/20",
         ghost: "text-heading hover:bg-surface-2",
         whatsapp: "bg-whatsapp text-white hover:-translate-y-0.5 hover:brightness-105",
-        // Hero-only: solid brand green with dark text (9:1) and a subtle inset highlight.
+        // Hero-only. Light: solid ink, light text, green on hover. Dark: solid green, dark text.
         heroPrimary:
-          "bg-brand-green text-hero-bg font-display shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_10px_30px_-12px_rgb(113_197_84/0.6)] hover:brightness-110",
+          "hero-primary-shadow bg-hero-primary text-hero-primary-fg font-display hover:bg-hero-primary-hover hover:text-hero-primary-hover-fg",
         // Hero-only: an underlined text link whose underline draws in on hover.
         heroGhost:
           "rounded-none px-0 font-display text-hero-fg bg-[linear-gradient(currentColor,currentColor)] bg-[length:2.5rem_1px] bg-[position:0_100%] bg-no-repeat pb-1 transition-[background-size,color] duration-300 hover:bg-[length:100%_1px] hover:text-brand-green active:scale-100",
