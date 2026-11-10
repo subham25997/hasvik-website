@@ -57,11 +57,9 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     metadataBase: new URL(siteUrl),
     ...pageMetadata({ locale: lang, path: "/" }),
     title: { default: t.meta.defaultTitle, template: `%s | ${site.name}` },
-    applicationName: site.name,
     authors: [{ name: site.name, url: siteUrl }],
     creator: site.name,
     formatDetection: { telephone: true, email: true, address: true },
-    appleWebApp: { title: site.shortName, capable: true, statusBarStyle: "black-translucent" },
     category: "technology",
   };
 }
