@@ -39,7 +39,7 @@ export const en = {
   hero: {
     titleStart: "Building the Future with",
     titleHighlight: "Technology",
-    subtitle: "Empowering well-trained rural talent to deliver high-quality digital solutions.",
+    subtitle: "Building practical digital solutions that help businesses and organizations grow.",
     rotatingPrefix: "We help you with",
     rotating: [
       "Custom Websites for your business",
@@ -141,17 +141,9 @@ export const en = {
     titleEnd: "with Purpose",
     p1: "HASVIK Technologies is an Udyam Registered MSME delivering quality-focused, reliable, and practical digital services for businesses and organizations.",
     p2: "We take a security-conscious approach to the websites, software, product listings, and business support we deliver—with clear communication, careful execution, and solutions shaped around each project's needs.",
-    timeline: [
-      { date: "5 April 2025", title: "Founded", body: "Our journey began with a vision to make technology accessible for all." },
-      {
-        date: "1 August 2026",
-        title: "Udyam Registration",
-        body: "We became an Udyam Registered MSME, strengthening our commitment to quality, trust, and long-term partnerships.",
-      },
-    ],
     values: [
       { title: "High Quality Digital Solutions", body: "Modern, secure & scalable solutions for your business." },
-      { title: "Empowering Rural Talent", body: "Creating opportunities for skilled professionals." },
+      { title: "Thoughtful Collaboration", body: "Working closely with clients to turn ideas into lasting solutions." },
       { title: "Client Focused Approach", body: "We understand your needs and deliver the best." },
       { title: "Affordable Pricing", body: "Quality solutions that fit your budget." },
     ],
@@ -351,7 +343,7 @@ export const en = {
   },
   footer: {
     about:
-      "Empowering rural talent to deliver high-quality digital solutions. We combine technical expertise, creativity, and reliability to help businesses build a strong presence in the digital world.",
+      "We combine technical expertise, creativity, and reliability to help businesses build a strong presence in the digital world.",
     quickLinks: "Quick Links",
     services: "Services",
     getInTouch: "Get In Touch",
@@ -366,23 +358,17 @@ export const en = {
   aboutPage: {
     title: "About HASVIK",
     intro:
-      "We are a young, Udyam-registered company from Maniar, Ballia, on a mission to prove that world-class digital work can come from rural India.",
+      "We are a Udyam-registered technology company based in Maniar, Ballia, building useful digital solutions for organizations in India and around the world.",
     storyTitle: "Our story",
     story: [
-      "HASVIK Technologies was founded on 5 April 2025 with a simple belief: every small business, school and shop deserves a professional digital presence, and talented young people in small towns deserve meaningful tech careers without leaving home.",
-      "Today we design and build websites, set up Google listings and handle data work for clients worldwide, while training and mentoring local talent to industry standards.",
+      "HASVIK Technologies was founded on 5 April 2025 with a simple belief: every business, school, and organization deserves a clear, professional digital presence and technology that serves its goals.",
+      "Today we design and build websites, set up Google listings, and handle data work for clients worldwide, with a focus on thoughtful execution and dependable service.",
     ],
     missionTitle: "Our mission",
-    mission: "Make technology accessible for all, and create opportunities for rural talent to do high-quality digital work.",
-    ruralTitle: "Why rural talent?",
-    rural:
-      "Skill is everywhere; opportunity isn't. By building our team in Ballia, guided by experienced mentors from the industry, we keep our pricing affordable for clients while creating jobs in our own community.",
-    journey: "Our journey",
-    today: {
-      date: "Today",
-      title: "Serving clients worldwide",
-      body: "{projects}+ projects delivered for {clients}+ happy clients, from schools to engineering firms, and the team keeps growing.",
-    },
+    mission: "Make technology useful and accessible through reliable digital solutions that help organizations serve people better.",
+    visionTitle: "Our vision",
+    vision:
+      "A future where every organization can use technology with confidence, build stronger connections with its audience, and grow sustainably.",
   },
   careersPage: {
     title: "Careers at HASVIK",

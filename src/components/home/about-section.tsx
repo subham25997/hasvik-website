@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Award, Flag, HandCoins, Sparkles, Sprout, Users } from "lucide-react";
+import { ArrowRight, HandCoins, Sparkles, Sprout, Users } from "lucide-react";
 import { getDictionary } from "@/i18n/server";
 import { localizePath } from "@/i18n/config";
 import { Container, Section, SectionHeader } from "@/components/ui/section";
@@ -9,7 +9,6 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 export async function AboutSection() {
   const { locale, t } = await getDictionary();
   const valueIcons = [Sparkles, Sprout, Users, HandCoins];
-  const timelineIcons = [Flag, Award];
 
   return (
     <Section id="about" aria-labelledby="about-title">
@@ -42,24 +41,6 @@ export async function AboutSection() {
             <p>{t.about.p1}</p>
             <p>{t.about.p2}</p>
           </Reveal>
-
-          <ol className="relative mt-8 flex flex-col gap-5 border-l-2 border-dashed border-border pl-6">
-            {t.about.timeline.map((item, i) => {
-              const TlIcon = timelineIcons[i % timelineIcons.length];
-              return (
-                <li key={item.date} className="relative">
-                  <span className="absolute top-0 left-[-2.35rem] inline-flex size-8 items-center justify-center rounded-full bg-accent-ink text-white ring-4 ring-background">
-                    <TlIcon className="size-4" aria-hidden="true" />
-                  </span>
-                  <Reveal delay={i * 0.08}>
-                    <p className="text-xs font-semibold tracking-wider text-eyebrow-foreground uppercase">{item.date}</p>
-                    <h3 className="text-lg font-semibold">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.body}</p>
-                  </Reveal>
-                </li>
-              );
-            })}
-          </ol>
 
           <Reveal className="mt-8">
             <Link
