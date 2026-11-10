@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, CalendarDays, FolderCheck, MapPinned } from "lucide-react";
+import { ArrowRight, FolderCheck, MapPinned } from "lucide-react";
 import { getDictionary } from "@/i18n/server";
-import { localizePath, tr } from "@/i18n/config";
+import { localizePath } from "@/i18n/config";
 import { fmt } from "@/i18n/dictionaries";
 import { site } from "@/content/site";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/section";
-import { RotatingText } from "@/components/motion/rotating-text";
 import { HeroMockup } from "./hero-mockup";
 import { cn } from "@/lib/utils";
 
@@ -26,74 +25,60 @@ export async function Hero() {
     src: `/images/leads-crm/${slide.image}`,
     ...crmScreenshotDimensions[slide.image],
   }));
-  const trustIcons = [BadgeCheck, CalendarDays, FolderCheck, MapPinned];
-  const trust = t.hero.trust.map((s) => fmt(s, { n: site.stats.projectsCompleted }));
-  const tagline = tr(site.tagline, locale)
-    .split(". ")
-    .map((w) => w.replace(/\.$/, ""));
+  const trustIcons = [FolderCheck, MapPinned];
+  // The legal status already leads the hero; the strip carries the other proof points.
+  const trust = t.hero.trust.slice(1, 3).map((s) => fmt(s, { n: site.stats.projectsCompleted }));
 
   return (
     <section
       aria-labelledby="hero-title"
-      className="on-dark bg-hero relative isolate overflow-hidden pt-24 pb-8 text-white min-[390px]:pt-28 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16"
+      className="on-dark bg-hero relative isolate overflow-hidden pt-28 pb-14 text-white sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 -right-40 size-[34rem] rounded-full bg-[#2fa3ff]/20 blur-[120px]" />
-        <div className="absolute bottom-[-14rem] left-1/4 size-[30rem] rounded-full bg-[#2f9e60]/15 blur-[120px]" />
-        <div className="bg-grid absolute inset-0 opacity-50" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-black/10" />
+        <div className="absolute -top-40 -right-40 size-[34rem] rounded-full bg-[#2fa3ff]/15 blur-[120px]" />
+        <div className="bg-grid absolute inset-0 opacity-30" />
       </div>
 
-      <Container className="grid items-center gap-6 sm:gap-10 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-12">
-        <div className="flex flex-col items-start gap-3.5 sm:gap-5 lg:gap-6">
-          <span className="glass inline-flex max-w-full items-center gap-2 rounded-full px-3 py-1 text-[0.62rem] font-semibold tracking-wide text-white/95 sm:px-3.5 sm:py-1.5 sm:text-sm">
-            <span aria-hidden="true" className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-50" />
-              <span className="relative inline-flex size-2 rounded-full bg-accent" />
-            </span>
-            {site.legalStatus} · {site.address.locality}, {site.address.district}
+      <Container className="flex flex-col gap-14 sm:gap-16 lg:gap-20">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center sm:gap-7">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-white/70 uppercase">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
+            {site.legalStatus}
           </span>
 
-          <h1 id="hero-title" className="max-w-[14ch] text-[2rem] leading-[1.02] font-extrabold tracking-tight text-white min-[390px]:text-4xl sm:max-w-none sm:text-5xl lg:text-[4.1rem]">
+          <h1
+            id="hero-title"
+            className="text-4xl leading-[1.08] font-extrabold tracking-tight text-balance text-white sm:text-5xl lg:text-[3.75rem]"
+          >
             {t.hero.titleStart} <span className="text-highlight">{t.hero.titleHighlight}</span>
           </h1>
 
-          <p className="max-w-xl text-sm leading-relaxed text-white/80 sm:text-lg">{t.hero.subtitle}</p>
+          <p className="max-w-xl text-base leading-relaxed text-pretty text-white/80 sm:text-lg">{t.hero.subtitle}</p>
 
-          <div className="hidden w-full max-w-xl border-l-2 border-accent/70 py-1 pl-4 text-lg text-white/80 sm:block">
-            <span className="mb-0.5 block text-[0.68rem] font-semibold tracking-[0.16em] text-white/55 uppercase">
-              {t.hero.rotatingPrefix}
-            </span>
-            <RotatingText items={t.hero.rotating} />
-          </div>
-
-          <ul
-            aria-label={tr(site.tagline, locale)}
-            className="hidden flex-wrap items-center gap-x-3 gap-y-1 text-[0.68rem] font-semibold tracking-[0.12em] text-white/65 uppercase sm:flex"
-          >
-            {tagline.map((w, i) => (
-              <li key={w} className="flex items-center gap-2">
-                {i > 0 ? <span aria-hidden="true" className="size-1 rounded-full bg-accent/80" /> : null}
-                <span>{w}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="grid w-full max-w-md grid-cols-1 gap-2 pt-0.5 min-[390px]:grid-cols-2 sm:flex sm:w-auto sm:gap-3 sm:pt-1">
-            <Link
-              href={localizePath("/services", locale)}
-              className={cn(buttonVariants({ size: "lg" }), "w-full min-w-0 px-3 text-sm sm:w-auto sm:px-8 sm:text-base")}
-            >
+          <div className="flex w-full flex-col gap-3 pt-2 min-[440px]:w-auto min-[440px]:flex-row min-[440px]:items-center min-[440px]:gap-6">
+            <Link href={localizePath("/services", locale)} className={cn(buttonVariants({ size: "lg" }), "w-full px-8 min-[440px]:w-auto")}>
               {t.hero.ctaPrimary}
               <ArrowRight className="transition-transform duration-200 group-hover/btn:translate-x-1" aria-hidden="true" />
             </Link>
             <Link
               href={localizePath("/contact", locale)}
-              className={cn(buttonVariants({ variant: "glass", size: "lg" }), "w-full min-w-0 px-3 text-sm sm:w-auto sm:px-8 sm:text-base")}
+              className="inline-flex min-h-11 items-center justify-center rounded-sm text-sm font-semibold text-white/85 underline decoration-white/30 underline-offset-[6px] transition-colors hover:text-white hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-2 sm:text-base"
             >
               {t.hero.ctaSecondary}
             </Link>
           </div>
+
+          <ul className="mt-2 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-white/75">
+            {trust.map((item, i) => {
+              const TrustIcon = trustIcons[i];
+              return (
+                <li key={item} className="flex items-center gap-2">
+                  <TrustIcon className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                  {item}
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
         <HeroMockup
@@ -110,25 +95,6 @@ export async function Hero() {
           demoStrings={t.hero.demoForm}
           privacyHref={localizePath("/privacy", locale)}
         />
-      </Container>
-
-      <Container className="mt-6 sm:mt-12 lg:mt-14">
-        <ul className="hidden grid-cols-2 gap-2 rounded-2xl border border-white/10 bg-white/[0.04] p-2 sm:grid sm:gap-3 sm:p-3 lg:grid-cols-4">
-          {trust.map((item, i) => {
-            const TrustIcon = trustIcons[i];
-            return (
-              <li
-                key={item}
-                className="flex items-center gap-2.5 rounded-xl px-2 py-2 text-xs leading-snug font-medium text-white/90 sm:gap-3 sm:px-3 sm:py-2.5 sm:text-sm"
-              >
-                <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-accent">
-                  <TrustIcon className="size-4 sm:size-5" aria-hidden="true" />
-                </span>
-                {item}
-              </li>
-            );
-          })}
-        </ul>
       </Container>
     </section>
   );

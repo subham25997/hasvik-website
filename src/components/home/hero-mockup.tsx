@@ -59,33 +59,17 @@ export function HeroMockup({
   return (
     <figure
       aria-label={label}
-      className="relative mx-auto w-full max-w-2xl"
+      className="relative mx-auto w-full max-w-4xl"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <div aria-hidden="true" className="pointer-events-none absolute -inset-8 rounded-[2.5rem] bg-accent/25 blur-3xl" />
-
-      <header className="mb-2 flex items-center justify-between gap-3 px-1 sm:mb-3 sm:px-2">
-        <h2 className="truncate text-sm font-bold tracking-wide text-white sm:text-base">
-          <Link href={productPageUrl} className="rounded-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2">
-            {productName}
-          </Link>
-        </h2>
-        <span className="shrink-0 rounded-full border border-white/20 bg-white/[0.08] px-2.5 py-1 text-[0.65rem] font-medium text-white/70 tabular-nums sm:text-xs">
-          {String(active + 1).padStart(2, "0")} <span className="text-white/40">/</span> {String(shots.length).padStart(2, "0")}
-        </span>
-      </header>
-
-      <div className="relative rounded-[1.4rem] border border-white/20 bg-white/[0.08] p-1.5 shadow-[0_32px_80px_-36px_rgb(2_6_23/0.8)] backdrop-blur-md min-[440px]:rounded-[1.65rem] min-[440px]:p-2 sm:rounded-[2rem] sm:p-3">
+      <div className="relative rounded-2xl border border-white/15 bg-white/[0.06] p-2 shadow-[0_32px_80px_-36px_rgb(2_6_23/0.8)] sm:rounded-3xl sm:p-3">
         <div
-          className="relative overflow-hidden rounded-xl bg-slate-100 ring-1 ring-black/10 sm:rounded-2xl"
+          className="relative overflow-hidden rounded-lg bg-slate-100 ring-1 ring-black/10 sm:rounded-xl"
           style={{ aspectRatio: `${shot?.width ?? 1900} / ${shot?.height ?? 870}` }}
         >
-          <span className="absolute top-2 left-2 z-20 inline-flex rounded-full border border-white/30 bg-accent-500 px-3 py-1 text-[0.65rem] font-semibold tracking-wide text-white shadow-lg sm:top-3 sm:left-3 sm:text-xs">
-            {productLabel}
-          </span>
           {shots.map((s, i) => (
             <Image
               key={s.src}
@@ -94,28 +78,32 @@ export function HeroMockup({
               aria-hidden="true"
               fill
               priority={i === 0}
-              sizes="(min-width: 1280px) 576px, (min-width: 1024px) 45vw, 92vw"
+              sizes="(min-width: 1024px) 896px, 92vw"
               className={cn("object-contain transition-opacity duration-700 ease-out", i === active ? "opacity-100" : "opacity-0")}
             />
           ))}
         </div>
       </div>
 
-      <div className="mt-2.5 rounded-2xl border border-white/15 bg-white/[0.06] p-2.5 shadow-lg backdrop-blur-sm min-[440px]:mt-3 min-[440px]:p-3 sm:mt-4 sm:rounded-3xl sm:p-4">
-        <div className="flex flex-col items-stretch gap-2.5 min-[440px]:gap-3">
+      <div className="mt-6 flex flex-col gap-5 px-1 sm:px-2">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
-            <h2 className="text-[0.82rem] font-bold leading-snug text-white min-[440px]:text-sm sm:text-base">{shot?.title}</h2>
-            <p className="mt-1 max-w-lg text-xs leading-relaxed text-white/70 sm:text-sm">{shot?.description}</p>
+            <p className="text-[0.68rem] font-semibold tracking-[0.14em] text-accent uppercase">{productLabel}</p>
+            <h2 className="mt-1 text-base font-bold text-white">
+              <Link href={productPageUrl} className="rounded-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2">
+                {productName}
+              </Link>
+            </h2>
+            <p className="mt-1 text-sm text-white/70" aria-live="polite">
+              {shot?.title}
+            </p>
           </div>
-          <div className="flex w-full flex-col items-stretch gap-2 lg:flex-row">
+          <div className="flex w-full shrink-0 flex-col gap-2 min-[440px]:w-auto min-[440px]:flex-row">
             <Link
               href={leadsCrmUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(
-                buttonVariants({ variant: "glass", size: "sm" }),
-                "!w-full border border-accent/40 bg-accent/10 text-white hover:bg-accent/20 lg:flex-1",
-              )}
+              className={cn(buttonVariants({ variant: "glass", size: "sm" }), "w-full min-[440px]:w-auto")}
             >
               {exploreCrmLabel}
               <ArrowUpRight
@@ -126,13 +114,13 @@ export function HeroMockup({
             <BookDemo
               strings={demoStrings}
               triggerLabel={bookDemoLabel}
-              triggerClassName="w-full lg:flex-1"
+              triggerClassName="w-full border border-white/25 bg-transparent shadow-none hover:translate-y-0 hover:bg-white/10 min-[440px]:w-auto"
               privacyHref={privacyHref}
             />
           </div>
         </div>
 
-        <figcaption className="mt-2.5 flex items-center gap-2 border-t border-white/10 pt-2.5 min-[440px]:mt-3 min-[440px]:pt-3">
+        <figcaption className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => selectSlide(active - 1)}
