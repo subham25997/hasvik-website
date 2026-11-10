@@ -78,7 +78,7 @@ export function HeroMockup({
         </span>
       </header>
 
-      <div className="relative rounded-[1.65rem] border border-white/20 bg-white/[0.08] p-2 shadow-[0_32px_80px_-36px_rgb(2_6_23/0.8)] backdrop-blur-md sm:rounded-[2rem] sm:p-3">
+      <div className="relative rounded-[1.4rem] border border-white/20 bg-white/[0.08] p-1.5 shadow-[0_32px_80px_-36px_rgb(2_6_23/0.8)] backdrop-blur-md min-[440px]:rounded-[1.65rem] min-[440px]:p-2 sm:rounded-[2rem] sm:p-3">
         <div
           className="relative overflow-hidden rounded-xl bg-slate-100 ring-1 ring-black/10 sm:rounded-2xl"
           style={{ aspectRatio: `${shot?.width ?? 1900} / ${shot?.height ?? 870}` }}
@@ -101,20 +101,20 @@ export function HeroMockup({
         </div>
       </div>
 
-      <div className="mt-3 rounded-2xl border border-white/15 bg-white/[0.06] p-3 shadow-lg backdrop-blur-sm sm:mt-4 sm:rounded-3xl sm:p-4">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-2.5 rounded-2xl border border-white/15 bg-white/[0.06] p-2.5 shadow-lg backdrop-blur-sm min-[440px]:mt-3 min-[440px]:p-3 sm:mt-4 sm:rounded-3xl sm:p-4">
+        <div className="flex flex-col items-stretch gap-2.5 min-[440px]:gap-3">
           <div className="min-w-0">
-            <h2 className="text-sm font-bold text-white sm:text-base">{shot?.title}</h2>
+            <h2 className="text-[0.82rem] font-bold leading-snug text-white min-[440px]:text-sm sm:text-base">{shot?.title}</h2>
             <p className="mt-1 max-w-lg text-xs leading-relaxed text-white/70 sm:text-sm">{shot?.description}</p>
           </div>
-          <div className="flex w-full shrink-0 flex-col gap-2 min-[440px]:w-auto min-[440px]:flex-row">
+          <div className="flex w-full flex-col items-stretch gap-2 lg:flex-row">
             <Link
               href={leadsCrmUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
                 buttonVariants({ variant: "glass", size: "sm" }),
-                "w-full border border-accent/40 bg-accent/10 text-white hover:bg-accent/20 min-[440px]:w-auto",
+                "!w-full border border-accent/40 bg-accent/10 text-white hover:bg-accent/20 lg:flex-1",
               )}
             >
               {exploreCrmLabel}
@@ -126,13 +126,13 @@ export function HeroMockup({
             <BookDemo
               strings={demoStrings}
               triggerLabel={bookDemoLabel}
-              triggerClassName="w-full min-[440px]:w-auto"
+              triggerClassName="w-full lg:flex-1"
               privacyHref={privacyHref}
             />
           </div>
         </div>
 
-        <figcaption className="mt-3 flex items-center gap-2 border-t border-white/10 pt-3">
+        <figcaption className="mt-2.5 flex items-center gap-2 border-t border-white/10 pt-2.5 min-[440px]:mt-3 min-[440px]:pt-3">
           <button
             type="button"
             onClick={() => selectSlide(active - 1)}

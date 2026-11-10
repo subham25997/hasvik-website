@@ -177,7 +177,7 @@ export function BookDemo({ strings, triggerLabel, triggerClassName, privacyHref 
           type="button"
           className={cn(
             buttonVariants({ variant: "primary", size: "sm" }),
-            "shrink-0 rounded-full bg-accent-500 px-4 text-white shadow-[0_8px_24px_-8px_rgb(91_177_64/0.55)] hover:bg-accent-teal",
+            "w-full shrink-0 rounded-full bg-accent-500 px-4 text-white shadow-[0_8px_24px_-8px_rgb(91_177_64/0.55)] hover:bg-accent-teal",
             triggerClassName,
           )}
         >

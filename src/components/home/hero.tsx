@@ -35,7 +35,7 @@ export async function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="on-dark bg-hero relative isolate overflow-hidden pt-28 pb-12 text-white sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16"
+      className="on-dark bg-hero relative isolate overflow-hidden pt-24 pb-8 text-white min-[390px]:pt-28 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-40 -right-40 size-[34rem] rounded-full bg-[#2fa3ff]/20 blur-[120px]" />
@@ -44,9 +44,9 @@ export async function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-black/10" />
       </div>
 
-      <Container className="grid items-center gap-10 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-12">
-        <div className="flex flex-col items-start gap-4 sm:gap-5 lg:gap-6">
-          <span className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold tracking-wide text-white/95 sm:text-sm">
+      <Container className="grid items-center gap-6 sm:gap-10 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-12">
+        <div className="flex flex-col items-start gap-3.5 sm:gap-5 lg:gap-6">
+          <span className="glass inline-flex max-w-full items-center gap-2 rounded-full px-3 py-1 text-[0.62rem] font-semibold tracking-wide text-white/95 sm:px-3.5 sm:py-1.5 sm:text-sm">
             <span aria-hidden="true" className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-50" />
               <span className="relative inline-flex size-2 rounded-full bg-accent" />
@@ -54,13 +54,13 @@ export async function Hero() {
             {site.legalStatus} · {site.address.locality}, {site.address.district}
           </span>
 
-          <h1 id="hero-title" className="text-4xl leading-[1.08] font-extrabold tracking-tight text-white sm:text-5xl lg:text-[4.1rem]">
+          <h1 id="hero-title" className="max-w-[14ch] text-[2rem] leading-[1.02] font-extrabold tracking-tight text-white min-[390px]:text-4xl sm:max-w-none sm:text-5xl lg:text-[4.1rem]">
             {t.hero.titleStart} <span className="text-highlight">{t.hero.titleHighlight}</span>
           </h1>
 
-          <p className="max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">{t.hero.subtitle}</p>
+          <p className="max-w-xl text-sm leading-relaxed text-white/80 sm:text-lg">{t.hero.subtitle}</p>
 
-          <div className="w-full max-w-xl border-l-2 border-accent/70 py-1 pl-4 text-base text-white/80 sm:text-lg">
+          <div className="hidden w-full max-w-xl border-l-2 border-accent/70 py-1 pl-4 text-lg text-white/80 sm:block">
             <span className="mb-0.5 block text-[0.68rem] font-semibold tracking-[0.16em] text-white/55 uppercase">
               {t.hero.rotatingPrefix}
             </span>
@@ -69,7 +69,7 @@ export async function Hero() {
 
           <ul
             aria-label={tr(site.tagline, locale)}
-            className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.68rem] font-semibold tracking-[0.12em] text-white/65 uppercase"
+            className="hidden flex-wrap items-center gap-x-3 gap-y-1 text-[0.68rem] font-semibold tracking-[0.12em] text-white/65 uppercase sm:flex"
           >
             {tagline.map((w, i) => (
               <li key={w} className="flex items-center gap-2">
@@ -79,7 +79,7 @@ export async function Hero() {
             ))}
           </ul>
 
-          <div className="grid w-full grid-cols-1 gap-2.5 pt-1 min-[390px]:grid-cols-2 sm:flex sm:w-auto sm:gap-3">
+          <div className="grid w-full max-w-md grid-cols-1 gap-2 pt-0.5 min-[390px]:grid-cols-2 sm:flex sm:w-auto sm:gap-3 sm:pt-1">
             <Link
               href={localizePath("/services", locale)}
               className={cn(buttonVariants({ size: "lg" }), "w-full min-w-0 px-3 text-sm sm:w-auto sm:px-8 sm:text-base")}
@@ -112,8 +112,8 @@ export async function Hero() {
         />
       </Container>
 
-      <Container className="mt-10 sm:mt-12 lg:mt-14">
-        <ul className="grid grid-cols-2 gap-2 rounded-2xl border border-white/10 bg-white/[0.04] p-2 sm:gap-3 sm:p-3 lg:grid-cols-4">
+      <Container className="mt-6 sm:mt-12 lg:mt-14">
+        <ul className="hidden grid-cols-2 gap-2 rounded-2xl border border-white/10 bg-white/[0.04] p-2 sm:grid sm:gap-3 sm:p-3 lg:grid-cols-4">
           {trust.map((item, i) => {
             const TrustIcon = trustIcons[i];
             return (
