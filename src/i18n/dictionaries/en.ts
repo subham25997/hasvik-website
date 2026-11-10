@@ -53,6 +53,14 @@ export const en = {
     ctaPrimary: "Explore Services",
     ctaSecondary: "Contact Us",
     ctaCrm: "Explore Leads CRM",
+    capabilitiesLabel: "What we build",
+    capabilities: [
+      { slug: "custom-website-development", label: "Websites" },
+      { slug: "ecommerce-website-development", label: "E-commerce stores" },
+      { slug: "custom-software-development", label: "Custom software" },
+      { slug: "mobile-app-development", label: "Mobile apps" },
+      { slug: "google-map-listing", label: "Google listings" },
+    ],
     trust: ["Udyam Registered MSME", "{n}+ Projects", "Serving clients worldwide"],
     mockupLabel: "HASVIK LEADS CRM product tour",
     productLabel: "Our First Product",
@@ -347,8 +355,7 @@ export const en = {
     pageTitle: "Contact Us",
   },
   footer: {
-    about:
-      "We combine technical expertise, creativity, and reliability to help businesses build a strong presence in the digital world.",
+    about: "We combine technical expertise, creativity, and reliability to help businesses build a strong presence in the digital world.",
     quickLinks: "Quick Links",
     services: "Services",
     getInTouch: "Get In Touch",

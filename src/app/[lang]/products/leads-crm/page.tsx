@@ -87,7 +87,7 @@ export default async function LeadsCrmPage({ params }: PageProps<"/[lang]/produc
 
       <Section tone="surface" aria-labelledby="leads-crm-overview">
         <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-          <div className="relative aspect-[1900/870] overflow-hidden rounded-xl2 border border-border shadow-lift">
+          <div className="relative aspect-[1900/867] overflow-hidden rounded-xl2 border border-border shadow-lift">
             <Image
               src="/images/leads-crm/dashboard.jpg"
               alt={tr(leadsCrm.imageAlt, locale)}
