@@ -57,6 +57,9 @@ export const hi: Dictionary = {
     ctaPrimary: "सेवाएँ देखें",
     ctaSecondary: "संपर्क करें",
     ctaCrm: "Explore Leads CRM",
+    eyebrow: "सॉफ़्टवेयर स्टूडियो · {year} से",
+    stats: { projects: "पूर्ण प्रोजेक्ट", clients: "संतुष्ट ग्राहक", inProgress: "चल रहे प्रोजेक्ट", team: "टीम सदस्य" },
+    trustedBy: "इन टीमों का भरोसा",
     capabilitiesLabel: "हम क्या बनाते हैं",
     capabilities: [
       { slug: "custom-website-development", label: "वेबसाइट" },

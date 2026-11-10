@@ -64,8 +64,38 @@
   --shadow-color: 222 80% 3%;
 }
 
+/* Hero: editorial, always-dark surface. Kept independent of the light/dark theme. */
+:root {
+  --hero-bg: #060d1c;
+  --hero-panel: #0a1428;
+  --hero-fg: #f4f7fc;
+  --hero-muted: #9eacc2; /* 7.9:1 on --hero-bg */
+  --hero-line: rgb(255 255 255 / 0.12);
+  --brand-green: #71c554;
+  --brand-blue: #3b9bff;
+}
+
+/* Wide tracking pulls Devanagari conjuncts apart, so the hero's mono labels go back to normal spacing in Hindi. */
+:lang(hi) .font-mono {
+  letter-spacing: normal;
+}
+
+@theme {
+  --font-display: var(--font-hero-sans), var(--font-devanagari), ui-sans-serif, system-ui, sans-serif;
+  --font-display-serif: var(--font-hero-serif), "Iowan Old Style", Georgia, serif;
+  --font-mono: var(--font-hero-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
 @theme inline {
   --font-sans: var(--font-poppins), var(--font-devanagari), ui-sans-serif, system-ui, sans-serif;
+
+  --color-hero-bg: var(--hero-bg);
+  --color-hero-panel: var(--hero-panel);
+  --color-hero-fg: var(--hero-fg);
+  --color-hero-muted: var(--hero-muted);
+  --color-hero-line: var(--hero-line);
+  --color-brand-green: var(--brand-green);
+  --color-brand-blue: var(--brand-blue);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -105,8 +135,19 @@
   --animate-marquee-reverse: marquee var(--marquee-duration, 40s) linear infinite reverse;
   --animate-aurora: aurora 18s ease-in-out infinite alternate;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-hero-rise: hero-rise 600ms cubic-bezier(0.33, 1, 0.68, 1) both;
   --animate-slide-progress: slide-progress var(--slide-duration, 4.2s) linear forwards;
 
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
   @keyframes slide-progress {
     from {
       transform: scaleX(0);
@@ -225,6 +266,18 @@
   }
   .bg-soft {
     background: linear-gradient(var(--surface), color-mix(in oklab, var(--surface-2) 70%, var(--background)) 45%, var(--background));
+  }
+  /* Film grain: SVG turbulence at ~4% opacity. No blob, no grid. */
+  .hero-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .hero-hairline {
+    background-image: linear-gradient(90deg, transparent, var(--brand-green) 30%, var(--brand-blue) 70%, transparent);
   }
   .bg-green-cta {
     background-image: linear-gradient(90deg, #367c25, #2f6b1f);

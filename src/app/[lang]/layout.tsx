@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_Devanagari, Poppins } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif, Noto_Sans_Devanagari, Poppins } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/next";
@@ -34,6 +34,20 @@ const devanagari = Noto_Sans_Devanagari({
   variable: "--font-devanagari",
   display: "optional", // falls back to the system Devanagari font rather than reflowing
   preload: false, // only needed on Hindi pages; avoids preloading on English ones
+});
+
+// Hero typography: a characterful sans, an italic serif for the highlighted words only,
+// and a mono face for labels and figures. "swap" is safe because next/font generates a
+// size-adjusted fallback, so there is no visible reflow.
+const heroSans = Geist({ subsets: ["latin"], variable: "--font-hero-sans", display: "swap" });
+const heroMono = Geist_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-hero-mono", display: "swap" });
+const heroSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  variable: "--font-hero-serif",
+  display: "swap",
+  preload: false, // only the highlighted words use it; skip the early preload
 });
 
 export async function generateStaticParams() {
@@ -81,7 +95,7 @@ async function RootLayoutContent({ children, params }: LayoutProps<"/[lang]">) {
       lang={htmlLang[lang]}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${poppins.variable} ${devanagari.variable} scroll-smooth antialiased`}
+      className={`${poppins.variable} ${devanagari.variable} ${heroSans.variable} ${heroMono.variable} ${heroSerif.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-dvh overflow-x-clip bg-background">
         <BootstrapScripts />

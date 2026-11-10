@@ -53,6 +53,9 @@ export const en = {
     ctaPrimary: "Explore Services",
     ctaSecondary: "Contact Us",
     ctaCrm: "Explore Leads CRM",
+    eyebrow: "Software studio · Since {year}",
+    stats: { projects: "Projects delivered", clients: "Happy clients", inProgress: "Projects in progress", team: "Team members" },
+    trustedBy: "Trusted by teams at",
     capabilitiesLabel: "What we build",
     capabilities: [
       { slug: "custom-website-development", label: "Websites" },

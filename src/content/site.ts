@@ -5,6 +5,8 @@ export const site = {
   name: "HASVIK Technologies",
   shortName: "HASVIK",
   legalStatus: "Udyam Registered MSME",
+  // TODO(owner): confirm. Matches the earlier "Founded 2025" copy on the site.
+  foundedYear: 2025,
   udyamISO: "2026-08-01",
   domain: "hasviktech.com",
   serviceArea: "Worldwide",
@@ -66,7 +68,7 @@ export const site = {
    * TODO(owner): keep in sync whenever a project ships.
    */
   stats: {
-    projectsCompleted: 70,
+    projectsCompleted: 20,
     websitesDelivered: 20,
     projectsInProgress: 5,
     happyClients: 50,
