@@ -62,7 +62,6 @@ export function organizationSchema() {
     logo: absoluteUrl(site.logo.png),
     email: site.emails.info,
     telephone: site.phone.schema,
-    foundingDate: site.foundedISO,
     areaServed: site.serviceArea,
     sameAs,
   };

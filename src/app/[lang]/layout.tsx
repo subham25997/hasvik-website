@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_Devanagari, Poppins } from "next/font/google";
 import { notFound } from "next/navigation";
-import Script from "next/script";
 import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -11,12 +10,12 @@ import { dictionaryFor } from "@/i18n/dictionaries";
 import { site } from "@/content/site";
 import { siteUrl } from "@/lib/utils";
 import { pageMetadata } from "@/lib/seo";
-import { Providers, themeScript } from "@/components/providers";
+import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/layout/site-header";
+import { BootstrapScripts } from "@/components/layout/bootstrap-scripts";
 import { Footer } from "@/components/layout/footer";
 import { WhatsappFab } from "@/components/layout/whatsapp-fab";
 import { RevealObserver } from "@/components/motion/reveal-observer";
-import { revealScript } from "@/components/motion/reveal-script";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -85,8 +84,7 @@ async function RootLayoutContent({ children, params }: LayoutProps<"/[lang]">) {
       className={`${poppins.variable} ${devanagari.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-dvh overflow-x-clip bg-background">
-        {/* next/script (not a raw <script>) avoids React 19's "script tag while rendering" warning. */}
-        <Script id="theme-init" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <BootstrapScripts />
         <a
           href="#main"
           className="fixed top-4 left-4 z-[100] -translate-y-24 rounded-full bg-accent-ink px-5 py-3 font-semibold text-white transition-transform focus:translate-y-0"
@@ -102,7 +100,6 @@ async function RootLayoutContent({ children, params }: LayoutProps<"/[lang]">) {
           <WhatsappFab label={t.a11y.whatsapp} />
           <RevealObserver />
         </Providers>
-        <Script id="reveal-init" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: revealScript }} />
         {/* Vercel Analytics scripts only exist on Vercel deployments. */}
         {process.env.VERCEL ? (
           <>

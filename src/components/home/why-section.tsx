@@ -8,11 +8,11 @@ import { Spotlight } from "@/components/motion/spotlight";
 
 export async function WhySection() {
   const { t } = await getDictionary();
-  const stats = [
-    { value: site.stats.projectsCompleted, suffix: "+", label: t.why.stats.completed },
+  const stats: { value: number; suffix: string; label: string; displayValue?: string }[] = [
+    { value: site.stats.websitesDelivered, suffix: "+", label: t.why.stats.websites },
     { value: site.stats.projectsInProgress, suffix: "", label: t.why.stats.inProgress },
     { value: site.stats.happyClients, suffix: "+", label: t.why.stats.clients },
-    { value: site.stats.yearsExperience, suffix: "+", label: t.why.stats.years },
+    { value: site.stats.productListings, suffix: "+", label: t.why.stats.productListings },
   ];
   const icons = [ShieldCheck, HeartHandshake, Wallet, Gauge];
 
@@ -34,7 +34,7 @@ export async function WhySection() {
                 <div key={s.label} className="relative flex flex-col justify-center gap-1 p-6 text-white sm:p-8">
                   <dt className="order-2 text-sm text-white/80">{s.label}</dt>
                   <dd className="order-1 text-4xl font-extrabold tracking-tight text-[#9be47f] sm:text-5xl">
-                    <Counter value={s.value} suffix={s.suffix} />
+                    {s.displayValue ?? <Counter value={s.value} suffix={s.suffix} />}
                   </dd>
                 </div>
               ))}

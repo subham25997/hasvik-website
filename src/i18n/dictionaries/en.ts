@@ -53,7 +53,7 @@ export const en = {
     ctaPrimary: "Explore Services",
     ctaSecondary: "Contact Us",
     ctaCrm: "Explore Leads CRM",
-    trust: ["Udyam Registered MSME", "Founded 2025", "{n}+ Projects", "Serving clients worldwide"],
+    trust: ["Udyam Registered MSME", "{n}+ Projects", "Serving clients worldwide"],
     mockupLabel: "HASVIK LEADS CRM product tour",
     productLabel: "Our First Product",
     productName: "HASVIK LEADS CRM",
@@ -183,7 +183,12 @@ export const en = {
     title: "Your Success Is Our",
     highlight: "Priority",
     subtitle: "Quality, security-conscious practices, and dependable communication in every engagement.",
-    stats: { completed: "Projects Completed", inProgress: "Projects In Progress", clients: "Happy Clients", years: "Year Experience" },
+    stats: {
+      websites: "Websites Delivered",
+      inProgress: "Projects In Progress",
+      clients: "Happy Clients",
+      productListings: "E-commerce Product Listings",
+    },
     cards: [
       {
         title: "Quality & Security Focused",
@@ -361,7 +366,7 @@ export const en = {
       "We are a Udyam-registered technology company based in Maniar, Ballia, building useful digital solutions for organizations in India and around the world.",
     storyTitle: "Our story",
     story: [
-      "HASVIK Technologies was founded on 5 April 2025 with a simple belief: every business, school, and organization deserves a clear, professional digital presence and technology that serves its goals.",
+      "HASVIK Technologies was founded with a simple belief: every business, school, and organization deserves a clear, professional digital presence and technology that serves its goals.",
       "Today we design and build websites, set up Google listings, and handle data work for clients worldwide, with a focus on thoughtful execution and dependable service.",
     ],
     missionTitle: "Our mission",
