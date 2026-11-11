@@ -393,23 +393,44 @@
       animation: word-cycle 10.4s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i, 0) * 2.6s) infinite both;
     }
   }
-  /* Product spotlight: a short beam of light travels round the card's 1px border. */
-  .beam-border::before {
-    content: "";
+  /* Product spotlight: a soft glow travels round the card's 1px border.
+     .beam-ring is masked down to just the border; .beam-glow rides the border path at a
+     constant speed (offset-path), so it never rushes along the long edges or stalls in corners. */
+  .beam-ring {
     position: absolute;
     inset: 0;
     padding: 1px;
     border-radius: inherit;
     pointer-events: none;
-    background: conic-gradient(from var(--beam-angle), var(--hero-line) 0 62%, var(--brand-green) 82%, #ffffff 90%, var(--hero-line) 100%);
+    background: var(--hero-line);
     mask:
       linear-gradient(#000 0 0) content-box exclude,
       linear-gradient(#000 0 0);
-    animation: beam-spin 5s linear infinite;
   }
-  @keyframes beam-spin {
+  .beam-glow {
+    display: none;
+  }
+  @supports (offset-path: rect(0 100% 100% 0 round 1rem)) {
+    .beam-glow {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 11rem;
+      height: 11rem;
+      background: radial-gradient(closest-side, #ffffff, var(--brand-green) 35%, transparent);
+      offset-path: rect(0 100% 100% 0 round 1rem);
+      offset-rotate: 0deg;
+      will-change: offset-distance;
+      animation: beam-travel 7s linear infinite;
+    }
+  }
+  @keyframes beam-travel {
+    from {
+      offset-distance: 0%;
+    }
     to {
-      --beam-angle: 360deg;
+      offset-distance: 100%;
     }
   }
   /* Demo button: a soft ring radiates from it every couple of seconds. */
@@ -579,11 +600,4 @@ html.js [data-reveal][data-revealed] {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Animatable angle for .beam-border. Registered so the browser can interpolate it. */
-@property --beam-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
 }

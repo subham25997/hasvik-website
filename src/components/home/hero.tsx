@@ -54,10 +54,13 @@ export async function Hero() {
           aria-labelledby="hero-product"
           style={delay(0)}
           className={cn(
-            "beam-border relative flex w-full max-w-md flex-wrap items-center gap-x-4 gap-y-3 rounded-2xl bg-hero-tint p-2.5 text-left backdrop-blur-sm sm:w-auto sm:max-w-none sm:flex-nowrap sm:pr-3",
+            "relative flex w-full max-w-md flex-wrap items-center gap-x-4 gap-y-3 rounded-2xl bg-hero-tint p-2.5 text-left backdrop-blur-sm sm:w-auto sm:max-w-none sm:flex-nowrap sm:pr-3",
             RISE,
           )}
         >
+          <span aria-hidden="true" className="beam-ring">
+            <span className="beam-glow" />
+          </span>
           <span
             aria-hidden="true"
             className="relative hidden aspect-[1900/867] w-28 shrink-0 overflow-hidden rounded-lg border border-hero-line sm:block"
