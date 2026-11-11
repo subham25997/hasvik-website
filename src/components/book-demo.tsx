@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition, type ReactNode } from "react";
 import Link from "next/link";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,12 +16,14 @@ type Props = {
   strings: Dictionary["hero"]["demoForm"];
   triggerLabel: string;
   triggerClassName?: string;
+  /** Optional icon shown before the label. */
+  triggerIcon?: ReactNode;
   privacyHref: string;
 };
 
 const isIndividualCategory = (category: DemoCategory) => /^individuals?$/i.test(category.name.trim());
 
-export function BookDemo({ strings, triggerLabel, triggerClassName, privacyHref }: Props) {
+export function BookDemo({ strings, triggerLabel, triggerClassName, triggerIcon, privacyHref }: Props) {
   const [open, setOpen] = useState(false);
   const [categories, setCategories] = useState<DemoCategory[]>([]);
   const [categoriesLoading, setCategoriesLoading] = useState(false);
@@ -181,6 +183,7 @@ export function BookDemo({ strings, triggerLabel, triggerClassName, privacyHref 
             triggerClassName,
           )}
         >
+          {triggerIcon}
           {triggerLabel}
         </button>
       </Dialog.Trigger>

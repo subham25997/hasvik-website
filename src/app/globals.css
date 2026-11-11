@@ -189,6 +189,11 @@
   --animate-marquee-reverse: marquee var(--marquee-duration, 40s) linear infinite reverse;
   --animate-aurora: aurora 18s ease-in-out infinite alternate;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-orbit: orbit 90s linear infinite;
+  --animate-orbit-reverse: orbit 90s linear infinite reverse;
+  --animate-orbit-inner: orbit 70s linear infinite reverse;
+  --animate-orbit-inner-reverse: orbit 70s linear infinite;
+  --animate-ring-pulse: ring-pulse 4s ease-out infinite;
   --animate-hero-rise: hero-rise 600ms cubic-bezier(0.33, 1, 0.68, 1) both;
   --animate-slide-progress: slide-progress var(--slide-duration, 4.2s) linear forwards;
 
@@ -228,6 +233,21 @@
     }
     100% {
       transform: translate3d(8%, -2%, 0) rotate(-6deg) scale(1);
+    }
+  }
+  @keyframes orbit {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes ring-pulse {
+    0% {
+      transform: scale(0.85);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1.6);
+      opacity: 0;
     }
   }
   @keyframes float {
@@ -344,6 +364,84 @@
     .hero-grain,
     .hero-grain * {
       transition: none;
+    }
+  }
+  /* Hovering or focusing anywhere in the orbit freezes it, so a service can be read and clicked. */
+  .orbit-field:hover .orbit-spin,
+  .orbit-field:focus-within .orbit-spin {
+    animation-play-state: paused;
+  }
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, var(--hero-line) 1px, transparent 1px), linear-gradient(to bottom, var(--hero-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.35;
+    mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 15%, transparent 75%);
+  }
+  /* Hero headline: one word at a time rises into place, holds, then lifts away.
+     The words share one grid cell, so the line never changes height. Timed for four words (25% each). */
+  .word-cycle {
+    opacity: 0;
+  }
+  .word-cycle:first-child {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .word-cycle,
+    .word-cycle:first-child {
+      opacity: 0;
+      animation: word-cycle 10.4s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i, 0) * 2.6s) infinite both;
+    }
+  }
+  /* Product spotlight: a short beam of light travels round the card's 1px border. */
+  .beam-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+    background: conic-gradient(from var(--beam-angle), var(--hero-line) 0 62%, var(--brand-green) 82%, #ffffff 90%, var(--hero-line) 100%);
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+    animation: beam-spin 5s linear infinite;
+  }
+  @keyframes beam-spin {
+    to {
+      --beam-angle: 360deg;
+    }
+  }
+  /* Demo button: a soft ring radiates from it every couple of seconds. */
+  .demo-pulse {
+    animation: demo-pulse 2.4s ease-out infinite;
+  }
+  @keyframes demo-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgb(255 255 255 / 0.55);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 12px rgb(255 255 255 / 0);
+    }
+  }
+  @keyframes word-cycle {
+    0% {
+      opacity: 0;
+      transform: translateY(0.45em);
+      filter: blur(10px);
+    }
+    5%,
+    20% {
+      opacity: 1;
+      transform: none;
+      filter: blur(0);
+    }
+    25%,
+    100% {
+      opacity: 0;
+      transform: translateY(-0.45em);
+      filter: blur(10px);
     }
   }
   .hero-grain {
@@ -481,4 +579,11 @@ html.js [data-reveal][data-revealed] {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Animatable angle for .beam-border. Registered so the browser can interpolate it. */
+@property --beam-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
