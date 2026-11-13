@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { CarouselControls, type CarouselLabels } from "./carousel-controls";
 import { useCarousel } from "./use-carousel";
 
 export type MonitorSlide = {
@@ -23,8 +22,8 @@ const SLIDE_MS = 5200;
  * left, the one arriving comes in from the right (transform and opacity only, so it stays smooth on phones).
  * The screen is a wide 2:1 so our wide site screenshots show in full instead of being cropped.
  */
-export function HeroMonitor({ slides, label, labels }: { slides: MonitorSlide[]; label: string; labels: CarouselLabels }) {
-  const { index, goTo, playing, togglePlay, reduce, bind } = useCarousel(slides.length, SLIDE_MS);
+export function HeroMonitor({ slides, label }: { slides: MonitorSlide[]; label: string }) {
+  const { index, playing, reduce, bind } = useCarousel(slides.length, SLIDE_MS);
   const active = slides[index];
   const prevIndex = (index - 1 + slides.length) % slides.length;
 
@@ -109,16 +108,6 @@ export function HeroMonitor({ slides, label, labels }: { slides: MonitorSlide[];
       <p aria-live={playing && !reduce ? "off" : "polite"} className="sr-only">
         {active.name}, {active.statusLabel}
       </p>
-      <CarouselControls
-        count={slides.length}
-        index={index}
-        onSelect={goTo}
-        playing={playing}
-        onToggle={togglePlay}
-        showToggle={!reduce}
-        labels={labels}
-        className="mt-5 justify-center"
-      />
     </div>
   );
 }

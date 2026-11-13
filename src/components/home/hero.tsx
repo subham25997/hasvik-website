@@ -45,11 +45,6 @@ export async function Hero() {
     description: s.description,
   }));
 
-  const carouselLabels = {
-    pause: t.a11y.pause,
-    play: t.a11y.play,
-    goToSlide: t.a11y.goToSlide,
-  };
   const trust = t.hero.trust.map((item) => fmt(item, { n: site.stats.projectsCompleted }));
 
   return (
@@ -182,7 +177,7 @@ export async function Hero() {
 
           {/* Our work, playing on a desktop monitor */}
           <div style={delay(300)} className={RISE}>
-            <HeroMonitor slides={works} label={t.hero.recentWork} labels={carouselLabels} />
+            <HeroMonitor slides={works} label={t.hero.recentWork} />
           </div>
         </div>
       </Container>
