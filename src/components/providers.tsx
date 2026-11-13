@@ -15,5 +15,3 @@ export function Providers({ children }: { children: ReactNode }) {
   );
 }
 
-/** Runs before paint to apply the saved theme (light is the default). */
-export const themeScript = `try{var d=localStorage.getItem('theme')==='dark';var e=document.documentElement;e.classList.add('js');e.classList.toggle('dark',d);e.style.colorScheme=d?'dark':'light'}catch(_){}`;

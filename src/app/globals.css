@@ -64,8 +64,60 @@
   --shadow-color: 222 80% 3%;
 }
 
+/* ------------------------------------------------------------------
+   Hero tokens. No new palette: everything points at the site's own tokens.
+   - The band is the brand .bg-hero gradient (blue in light, deep navy in dark),
+     like every inner-page hero, the nav, the CTA band and the footer.
+   ------------------------------------------------------------------ */
+:root {
+  /* Band (always on the brand gradient, so text is light in both themes) */
+  --hero-bg: var(--brand-800);
+  --hero-fg: #ffffff;
+  --hero-muted: rgb(255 255 255 / 0.82);
+  --hero-line: rgb(255 255 255 / 0.18);
+  --hero-tint: rgb(255 255 255 / 0.08);
+  --hero-primary: var(--accent-400); /* brand leaf green, dark navy label */
+  --hero-primary-fg: var(--brand-950);
+  --hero-primary-hover: #8fdc72;
+  --hero-primary-hover-fg: var(--brand-950);
+  --hero-primary-shadow: inset 0 1px 0 rgb(255 255 255 / 0.35), 0 10px 30px -12px rgb(113 197 84 / 0.6);
+  --brand-green: var(--accent-400);
+  --brand-blue: #2fa3ff;
+  --hero-ring: #ffffff; /* the global light --ring (#015bb5) equals the band colour, so it would vanish */
+  --hero-grain-opacity: 0.03;
+  --hero-grain-blend: multiply;
+}
+
+.dark {
+  --hero-grain-opacity: 0.04;
+  --hero-grain-blend: screen;
+}
+
+/* Wide tracking pulls Devanagari conjuncts apart, so the hero's mono labels go back to normal spacing in Hindi. */
+:lang(hi) .font-mono {
+  letter-spacing: normal;
+}
+
+@theme {
+  --font-display: var(--font-hero-sans), var(--font-devanagari), ui-sans-serif, system-ui, sans-serif;
+  --font-display-serif: var(--font-hero-serif), "Iowan Old Style", Georgia, serif;
+  --font-mono: var(--font-hero-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
 @theme inline {
   --font-sans: var(--font-poppins), var(--font-devanagari), ui-sans-serif, system-ui, sans-serif;
+
+  --color-hero-bg: var(--hero-bg);
+  --color-hero-fg: var(--hero-fg);
+  --color-hero-muted: var(--hero-muted);
+  --color-hero-line: var(--hero-line);
+  --color-hero-tint: var(--hero-tint);
+  --color-hero-primary: var(--hero-primary);
+  --color-hero-primary-fg: var(--hero-primary-fg);
+  --color-hero-primary-hover: var(--hero-primary-hover);
+  --color-hero-primary-hover-fg: var(--hero-primary-hover-fg);
+  --color-brand-green: var(--brand-green);
+  --color-brand-blue: var(--brand-blue);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -105,6 +157,27 @@
   --animate-marquee-reverse: marquee var(--marquee-duration, 40s) linear infinite reverse;
   --animate-aurora: aurora 18s ease-in-out infinite alternate;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-hero-rise: hero-rise 600ms cubic-bezier(0.33, 1, 0.68, 1) both;
+  --animate-slide-progress: slide-progress var(--slide-duration, 4.2s) linear forwards;
+
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes slide-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
 
   @keyframes marquee {
     from {
@@ -215,6 +288,167 @@
   }
   .bg-soft {
     background: linear-gradient(var(--surface), color-mix(in oklab, var(--surface-2) 70%, var(--background)) 45%, var(--background));
+  }
+  /* Film grain: SVG turbulence at ~4% opacity. No blob, no grid. */
+  .hero-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--hero-grain-opacity);
+    mix-blend-mode: var(--hero-grain-blend);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  /* Smooth light/dark switching on hero surfaces. Sits in the components layer, so any element
+     with its own Tailwind transition (hover states, underline draw) keeps that instead. */
+  .hero-grain,
+  .hero-grain * {
+    transition:
+      background-color 0.3s,
+      color 0.3s,
+      border-color 0.3s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-grain,
+    .hero-grain * {
+      transition: none;
+    }
+  }
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, var(--hero-line) 1px, transparent 1px), linear-gradient(to bottom, var(--hero-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.35;
+    mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 15%, transparent 75%);
+  }
+  /* Hero headline: one word at a time rises into place, holds, then lifts away.
+     The words share one grid cell, so the line never changes height. Timed for four words (25% each). */
+  .word-cycle {
+    opacity: 0;
+  }
+  .word-cycle:first-child {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .word-cycle,
+    .word-cycle:first-child {
+      opacity: 0;
+      animation: word-cycle 10.4s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i, 0) * 2.6s) infinite both;
+    }
+  }
+  /* Hero monitor: a front-facing desktop display with a thin bezel, chin, neck and foot. */
+  .monitor-bezel {
+    background: linear-gradient(165deg, #f6f8fd, #cdd6e7 42%, #a3b0c8 100%);
+    border: 1px solid rgb(255 255 255 / 0.7);
+    box-shadow:
+      0 0 0 1px rgb(60 75 105 / 0.55),
+      inset 0 1px 0 rgb(255 255 255 / 0.9),
+      0 40px 80px -34px rgb(0 8 30 / 0.85);
+  }
+  .monitor-neck {
+    background: linear-gradient(90deg, #8e9cb8, #e8edf8 42%, #b2bed5 70%, #7f8da8);
+    clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+  }
+  .monitor-foot {
+    background: linear-gradient(#eef2fa, #b3bfd6 55%, #7f8da8);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 0.35);
+  }
+  .monitor-glare {
+    background: linear-gradient(115deg, rgb(255 255 255 / 0.14) 0%, rgb(255 255 255 / 0) 34%);
+  }
+
+  /* Hero CRM stack. Every card sits in one grid cell; its data-pos picks where it fans out to.
+     Transform and opacity only, so the slide stays on the compositor. */
+  .crm-card {
+    transform-origin: 50% 60%;
+    transition:
+      transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 900ms ease;
+    will-change: transform, opacity;
+  }
+  .crm-card[data-pos="center"] {
+    z-index: 30;
+    opacity: 1;
+    transform: none;
+  }
+  .crm-card[data-pos="left"],
+  .crm-card[data-pos="right"] {
+    z-index: 20;
+    opacity: 0.72;
+    cursor: pointer;
+  }
+  .crm-card[data-pos="left"] {
+    transform: translateX(-74%) rotateY(18deg) scale(0.82);
+  }
+  .crm-card[data-pos="right"] {
+    transform: translateX(74%) rotateY(-18deg) scale(0.82);
+  }
+  .crm-card[data-pos="far-left"],
+  .crm-card[data-pos="far-right"],
+  .crm-card[data-pos="back"] {
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .crm-card[data-pos="far-left"] {
+    transform: translateX(-100%) rotateY(24deg) scale(0.7);
+  }
+  .crm-card[data-pos="far-right"] {
+    transform: translateX(100%) rotateY(-24deg) scale(0.7);
+  }
+  .crm-card[data-pos="back"] {
+    transform: scale(0.7);
+  }
+  .crm-card .crm-frame {
+    box-shadow: 0 24px 50px -26px rgb(0 8 30 / 0.8);
+    transition: box-shadow 900ms ease;
+  }
+  .crm-card[data-pos="center"] .crm-frame {
+    box-shadow:
+      0 0 0 2px rgb(47 163 255 / 0.55),
+      0 0 60px -6px rgb(47 163 255 / 0.5),
+      0 40px 90px -30px rgb(47 163 255 / 0.6);
+  }
+  /* Demo button: a soft ring radiates from it every couple of seconds. */
+  .demo-pulse {
+    animation: demo-pulse 2.4s ease-out infinite;
+  }
+  @keyframes demo-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgb(255 255 255 / 0.55);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 12px rgb(255 255 255 / 0);
+    }
+  }
+  @keyframes word-cycle {
+    0% {
+      opacity: 0;
+      transform: translateY(0.45em);
+      filter: blur(10px);
+    }
+    6%,
+    21% {
+      opacity: 1;
+      transform: none;
+      filter: blur(0);
+      /* Ease in for the way out: the word lingers while the next one arrives, so the line is never empty. */
+      animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+    }
+    /* Fades out until 28% while the next word (starting at 25%) is already fading in, so the line is never empty. */
+    28%,
+    100% {
+      opacity: 0;
+      transform: translateY(-0.45em);
+      filter: blur(10px);
+    }
+  }
+  .hero-grain {
+    --ring: var(--hero-ring);
+  }
+  .hero-primary-shadow {
+    box-shadow: var(--hero-primary-shadow);
   }
   .bg-green-cta {
     background-image: linear-gradient(90deg, #367c25, #2f6b1f);

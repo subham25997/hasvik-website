@@ -1,9 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-/** Rescans for [data-reveal] elements after client-side navigations (initial scan: reveal-script.ts). */
+/** Rescans for [data-reveal] elements after client-side navigations (initial scan: the layout bootstrap script). */
 export function RevealObserver() {
   const pathname = usePathname();
   useEffect(() => {

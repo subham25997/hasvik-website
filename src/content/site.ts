@@ -5,7 +5,8 @@ export const site = {
   name: "HASVIK Technologies",
   shortName: "HASVIK",
   legalStatus: "Udyam Registered MSME",
-  foundedISO: "2025-04-05",
+  // TODO(owner): confirm. Matches the earlier "Founded 2025" copy on the site.
+  foundedYear: 2025,
   udyamISO: "2026-08-01",
   domain: "hasviktech.com",
   serviceArea: "Worldwide",
@@ -61,16 +62,17 @@ export const site = {
   },
 
   /**
-   * Headline stats shown in "Why Choose Us" and the hero trust strip.
+   * Headline stats shown across the "Why Choose Us" section and hero trust strip.
    * NOTE: these are business totals (including work not shown in the portfolio),
    * so they intentionally differ from the number of portfolio cards.
    * TODO(owner): keep in sync whenever a project ships.
    */
   stats: {
-    projectsCompleted: 7,
-    projectsInProgress: 4,
-    happyClients: 7,
-    yearsExperience: 1,
+    projectsCompleted: 20,
+    websitesDelivered: 20,
+    projectsInProgress: 5,
+    happyClients: 50,
+    productListings: 50,
   },
 } as const;
 

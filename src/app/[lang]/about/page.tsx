@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Award, Flag, HandCoins, Rocket, Sparkles, Sprout, Target, Users } from "lucide-react";
+import { ArrowRight, HandCoins, Sparkles, Sprout, Target, Users } from "lucide-react";
 import { getDictionary } from "@/i18n/server";
 import { hasLocale, localizePath } from "@/i18n/config";
 import { dictionaryFor } from "@/i18n/dictionaries";
 import { pageMetadata } from "@/lib/seo";
-import { site } from "@/content/site";
 import { PageHero, splitTitle } from "@/components/layout/page-hero";
 import { Container, Section, SectionHeader } from "@/components/ui/section";
 import { buttonVariants } from "@/components/ui/button";
@@ -26,17 +25,6 @@ export default async function AboutPage() {
   const L = (p: string) => localizePath(p, locale);
   const { start, highlight } = splitTitle(t.aboutPage.title);
   const valueIcons = [Sparkles, Sprout, Users, HandCoins];
-  const journey = [
-    ...t.about.timeline.map((it, i) => ({ ...it, Icon: [Flag, Award][i] })),
-    {
-      date: t.aboutPage.today.date,
-      title: t.aboutPage.today.title,
-      body: t.aboutPage.today.body
-        .replace("{projects}", String(site.stats.projectsCompleted))
-        .replace("{clients}", String(site.stats.happyClients)),
-      Icon: Rocket,
-    },
-  ];
 
   return (
     <>
@@ -92,38 +80,10 @@ export default async function AboutPage() {
             </RevealItem>
             <RevealItem className="rounded-xl2 border border-border bg-card p-8 shadow-soft sm:p-10">
               <Sprout className="mb-5 size-10 text-accent-ink dark:text-accent" aria-hidden="true" />
-              <h2 className="mb-3 text-2xl font-bold">{t.aboutPage.ruralTitle}</h2>
-              <p className="text-lg leading-relaxed text-muted-foreground">{t.aboutPage.rural}</p>
+              <h2 className="mb-3 text-2xl font-bold">{t.aboutPage.visionTitle}</h2>
+              <p className="text-lg leading-relaxed text-muted-foreground">{t.aboutPage.vision}</p>
             </RevealItem>
           </RevealGroup>
-        </Container>
-      </Section>
-
-      <Section aria-labelledby="journey-title">
-        <Container className="max-w-4xl">
-          <SectionHeader
-            id="journey-title"
-            eyebrow={t.aboutPage.journey}
-            title={t.about.title}
-            highlight={t.about.highlight}
-            titleEnd={t.about.titleEnd}
-          />
-          <ol className="relative flex flex-col gap-8 before:absolute before:top-2 before:bottom-2 before:left-6 before:w-0.5 before:bg-gradient-to-b before:from-accent before:to-brand-600/30 sm:before:left-1/2">
-            {journey.map((item, i) => (
-              <li key={item.date} className="relative grid grid-cols-[3rem_1fr] gap-5 sm:grid-cols-2 sm:gap-12">
-                <span className="relative z-10 inline-flex size-12 items-center justify-center rounded-full bg-accent-ink text-white ring-8 ring-background sm:absolute sm:left-1/2 sm:-translate-x-1/2">
-                  <item.Icon className="size-5" aria-hidden="true" />
-                </span>
-                <Reveal className={i % 2 === 0 ? "sm:col-start-1 sm:pr-10 sm:text-right" : "sm:col-start-2 sm:pl-10"}>
-                  <div className="rounded-card border border-border bg-card p-6 shadow-soft">
-                    <p className="text-xs font-semibold tracking-wider text-eyebrow-foreground uppercase">{item.date}</p>
-                    <h3 className="mt-1 text-lg font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{item.body}</p>
-                  </div>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
         </Container>
       </Section>
 
