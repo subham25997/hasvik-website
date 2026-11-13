@@ -43,8 +43,12 @@ export const en = {
     // The rotation is timed for exactly four words (see .word-cycle in globals.css).
     titleLead: "We build",
     titleWords: ["websites", "online stores", "custom software", "mobile apps"],
-    subtitle:
-      "HASVIK Technologies is a web and software studio for businesses, schools and local brands. We design it, build it and keep it running.",
+    subtitle: "HASVIK Technologies is a web and software studio for businesses, schools and local brands.",
+    // Small decorative captions that frame the hero on very wide screens.
+    edgeTop: ["Ideas", "Products", "People", "Progress"],
+    edgeMid: ["Websites", "Apps", "Automation", "Real growth"],
+    edgeLeft: "Tech for a brighter tomorrow",
+    edgeRight: "Global clients, local impact",
     rotatingPrefix: "We help you with",
     rotating: [
       "Custom Websites for your business",
@@ -59,32 +63,10 @@ export const en = {
     ctaSecondary: "See Our Work",
     ctaCrm: "Explore Leads CRM",
     eyebrow: "Web & software studio · Since {year}",
-    stats: { projects: "Projects delivered", clients: "Happy clients", inProgress: "Projects in progress", team: "Team members" },
     recentWork: "Recent work",
-    delivered: "Delivered",
-    trustedBy: "Trusted by teams at",
-    capabilitiesLabel: "What we do",
-    capabilities: [
-      {
-        slug: "custom-website-development",
-        label: "Websites",
-        detail: "Business, school and hospitality sites. Mobile-first and SEO-ready.",
-      },
-      {
-        slug: "ecommerce-website-development",
-        label: "E-commerce stores",
-        detail: "Online stores with secure payments and easy management.",
-      },
-      { slug: "custom-software-development", label: "Custom software", detail: "Business applications shaped around your workflows." },
-      { slug: "mobile-app-development", label: "Mobile apps", detail: "Mobile experiences planned around your customers." },
-      { slug: "google-map-listing", label: "Google listings", detail: "Get found on Google Maps by nearby customers." },
-      { slug: "data-entry-processing", label: "Data & catalog support", detail: "Accurate data entry and product catalog management." },
-    ],
     trust: ["Udyam Registered MSME", "{n}+ Projects", "Serving clients worldwide"],
     mockupLabel: "HASVIK LEADS CRM product tour",
-    productLabel: "Our First Product",
     productName: "HASVIK LEADS CRM",
-    productTagline: "Track every lead, follow-up and deal in one place.",
     bookDemo: "Book Demo",
     demoForm: {
       title: "Book a CRM demo",

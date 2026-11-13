@@ -68,8 +68,6 @@
    Hero tokens. No new palette: everything points at the site's own tokens.
    - The band is the brand .bg-hero gradient (blue in light, deep navy in dark),
      like every inner-page hero, the nav, the CTA band and the footer.
-   - The product stage is a card that follows --card / --heading / --border,
-     so it is white with navy text in light mode and deep navy in dark mode.
    ------------------------------------------------------------------ */
 :root {
   /* Band (always on the brand gradient, so text is light in both themes) */
@@ -78,7 +76,6 @@
   --hero-muted: rgb(255 255 255 / 0.82);
   --hero-line: rgb(255 255 255 / 0.18);
   --hero-tint: rgb(255 255 255 / 0.08);
-  --hero-logo: rgb(255 255 255 / 0.84);
   --hero-primary: var(--accent-400); /* brand leaf green, dark navy label */
   --hero-primary-fg: var(--brand-950);
   --hero-primary-hover: #8fdc72;
@@ -87,35 +84,13 @@
   --brand-green: var(--accent-400);
   --brand-blue: #2fa3ff;
   --hero-ring: #ffffff; /* the global light --ring (#015bb5) equals the band colour, so it would vanish */
-  --stage-ring: var(--brand-600);
   --hero-grain-opacity: 0.03;
   --hero-grain-blend: multiply;
-  --hero-hairline-opacity: 0.5;
-
-  /* Product stage (card) */
-  --hero-surface: var(--card);
-  --stage-card: color-mix(in oklab, var(--card) 92%, transparent);
-  --stage-accent: var(--accent-ink); /* 5.3:1 on white */
-  --stage-primary: var(--accent-ink);
-  --stage-primary-fg: #ffffff;
-  --stage-primary-hover: color-mix(in oklab, var(--accent-ink) 82%, black);
-  --stage-border: linear-gradient(var(--border), var(--border));
-  --stage-shadow: 0 2px 4px rgb(0 20 60 / 0.12), 0 30px 70px -24px rgb(0 20 60 / 0.55);
-  --stage-inner: inset 0 0 0 1px var(--border);
 }
 
 .dark {
-  --stage-ring: var(--accent-400);
   --hero-grain-opacity: 0.04;
   --hero-grain-blend: screen;
-  --hero-hairline-opacity: 0.7;
-  --stage-accent: var(--accent-400);
-  --stage-primary: var(--accent-400);
-  --stage-primary-fg: var(--brand-950);
-  --stage-primary-hover: var(--accent-500);
-  --stage-border: linear-gradient(to bottom right, rgb(113 197 84 / 0.6), rgb(255 255 255 / 0.1), rgb(47 163 255 / 0.4));
-  --stage-shadow: 0 40px 120px -40px rgb(0 0 0 / 0.9);
-  --stage-inner: inset 0 0 0 1px rgb(255 255 255 / 0.08), inset 0 -40px 60px -30px rgb(0 0 0 / 0.35);
 }
 
 /* Wide tracking pulls Devanagari conjuncts apart, so the hero's mono labels go back to normal spacing in Hindi. */
@@ -133,21 +108,14 @@
   --font-sans: var(--font-poppins), var(--font-devanagari), ui-sans-serif, system-ui, sans-serif;
 
   --color-hero-bg: var(--hero-bg);
-  --color-hero-surface: var(--hero-surface);
   --color-hero-fg: var(--hero-fg);
   --color-hero-muted: var(--hero-muted);
   --color-hero-line: var(--hero-line);
   --color-hero-tint: var(--hero-tint);
-  --color-hero-logo: var(--hero-logo);
   --color-hero-primary: var(--hero-primary);
   --color-hero-primary-fg: var(--hero-primary-fg);
   --color-hero-primary-hover: var(--hero-primary-hover);
   --color-hero-primary-hover-fg: var(--hero-primary-hover-fg);
-  --color-stage-card: var(--stage-card);
-  --color-stage-accent: var(--stage-accent);
-  --color-stage-primary: var(--stage-primary);
-  --color-stage-primary-fg: var(--stage-primary-fg);
-  --color-stage-primary-hover: var(--stage-primary-hover);
   --color-brand-green: var(--brand-green);
   --color-brand-blue: var(--brand-blue);
 
@@ -189,11 +157,6 @@
   --animate-marquee-reverse: marquee var(--marquee-duration, 40s) linear infinite reverse;
   --animate-aurora: aurora 18s ease-in-out infinite alternate;
   --animate-float: float 6s ease-in-out infinite;
-  --animate-orbit: orbit 90s linear infinite;
-  --animate-orbit-reverse: orbit 90s linear infinite reverse;
-  --animate-orbit-inner: orbit 70s linear infinite reverse;
-  --animate-orbit-inner-reverse: orbit 70s linear infinite;
-  --animate-ring-pulse: ring-pulse 4s ease-out infinite;
   --animate-hero-rise: hero-rise 600ms cubic-bezier(0.33, 1, 0.68, 1) both;
   --animate-slide-progress: slide-progress var(--slide-duration, 4.2s) linear forwards;
 
@@ -233,21 +196,6 @@
     }
     100% {
       transform: translate3d(8%, -2%, 0) rotate(-6deg) scale(1);
-    }
-  }
-  @keyframes orbit {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  @keyframes ring-pulse {
-    0% {
-      transform: scale(0.85);
-      opacity: 0.6;
-    }
-    100% {
-      transform: scale(1.6);
-      opacity: 0;
     }
   }
   @keyframes float {
@@ -366,11 +314,6 @@
       transition: none;
     }
   }
-  /* Hovering or focusing anywhere in the orbit freezes it, so a service can be read and clicked. */
-  .orbit-field:hover .orbit-spin,
-  .orbit-field:focus-within .orbit-spin {
-    animation-play-state: paused;
-  }
   .hero-grid {
     background-image:
       linear-gradient(to right, var(--hero-line) 1px, transparent 1px), linear-gradient(to bottom, var(--hero-line) 1px, transparent 1px);
@@ -393,45 +336,78 @@
       animation: word-cycle 10.4s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i, 0) * 2.6s) infinite both;
     }
   }
-  /* Product spotlight: a soft glow travels round the card's 1px border.
-     .beam-ring is masked down to just the border; .beam-glow rides the border path at a
-     constant speed (offset-path), so it never rushes along the long edges or stalls in corners. */
-  .beam-ring {
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    border-radius: inherit;
+  /* Hero monitor: a front-facing desktop display with a thin bezel, chin, neck and foot. */
+  .monitor-bezel {
+    background: linear-gradient(165deg, #f6f8fd, #cdd6e7 42%, #a3b0c8 100%);
+    border: 1px solid rgb(255 255 255 / 0.7);
+    box-shadow:
+      0 0 0 1px rgb(60 75 105 / 0.55),
+      inset 0 1px 0 rgb(255 255 255 / 0.9),
+      0 40px 80px -34px rgb(0 8 30 / 0.85);
+  }
+  .monitor-neck {
+    background: linear-gradient(90deg, #8e9cb8, #e8edf8 42%, #b2bed5 70%, #7f8da8);
+    clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+  }
+  .monitor-foot {
+    background: linear-gradient(#eef2fa, #b3bfd6 55%, #7f8da8);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 0.35);
+  }
+  .monitor-glare {
+    background: linear-gradient(115deg, rgb(255 255 255 / 0.14) 0%, rgb(255 255 255 / 0) 34%);
+  }
+
+  /* Hero CRM stack. Every card sits in one grid cell; its data-pos picks where it fans out to.
+     Transform and opacity only, so the slide stays on the compositor. */
+  .crm-card {
+    transform-origin: 50% 60%;
+    transition:
+      transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 900ms ease;
+    will-change: transform, opacity;
+  }
+  .crm-card[data-pos="center"] {
+    z-index: 30;
+    opacity: 1;
+    transform: none;
+  }
+  .crm-card[data-pos="left"],
+  .crm-card[data-pos="right"] {
+    z-index: 20;
+    opacity: 0.72;
+    cursor: pointer;
+  }
+  .crm-card[data-pos="left"] {
+    transform: translateX(-74%) rotateY(18deg) scale(0.82);
+  }
+  .crm-card[data-pos="right"] {
+    transform: translateX(74%) rotateY(-18deg) scale(0.82);
+  }
+  .crm-card[data-pos="far-left"],
+  .crm-card[data-pos="far-right"],
+  .crm-card[data-pos="back"] {
+    z-index: 10;
+    opacity: 0;
     pointer-events: none;
-    background: var(--hero-line);
-    mask:
-      linear-gradient(#000 0 0) content-box exclude,
-      linear-gradient(#000 0 0);
   }
-  .beam-glow {
-    display: none;
+  .crm-card[data-pos="far-left"] {
+    transform: translateX(-100%) rotateY(24deg) scale(0.7);
   }
-  @supports (offset-path: rect(0 100% 100% 0 round 1rem)) {
-    .beam-glow {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 11rem;
-      height: 11rem;
-      background: radial-gradient(closest-side, #ffffff, var(--brand-green) 35%, transparent);
-      offset-path: rect(0 100% 100% 0 round 1rem);
-      offset-rotate: 0deg;
-      will-change: offset-distance;
-      animation: beam-travel 7s linear infinite;
-    }
+  .crm-card[data-pos="far-right"] {
+    transform: translateX(100%) rotateY(-24deg) scale(0.7);
   }
-  @keyframes beam-travel {
-    from {
-      offset-distance: 0%;
-    }
-    to {
-      offset-distance: 100%;
-    }
+  .crm-card[data-pos="back"] {
+    transform: scale(0.7);
+  }
+  .crm-card .crm-frame {
+    box-shadow: 0 24px 50px -26px rgb(0 8 30 / 0.8);
+    transition: box-shadow 900ms ease;
+  }
+  .crm-card[data-pos="center"] .crm-frame {
+    box-shadow:
+      0 0 0 2px rgb(47 163 255 / 0.55),
+      0 0 60px -6px rgb(47 163 255 / 0.5),
+      0 40px 90px -30px rgb(47 163 255 / 0.6);
   }
   /* Demo button: a soft ring radiates from it every couple of seconds. */
   .demo-pulse {
@@ -452,13 +428,16 @@
       transform: translateY(0.45em);
       filter: blur(10px);
     }
-    5%,
-    20% {
+    6%,
+    21% {
       opacity: 1;
       transform: none;
       filter: blur(0);
+      /* Ease in for the way out: the word lingers while the next one arrives, so the line is never empty. */
+      animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
     }
-    25%,
+    /* Fades out until 28% while the next word (starting at 25%) is already fading in, so the line is never empty. */
+    28%,
     100% {
       opacity: 0;
       transform: translateY(-0.45em);
@@ -468,21 +447,8 @@
   .hero-grain {
     --ring: var(--hero-ring);
   }
-  .hero-stage {
-    --ring: var(--stage-ring);
-  }
-  .hero-stage-border {
-    background-image: var(--stage-border);
-    box-shadow: var(--stage-shadow);
-  }
-  .hero-stage-inner {
-    box-shadow: var(--stage-inner);
-  }
   .hero-primary-shadow {
     box-shadow: var(--hero-primary-shadow);
-  }
-  .hero-hairline {
-    background-image: linear-gradient(90deg, transparent, var(--brand-green) 30%, var(--brand-blue) 70%, transparent);
   }
   .bg-green-cta {
     background-image: linear-gradient(90deg, #367c25, #2f6b1f);
